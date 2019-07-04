@@ -108,11 +108,11 @@ require(['Vue', 'vuex', 'vue2-filters', 'vue_router', 'routes', 'datastore', 'vu
                         id: "events_link",
                         href: "/events",
                     },
-                    {
-                        name: "Magazine",
-                        id: "magazine_link",
-                        href: this.magazine_url,
-                    },
+                    // {
+                    //     name: "Magazine",
+                    //     id: "magazine_link",
+                    //     href: this.magazine_url,
+                    // },
                     {
                         name: "Contact Us",
                         id: "hours_link",
