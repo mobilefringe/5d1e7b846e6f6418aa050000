@@ -9,61 +9,61 @@
             </div>
         </slick>
         <div class="content_container main_container  position_relative">
-            <!--<div class="feature_row" id="feature_container_2">-->
-            <!--    <div class="feature_item_container" v-for="item in feature_items">-->
-            <!--        <div class="feature_item wow animated flipInX animated teamy-team">-->
-            <!--            <article class="teamy teamy_style2 teamy_mask-circle teamy_zoom-photo">-->
-            <!--                <div class="teamy__layout">-->
-            <!--                    <router-link  v-if="item.url" :to="item.url">-->
-            <!--                        <div class="teamy__preview">-->
-            <!--                            <img :src="item.image_url" class="teamy__avatar" alt="The demo photo">-->
-            <!--                        </div>-->
-            <!--                        <div class="teamy__back"></div>-->
-            <!--                        <p class="feature_text">{{item.name}}</p>-->
-            <!--                    </router-link>-->
-            <!--                    <router-link v-else to="/">-->
-            <!--                        <div class="teamy__preview">-->
-            <!--                            <img :src="item.image_url" class="teamy__avatar" alt="The demo photo">-->
-            <!--                        </div>-->
-            <!--                        <div class="teamy__back"></div>-->
-            <!--                        <p class="feature_text">{{item.name}}</p>-->
-            <!--                    </router-link>-->
-            <!--                </div>-->
-            <!--            </article>-->
-            <!--        </div>-->
-            <!--    </div>-->
-            <!--</div>-->
-            <div class="promotions" id="feature_promotions" v-if="promotions.length > 0">
-                <h3 class="promotion_heading">Upcoming Events & Promotions!</h3>
-                <p class="exclusive_deals sub_title">Don’t miss our exclusive deals & events</p>
-                
-                <div class="home_promotions feature_row" id="promos_container">
-                    <div class="promotion_item wow animated flipInX animated teamy-team text_center" v-for="promo in promotions">
-                        <hr class="show_phone" />
-                        <p class="promotion_dates">{{promo.start_date | moment("MMM D", timezone)}} - {{promo.end_date | moment("MMM D", timezone)}}</p>
+            <div class="feature_row" id="feature_container_2">
+                <div class="feature_item_container" v-for="item in feature_items">
+                    <div class="feature_item wow animated flipInX animated teamy-team">
                         <article class="teamy teamy_style2 teamy_mask-circle teamy_zoom-photo">
                             <div class="teamy__layout">
-                                <router-link :to="'/promotions/'+promo.slug">
+                                <router-link  v-if="item.url" :to="item.url">
                                     <div class="teamy__preview">
-                                        <img :src="promo.image_url" class="teamy__avatar featured_promo_img" alt="The demo photo">
+                                        <img :src="item.image_url" class="teamy__avatar" alt="The demo photo">
                                     </div>
-                                    <div class="teamy__back">
-                                        <div class="teamy__back-inner">
-                                            <div class="teamy__content">
-                                                <h3 class="teamy__name">View Details</h3>
-                                            </div>
-                                        </div>
+                                    <div class="teamy__back"></div>
+                                    <p class="feature_text">{{item.name}}</p>
+                                </router-link>
+                                <router-link v-else to="/">
+                                    <div class="teamy__preview">
+                                        <img :src="item.image_url" class="teamy__avatar" alt="The demo photo">
                                     </div>
+                                    <div class="teamy__back"></div>
+                                    <p class="feature_text">{{item.name}}</p>
                                 </router-link>
                             </div>
                         </article>
-                        <h3 class="promotion_header home_promos">{{promo.name}}</h3>
-                        <router-link :to="'/promotions/'+promo.slug" class="animated_btn text_center">Read More</router-link>
                     </div>
                 </div>
-                <hr class="show_phone" />
-                <div class="clearfix"></div>
             </div>
+            <!--<div class="promotions" id="feature_promotions" v-if="promotions.length > 0">-->
+            <!--    <h3 class="promotion_heading">Upcoming Events & Promotions!</h3>-->
+            <!--    <p class="exclusive_deals sub_title">Don’t miss our exclusive deals & events</p>-->
+                
+            <!--    <div class="home_promotions feature_row" id="promos_container">-->
+            <!--        <div class="promotion_item wow animated flipInX animated teamy-team text_center" v-for="promo in promotions">-->
+            <!--            <hr class="show_phone" />-->
+            <!--            <p class="promotion_dates">{{promo.start_date | moment("MMM D", timezone)}} - {{promo.end_date | moment("MMM D", timezone)}}</p>-->
+            <!--            <article class="teamy teamy_style2 teamy_mask-circle teamy_zoom-photo">-->
+            <!--                <div class="teamy__layout">-->
+            <!--                    <router-link :to="'/promotions/'+promo.slug">-->
+            <!--                        <div class="teamy__preview">-->
+            <!--                            <img :src="promo.image_url" class="teamy__avatar featured_promo_img" alt="The demo photo">-->
+            <!--                        </div>-->
+            <!--                        <div class="teamy__back">-->
+            <!--                            <div class="teamy__back-inner">-->
+            <!--                                <div class="teamy__content">-->
+            <!--                                    <h3 class="teamy__name">View Details</h3>-->
+            <!--                                </div>-->
+            <!--                            </div>-->
+            <!--                        </div>-->
+            <!--                    </router-link>-->
+            <!--                </div>-->
+            <!--            </article>-->
+            <!--            <h3 class="promotion_header home_promos">{{promo.name}}</h3>-->
+            <!--            <router-link :to="'/promotions/'+promo.slug" class="animated_btn text_center">Read More</router-link>-->
+            <!--        </div>-->
+            <!--    </div>-->
+            <!--    <hr class="show_phone" />-->
+            <!--    <div class="clearfix"></div>-->
+            <!--</div>-->
         </div>
         
         <div class="content_container  position_relative hidden_phone" style="padding:0">
