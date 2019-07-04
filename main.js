@@ -87,12 +87,6 @@ require(['Vue', 'vuex', 'vue2-filters', 'vue_router', 'routes', 'datastore', 'vu
                 isSticky: 225,
                 navbar: null,
                 menu_items: [
-                    // {
-                    //     name: "Home",
-                    //     id: "home_link",
-                    //     href: "/",
-                    //     parent_id: "home"
-                    // },
                     {
                         name: "Stores",
                         id: "stores_link",
