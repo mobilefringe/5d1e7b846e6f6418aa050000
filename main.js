@@ -127,7 +127,6 @@ require(['Vue', 'vuex', 'vue2-filters', 'vue_router', 'routes', 'datastore', 'vu
                 this.property.default_logo_url = "//codecloud.cdn.speedyrails.net/sites/5a1f136e6e6f6472c6240000/image/jpeg/1515531874445/canyon_crest_default.jpg";
             });
             window.addEventListener('scroll', this.enableStickyNavbar);
-
         },
         watch: {
             // watcher to update vue-i18n when the locale has been changed by the user
@@ -136,7 +135,6 @@ require(['Vue', 'vuex', 'vue2-filters', 'vue_router', 'routes', 'datastore', 'vu
                 moment.locale(val);
             },
             $route: function() {
-
                 if (this.$route.path == "/" || this.$route.path == "/stores") {
                     this.show_subscrption = false;
                 } else {
@@ -149,7 +147,6 @@ require(['Vue', 'vuex', 'vue2-filters', 'vue_router', 'routes', 'datastore', 'vu
                     this.show_map = false;
                 }
                 this.show_mobile_menu = false; //close menu when navigating to new page
-
             }
         },
         computed: {
@@ -183,14 +180,14 @@ require(['Vue', 'vuex', 'vue2-filters', 'vue_router', 'routes', 'datastore', 'vu
             allStores() {
                 return this.processedStores;
             },
-            magazine_url() {
-                if( this.$store.state.repos) {
-                    var temp_repo = this.findRepoByName('Magazine PDFs');
-                    if(temp_repo && temp_repo.images) {
-                        return temp_repo.images[0];
-                    }
-                }
-            }
+            // magazine_url() {
+            //     if( this.$store.state.repos) {
+            //         var temp_repo = this.findRepoByName('Magazine PDFs');
+            //         if(temp_repo && temp_repo.images) {
+            //             return temp_repo.images[0];
+            //         }
+            //     }
+            // }
         },
         methods: {
             loadData: async function() {
