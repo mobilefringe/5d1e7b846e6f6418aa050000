@@ -1,9 +1,9 @@
 <template>
     <div class="row" v-if="dataLoaded">
         <slick ref="slick" :options="slickOptions">
-            <div v-for="banner in banners" v-if="banners.length > 0">
-                <div v-lazy:background-image="banner.image_url" class="banner_image_div">
-                    <router-link v-if="banner.url" :to="banner.url" class="banner_image_li"></router-link>
+            <div v-for="(item, index) in banners" v-if="banners.length > 0">
+                <div v-lazy:background-image="item.image_url" class="banner_image_div">
+                    <router-link v-if="item.url" :to="item.url" class="banner_image_li"></router-link>
                     <router-link v-else to="/" class="banner_image_li"></router-link>
                 </div>
             </div>
