@@ -32,13 +32,16 @@ require.config({
         'vue-fullcalendar': 'https://5a1f136e6e6f6472c6240000.codecloudapp.com/vue-fullcalendar',
         'vue-simple-spinner': 'https://cdn.jsdelivr.net/npm/vue-simple-spinner@1.2.8/dist/vue-simple-spinner.min',
         'vue-lazy-load': 'https://unpkg.com/vue-lazyload/vue-lazyload',
+        'masonry' : 'https://cdnjs.cloudflare.com/ajax/libs/masonry/4.0.0/masonry.pkgd.min',
+        'vue-masonry-plugin' : 'https://cdn.jsdelivr.net/npm/vue-masonry@0.10.16/dist/vue-masonry-plugin',
+        'store-masonry': 'https://mmvue.codecloudapp.com/storelist_masonry.vue?noext',
         'loader': 'https://mmvue.codecloudapp.com/loader.vue?noext',
         'mousewheel' : 'https://cdnjs.cloudflare.com/ajax/libs/jquery-mousewheel/3.1.13/jquery.mousewheel.min',
         'mapplic' : 'https://preview-mmvue.codecloudapp.com/mapplic',
         'hammer' : 'https://codecloud.cdn.speedyrails.net/sites/59bac7db6e6f644f22ba0000/text/javascript/1484859750000/hammer.min',
         'mapplic-map' : 'https://preview-mmvue.codecloudapp.com/mapplic.vue?noext',
         'campaignMonitor': 'https://js.createsend1.com/javascript/copypastesubscribeformlogic',
-        'store-masonry': 'https://mmvue.codecloudapp.com/storelist_masonry.vue?noext',
+        
     }
 });
 
