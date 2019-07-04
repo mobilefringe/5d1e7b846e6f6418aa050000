@@ -211,7 +211,6 @@ require(['Vue', 'vuex', 'vue2-filters', 'vue_router', 'routes', 'datastore', 'vu
                 this.locale = val; // this will update the data store, which in turn will trigger the watcher to update the locale in the system
             },
             onOptionSelect(option) {
-                
                 this.$nextTick(function() {
                     //clear search when changing routes
                     this.show_mobile_search = false;
@@ -234,9 +233,7 @@ require(['Vue', 'vuex', 'vue2-filters', 'vue_router', 'routes', 'datastore', 'vu
                 } else {
                     this.stickyMenu = false;
                 }
-
             }
-
         },
         destroyed: function() {
             window.removeEventListener('scroll', this.enableStickyNavbar);
