@@ -47,7 +47,7 @@
     </div>
 </template>
 <script>
-    define(["Vue", "vuex", "vue-select",  "vue!search-component", "vue!store-masonry"], function(Vue, Vuex, VueSelect, SearchComponent, StoreMasonry) {
+    define(["Vue", "vuex", "vue-select", "vue!search-component", "vue!store-masonry"], function(Vue, Vuex, VueSelect, SearchComponent, StoreMasonry) {
         return Vue.component("stores-component", {
             template: template, // the variable template will be injected
             data: function() {
@@ -78,7 +78,7 @@
                 onOptionSelect(option) {
                     this.search_result = "";
                     this.$router.push("/stores/"+option.slug);
-                },
+                }
             },
             computed: {
                 ...Vuex.mapGetters([
