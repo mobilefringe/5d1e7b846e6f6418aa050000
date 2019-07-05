@@ -78,17 +78,16 @@
             watch : {
                 currentPromo : function (){
                     if(this.currentPromo != null) {
-                        if (this.currentPromo.store != null && this.currentPromo.store != undefined && _.includes(this.currentPromo.store.store_front_url_abs, 'missing')) {
-                            this.currentPromo.store.store_front_url_abs = this.property.default_logo_url;
-                        }
-                        else if (this.currentPromo.store == null || this.currentPromo.store == undefined) {
+                        if (this.currentPromo.store != null && this.currentPromo.store != undefined) {
+                            if (_.includes(this.currentPromo.image_url, 'missing')){
+                                this.currentPromo.image_url =  this.currentPromo.store.store_front_url_abs;
+                            }
+                        } else {
                             this.currentPromo.store = {};
-                            this.currentPromo.store.name = this.property.name
+                            this.currentPromo.store.name = this.property.name;
                             this.currentPromo.store.store_front_url_abs = this.property.default_logo_url;
                         }
-                        if(this.currentPromo.image_url != null && this.currentPromo.image_url != undefined && _.includes(this.currentPromo.image_url, 'missing')){
-                            this.currentPromo.image_url =  this.currentPromo.store.store_front_url_abs;
-                        }
+                        
                         var vm = this;
                         
                         if(this.currentPromo.store !== null && this.currentPromo.store !== undefined){
