@@ -197,6 +197,7 @@ require(['Vue', 'vuex', 'vue2-filters', 'vue_router', 'routes', 'datastore', 'vu
                     await this.$store.dispatch('initializeApi', { site: "kanata", version: "v4" });
                     await Promise.all([this.$store.dispatch("getData", "property")]);
                     this.property.mm_host = this.property.mm_host.replace("http:", "");
+                    this.property.name = "Kanata Central BIA"
                     let results = await Promise.all([
                         this.$store.dispatch("INITIALIZE_LOCALE"), 
                         this.$store.dispatch("getData", "hours"), 
