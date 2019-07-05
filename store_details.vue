@@ -26,9 +26,17 @@
                     </div>
                     
                 </div>
-                <div class="col-md-4 col-sm-4" style="max-width: 346px;">
-                    <img :src="currentStore.image_url" class="store_logo hidden_phone" :alt="currentStore.name" style="margin:0;max-width:100%;" />
-                   
+                <div class="col-md-4 col-sm-4">
+                    <!--<img :src="currentStore.image_url" class="store_logo hidden_phone" :alt="currentStore.name" style="margin:0;max-width:100%;" />-->
+                    <div class="image_container details_store_image">
+						<div v-if="currentStore.no_store_logo" class="store_details_image center-block">
+                            <div class="no_logo">
+                                <img class="store_img" src="//www.mallmaverick.com/system/site_images/photos/000/041/782/original/transparent_logo.png?1533845225" alt="">
+                                <h2 class="store_details_name">{{ currentStore.name }}</h2>
+                            </div>    
+                        </div>
+                        <img v-else class="store_details_image center-block" :src="currentStore.store_front_url_abs" :alt="currentStore.name + ' Logo'" />
+					</div>
                 </div> 
             </div>
             <div class="row " style="width:100%;">
