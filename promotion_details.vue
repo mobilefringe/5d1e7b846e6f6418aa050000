@@ -9,7 +9,7 @@
             </div>
             <div class="col-md-8 col-sm-8" style="padding-bottom: 15px;">
                 <h2 class="promo_list_name">{{currentPromo.name}}</h2>
-                <p class="promo_dates sub_title" v-if="isMultiDay(promo)">
+                <p class="promo_dates sub_title" v-if="isMultiDay(currentPromo)">
                     {{ currentPromo.start_date | moment("MMM D", timezone) }} - {{ currentPromo.end_date | moment("MMM D", timezone) }}
                 </p>
                 <p class="promo_dates sub_title" v-else>{{  currentPromo.start_date | moment("MMM D", timezone)}}
