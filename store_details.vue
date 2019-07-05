@@ -38,12 +38,12 @@
                 <div class="col-md-4 col-sm-4">
                     <div class="side_stores">
                         <div class="store_header_btns animated_btn" v-if="currentStore.phone">
-                            <a :href="'tel:'+currentStore.phone"><i class="fa fa-phone"></i>{{currentStore.phone}}</a>
+                            <a :href="'tel:'+currentStore.phone"><i class="fa fa-phone"></i>&nbsp;{{currentStore.phone}}</a>
                         </div>
                         <br v-if="currentStore.phone"/>
                         <br/>
                         <div class="store_header_btns animated_btn" v-if="currentStore.website">
-                            <a :href="'http://' + currentStore.website" target="_blank"><i class="fa fa-globe"></i>Visit Store Website</a>
+                            <a :href="'http://' + currentStore.website" target="_blank"><i class="fa fa-globe"></i>&nbsp;Visit Store Website</a>
                         </div>
                     </div>
                 </div> 
