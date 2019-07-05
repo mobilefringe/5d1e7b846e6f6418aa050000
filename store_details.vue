@@ -2,19 +2,25 @@
     <div class="row main_container" v-if="currentStore">
         <div id="store_container">
             <div class="promo_main_header sub_title">
-                {{currentStore.name}}
-                <div class="store_details_anchors pull-right">
+                <span>{{ currentStore.name }}</span>
+                <div class="store_details_anchors">
                     <a href="/map">
-                        <tt>Map</tt>
-                        <img src="//codecloud.cdn.speedyrails.net/sites/5a1f136e6e6f6472c6240000/image/png/1520025071000/locationicon.png" class="map_icon" alt="">
+                        <span>
+                            <tt>Map</tt>
+                            <img src="//codecloud.cdn.speedyrails.net/sites/5a1f136e6e6f6472c6240000/image/png/1520025071000/locationicon.png" class="map_icon" alt="">
+                        </span>
                     </a>
                     <a id="promo_anchor" href="#promos_main" v-if="promotions.length > 0">
-                        <tt>Promos (<span>{{currentStore.total_published_promos}}</span>)</tt>
-                        <img src="//codecloud.cdn.speedyrails.net/sites/5a1f136e6e6f6472c6240000/image/png/1520025071000/tagicon.png" class="promo_icon" alt="">
+                        <span>
+                            <tt>Promos (<span>{{currentStore.total_published_promos}}</span>)</tt>
+                            <img src="//codecloud.cdn.speedyrails.net/sites/5a1f136e6e6f6472c6240000/image/png/1520025071000/tagicon.png" class="promo_icon" alt="">
+                        </span>
                     </a>
                     <a id="job_anchor" href="#jobs_main" v-if="jobs.length > 0">
-                        <tt>Jobs (<span>{{currentStore.total_published_jobs}}</span>)</tt>
-                        <img src="//codecloud.cdn.speedyrails.net/sites/5a1f136e6e6f6472c6240000/image/png/1520025071000/careericon.png" class="job_icon" alt="jobs icon">
+                        <span>
+                            <tt>Jobs (<span>{{currentStore.total_published_jobs}}</span>)</tt>
+                            <img src="//codecloud.cdn.speedyrails.net/sites/5a1f136e6e6f6472c6240000/image/png/1520025071000/careericon.png" class="job_icon" alt="jobs icon">
+                        </span>
                     </a>
                 </div>
             </div>
