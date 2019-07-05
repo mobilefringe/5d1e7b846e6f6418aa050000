@@ -1,7 +1,7 @@
 <template>
     <div class="row main_container" v-if="currentStore">
         <div id="store_container">
-           <div class="promo_main_header sub_title">
+            <div class="promo_main_header sub_title">
                 {{currentStore.name}}
                 <div class="store_details_anchors pull-right">
                     <a href="/map">
@@ -18,8 +18,8 @@
                     </a>
                 </div>
             </div>
-            <div class="row" style="width:100%;">
-                <div class="col-md-8 col-sm-8  col-xs-12">
+            <div class="row">
+                <div class="col-md-8 col-sm-8 col-xs-12">
                     <div id="map">
                         <!--<svg-map ref="svgRef" @updateMap="updateSVGMap" :svgMapUrl="getSVGurl" :zoomLimit="[0,20]" :colours="{selected: '#b0931c',hover:'#c3a11f'}" :zoomButtons="{show: true,location: 'right' }"></svg-map>-->
                         <mapplic-map ref="mapplic_ref" :height="300" :minimap= "false" :deeplinking="false" :sidebar="false" :hovertip="true" :maxscale= "5" :storelist="[currentStore]" :floorlist="floorList" :svgWidth="2000" :svgHeight="2000" tooltiplabel="Info" action="none" :showPin="true" @updateMap="updateMap" :key="currentStore.id" :svgId="'Layer_1'"></mapplic-map>
