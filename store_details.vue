@@ -43,7 +43,7 @@
                         <br v-if="currentStore.phone"/>
                         <br/>
                         <div class="store_header_btns animated_btn" v-if="currentStore.website">
-                            <a :href="currentStore.website" target="_blank"><i class="fa fa-globe"></i>Visit Store Website</a>
+                            <a :href="'http://' + currentStore.website" target="_blank"><i class="fa fa-globe"></i>Visit Store Website</a>
                         </div>
                     </div>
                 </div> 
