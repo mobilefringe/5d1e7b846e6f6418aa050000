@@ -33,7 +33,7 @@
 				<div class="col-md-4 col-sm-12 hidden_phone">
 					<div class="store_search" >
 						<router-link class="directory_link" to="/map">
-							<div class="promotions_header_container directory_btn">{{$t("stores_page.view_map")}}</div>
+							<div class="promotions_header_container directory_btn">Centre Map</div>
 						</router-link>
 					</div>
 				</div>
