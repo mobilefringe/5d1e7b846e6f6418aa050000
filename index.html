@@ -191,35 +191,28 @@
                                 <div class="row footer_site_map">
                                     <div class="col-md-6 col-xs-6">
                                         <ul>
-                                            <li><router-link to="/stores">Directory</router-link></li>
-                                            <li><router-link to="/promotions">Promotions</router-link></li>
+                                            <li><router-link to="/map">Map</router-link></li>
+                                            <li><router-link to="/stores">Store Directory</router-link></li>
+                                            <li><router-link to="/promotions">Sales & Promos</router-link></li>
                                             <li><router-link to="/events">Events</router-link></li>
-                                            
-                                            
                                         </ul>
                                     </div>
                                     <div class="col-md-6 col-xs-6">
                                         <ul>
-                                            <!--<li><router-link to="/hours">Shopping Hours</router-link></li>-->
                                             <li><router-link to="/contact_us">Contact Us</router-link></li>
-                                            <!--<li><a v-if="magazine_url" :href="magazine_url.image_url" target="_blank" :id="magazine_url.id">Magazine</a></li>-->
-                                            <!--<li><router-link to="/pages/canyoncrest-leasing-info">Leasing Info</router-link></li>-->
-                                            
+                                            <li><router-link to="/contact_us">Contact Us</router-link></li>
+                                            <li><router-link to="/contact_us">Contact Us</router-link></li>
+                                            <li><router-link to="/contact_us">Contact Us</router-link></li>
                                         </ul>
                                     </div>
                                 </div>
                             </div>
                             <div class="col-md-4 col-sm-4 bottom_border">
-                                <!--<a href="//mallmaverick.com" target="_blank"><img src="//codecloud.cdn.speedyrails.net/sites/5a1f136e6e6f6472c6240000/image/png/1512065557520/MM New Logo.png" class="footer_logo" alt=""></a>-->
-                                <h4 class="site_map_heading">{{property.name}}.</h4>
+                                <h4 class="site_map_heading">{{property.name}}</h4>
                                 <p class="rights_reserved">
-                                    All Rights Reserved.<br/> 
-                                    
+                                    © {{copyright_year}} - All Rights Reserved.<br/> 
                                 </p>
-                                <p class="rights_reserved">
-                                    © {{copyright_year}} - Powered by <a href="//mallmaverick.com" target="_blank">Mall Maverick</a> 
-                                </p>
-                                
+                                <p class="rights_reserved">Powered by <a href="//mallmaverick.com" target="_blank">Mall Maverick</a></p>
                             </div>
                         </div>
                     </div>
@@ -236,44 +229,38 @@
                     <div class="site_map main_container">
                         <div class="row">
                             <div class="col-xs-12 bottom_border">
-                                    <img src="//codecloud.cdn.speedyrails.net/sites/5a1f136e6e6f6472c6240000/image/png/1513356843893/canyon_crest_logo.png" class="" alt="" style="width:230px;padding: 20px;">
-                                    <div class="col-md-12 col-xs-12" style="padding: 0;" v-if="property">
-                                        <p class="site_map_desc">
-                                            {{property.address1}}
-                                            <br />  
-                                            {{property.city}}
-                                            <br />
-                                            {{property.province_state}} {{property.postal_code}}
-                                            <br />
-                                            <br/>
-                                            {{property.contact_phone}}
-                                            <br/>
-                                            <br/>
-                                        </p>
-                                    </div>
-                                    
-                                    <div class="col-xs-12 social_icons text_center">
-                                        <a href="https://www.facebook.com/CanyonCrestTowneCentre/" target="_blank">
-                                            <img src="//codecloud.cdn.speedyrails.net/sites/5a1f136e6e6f6472c6240000/image/png/1512595243879/fb_inverted_color_2x.png" class="mobile_social" alt="FB">
-                                        </a>
-                                        <a href="https://twitter.com/shopcanyoncrest" target="_blank">
-                                            <img src="//codecloud.cdn.speedyrails.net/sites/5a1f136e6e6f6472c6240000/image/png/1512595319087/twitter_inverted_color_2x.png" class="mobile_social" alt="FB">
-                                        </a>
-                                        <a href="https://www.instagram.com/shopcanyoncrest/" target="_blank">
-                                            <img src="//codecloud.cdn.speedyrails.net/sites/5a1f136e6e6f6472c6240000/image/png/1512595298014/insta_inverted_color_2x.png" class="mobile_social" alt="FB">
-                                        </a>
-                                    </div>
+                                <img src="//codecloud.cdn.speedyrails.net/sites/5a1f136e6e6f6472c6240000/image/png/1513356843893/canyon_crest_logo.png" class="" alt="" style="width:230px;padding: 20px;">
+                                <div class="col-md-12 col-xs-12" style="padding: 0;" v-if="property">
+                                    <p class="site_map_desc">
+                                        {{property.address1}}
+                                        <br />  
+                                        {{property.city}}
+                                        <br />
+                                        {{property.province_state}} {{property.postal_code}}
+                                        <br />
+                                        <br/>
+                                        {{property.contact_phone}}
+                                        <br/>
+                                        <br/>
+                                    </p>
+                                </div>
+                                <div class="col-xs-12 social_icons text_center">
+                                    <a href="https://www.facebook.com/CanyonCrestTowneCentre/" target="_blank">
+                                        <img src="//codecloud.cdn.speedyrails.net/sites/5a1f136e6e6f6472c6240000/image/png/1512595243879/fb_inverted_color_2x.png" class="mobile_social" alt="FB">
+                                    </a>
+                                    <a href="https://twitter.com/shopcanyoncrest" target="_blank">
+                                        <img src="//codecloud.cdn.speedyrails.net/sites/5a1f136e6e6f6472c6240000/image/png/1512595319087/twitter_inverted_color_2x.png" class="mobile_social" alt="FB">
+                                    </a>
+                                    <a href="https://www.instagram.com/shopcanyoncrest/" target="_blank">
+                                        <img src="//codecloud.cdn.speedyrails.net/sites/5a1f136e6e6f6472c6240000/image/png/1512595298014/insta_inverted_color_2x.png" class="mobile_social" alt="FB">
+                                    </a>
+                                </div>
                             </div>
                             <div class="col-md-4 col-xs-12 bottom_border">
                                 <div class="rights_reserved" style="padding-top:10px">
                                     <p style="display:inline-block">Powered by <a href="//mallmaverick.com" target="_blank">Mall Maverick</a></p>
-                                     <!--<a href="//mallmaverick.com" target="_blank"><img src="//codecloud.cdn.speedyrails.net/sites/5a1f136e6e6f6472c6240000/image/png/1512595712551/mmlogo.png" class="footer_logo" alt=""></a>-->
                                 </div>
-                                <p class="rights_reserved">
-                                    © {{copyright_year}} - {{property.name | uppercase}}.
-                                    <!--<router-link to="/pages/hazeldean-privacy-policy" target="_blank">Privacy Policy</router-link> -->
-                                    
-                                </p>
+                                <p class="rights_reserved">© {{copyright_year}} - {{property.name | uppercase}}</p>
                             </div>
                         </div>
                     </div>
