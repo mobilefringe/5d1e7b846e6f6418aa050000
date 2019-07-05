@@ -9,23 +9,24 @@
             </div>
             <div class="col-md-8 col-sm-8" style="padding-bottom: 15px;">
                 <h2 class="promo_list_name">{{currentPromo.name}}</h2>
-                <p class="promo_dates sub_title">{{currentPromo.start_date | moment("MMM D", timezone)}} - {{currentPromo.end_date | moment("MMM D", timezone)}}</p>
+                <p class="promo_dates sub_title" v-if="isMultiDay(promo)">
+                    {{ currentPromo.start_date | moment("MMM D", timezone) }} - {{ currentPromo.end_date | moment("MMM D", timezone) }}
+                </p>
+                <p class="promo_dates sub_title" v-else>{{  currentPromo.start_date | moment("MMM D", timezone)}}
                 <div class="store_details_desc" v-html="currentPromo.rich_description"></div>
-                <div class="padding_top_20">
-                    <social-sharing :url="shareURL(currentPromo.slug)" :title="currentPromo.title" :description="currentPromo.body" :quote="truncate(currentPromo.description)" twitter-user="ShopCanyonCrest" :media="currentPromo.image_url" inline-template>
-                        <div class="blog-social-share">
-                            <h5 class="all_caps">Share this Promotion</h5>
-                            <div class="social_share">
-                                <network network="facebook">
-                                    <img src="//codecloud.cdn.speedyrails.net/sites/5a1f136e6e6f6472c6240000/image/png/1512057980767/fb@2x_whiteborder.png" class="" alt="">
-                                </network>
-                                <network network="twitter">
-                                    <img src="//codecloud.cdn.speedyrails.net/sites/5a1f136e6e6f6472c6240000/image/png/1512058120246/twt@2x_whiteborder.png" class="" alt="">
-                                </network>
-                            </div>
+                <social-sharing :url="shareURL(currentPromo.slug)" :title="currentPromo.title" :description="currentPromo.body" :quote="truncate(currentPromo.description)" twitter-user="ShopCanyonCrest" :media="currentPromo.image_url" inline-template>
+                    <div class="blog-social-share">
+                        <h5 class="all_caps">Share this Promotion</h5>
+                        <div class="social_share">
+                            <network network="facebook">
+                                <img src="//codecloud.cdn.speedyrails.net/sites/5a1f136e6e6f6472c6240000/image/png/1512057980767/fb@2x_whiteborder.png" class="" alt="">
+                            </network>
+                            <network network="twitter">
+                                <img src="//codecloud.cdn.speedyrails.net/sites/5a1f136e6e6f6472c6240000/image/png/1512058120246/twt@2x_whiteborder.png" class="" alt="">
+                            </network>
                         </div>
-                    </social-sharing>
-                </div>
+                    </div>
+                </social-sharing>
             </div>
         </div>
         <div class="promo_main_header sub_title" v-if="storePromos.length > 0" style="border-top: 1px solid #000;">
@@ -129,6 +130,16 @@
                         this.$router.replace('/');
                     }
                 },
+                isMultiDay(currentPromo) {
+					var timezone = this.timezone
+					var start_date = moment(currentPromo.start_date).tz(timezone).format("MM-DD-YYYY")
+					var end_date = moment(currentPromo.end_date).tz(timezone).format("MM-DD-YYYY")
+					if (start_date === end_date) {
+						return false
+					} else {
+						return true
+					}
+				},
                 truncate(val_body){
                     var truncate = _.truncate(val_body, { 'length': 99, 'separator': ' ' });
                     return truncate;
