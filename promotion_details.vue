@@ -76,32 +76,25 @@
                 });
               },
             watch : {
-                currentPromo : function (){
-                    if(this.currentPromo != null) {
+                currentPromo() {
+                    if (this.currentPromo != null) {
                         if (this.currentPromo.store != null && this.currentPromo.store != undefined) {
                             if (_.includes(this.currentPromo.image_url, 'missing')){
                                 this.currentPromo.image_url =  this.currentPromo.store.store_front_url_abs;
                             }
-                        } else {
-                            this.currentPromo.store = {};
-                            this.currentPromo.store.name = this.property.name;
-                            this.currentPromo.store.store_front_url_abs = this.property.default_logo_url;
-                        }
-                        
-                        var vm = this;
-                        
-                        if(this.currentPromo.store !== null && this.currentPromo.store !== undefined){
+                            
+                            // CHECK FOR ADDITIONAL PROMOS
+                            var vm = this;
                             var temp_promo = [];
                             var current_id =_.toNumber(this.currentPromo.id);
                             _.forEach(this.currentPromo.store.promotions, function(value, key) {
-                                if(_.toNumber(value) != current_id){
+                                if (_.toNumber(value) != current_id) {
                                     var current_promo = vm.findPromoById(value);
                                     current_promo.description_short = _.truncate(current_promo.description, {'length': 70});
                                     current_promo.store = vm.currentPromo.store;
-                                    if(current_promo.store != null && current_promo.store != undefined && _.includes(current_promo.store.store_front_url_abs, 'missing')){
+                                    if (current_promo.store != null && current_promo.store != undefined && _.includes(current_promo.store.store_front_url_abs, 'missing')){
                                         current_promo.store.store_front_url_abs = vm.property.default_logo_url;
-                                    }
-                                    else if (current_promo.store == null || current_promo.store == undefined) {
+                                    } else if (current_promo.store == null || current_promo.store == undefined) {
                                         current_promo.store = {};
                                         current_promo.store.store_front_url_abs =  vm.property.default_logo_url;
                                     }
@@ -109,6 +102,10 @@
                                 }
                             });
                             this.storePromos = temp_promo;
+                        } else {
+                            this.currentPromo.store = {};
+                            this.currentPromo.store.name = this.property.name;
+                            this.currentPromo.store.store_front_url_abs = this.property.default_logo_url;
                         }
                     }
                 },
