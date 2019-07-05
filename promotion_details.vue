@@ -83,6 +83,7 @@
                         }
                         else if (this.currentPromo.store == null || this.currentPromo.store == undefined) {
                             this.currentPromo.store = {};
+                            this.currentPromo.store.name = this.property.name
                             this.currentPromo.store.store_front_url_abs = this.property.default_logo_url;
                         }
                         if(this.currentPromo.image_url != null && this.currentPromo.image_url != undefined && _.includes(this.currentPromo.image_url, 'missing')){
