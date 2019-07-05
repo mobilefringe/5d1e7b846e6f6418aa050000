@@ -33,7 +33,6 @@
                     
                 </div>
                 <div class="col-md-4 col-sm-4">
-                    <!--<img :src="currentStore.image_url" class="store_logo hidden_phone" :alt="currentStore.name" style="margin:0;max-width:100%;" />-->
                     <div class="image_container details_store_image">
 						<div v-if="currentStore.no_store_logo" class="store_details_image center-block">
                             <div class="no_logo">
@@ -45,8 +44,8 @@
 					</div>
                 </div> 
             </div>
-            <div class="row " style="width:100%;">
-                <div class="col-md-8 col-sm-8 ">
+            <div class="row">
+                <div class="col-md-8 col-sm-8">
                     <div class="store_details_desc hidden_phone">{{currentStore.description}}</div>
                 </div>
                 <div class="col-md-4 col-sm-4">
@@ -153,43 +152,47 @@
             },
             watch : {
                 currentStore : function (){
-                    if ( _.includes(this.currentStore.store_front_url_abs, 'missing')) {
-                        this.currentStore.store_front_url_abs = "//codecloud.cdn.speedyrails.net/sites/5a6a54eb6e6f647da51e0100/image/png/1516652189884/ES_logo_red2.png";
-                    }
                     var vm = this;
+                    
+                    // STORE LOGO
+                    if (_.includes(this.currentStore.store_front_url_abs, 'missing')) {
+                        this.currentStore.no_logo = true
+                    } else {
+                        this.currentStore.no_logo = false
+                    }
+                        
+                    //PROMOTIONS
                     var temp_promo = [];
-                    var temp_job = [];
                     _.forEach(this.currentStore.promotions, function(value, key) {
                         var current_promo = vm.findPromoById(value);
                         current_promo.description_short = _.truncate(current_promo.description, {'length': 70});
-                        if(current_promo.store !== null && current_promo.store !== undefined && _.includes(current_promo.store.image_url, 'missing')) {
+                        if (current_promo.store !== null && current_promo.store !== undefined && _.includes(current_promo.store.image_url, 'missing')) {
                             current_promo.store.image_url = "//codecloud.cdn.speedyrails.net/sites/5a1f136e6e6f6472c6240000/image/jpeg/1515531874445/canyon_crest_default.jpg";
-                        }
-                        else if (current_promo.store == null && current_promo.store == undefined) {
+                        } else if (current_promo.store == null && current_promo.store == undefined) {
                             current_promo.store = {};
                             current_promo.store.image_url = "//codecloud.cdn.speedyrails.net/sites/5a1f136e6e6f6472c6240000/image/jpeg/1515531874445/canyon_crest_default.jpg";
                         }
                         temp_promo.push(current_promo);
                     });
+                    this.promotions = temp_promo;
+                    
+                    // JOBS
+                    var temp_job = [];
                     _.forEach(this.currentStore.jobs, function(value, key) {
                         var current_job = vm.findJobById(value);
                         current_job.description_short = _.truncate(current_job.description, {'length': 70});
                         
                         temp_job.push(current_job);
-                        
                     });
-                    if(_.includes(this.currentStore.image_url, 'missing'))
-                        this.currentStore.image_url = "//codecloud.cdn.speedyrails.net/sites/5a1f136e6e6f6472c6240000/image/jpeg/1515531874445/canyon_crest_default.jpg";
-                    this.promotions = temp_promo;
                     this.jobs = temp_job;
+
+                    // HOURS 
                     var storeHours = [];
-                    var vm = this;
                     _.forEach(this.currentStore.store_hours, function (value, key) {
                         var hour = vm.findHourById(value);
-                        if(hour.day_of_week === 0){
+                        if (hour.day_of_week === 0){
                             hour.order = 7;
-                        }
-                        else {
+                        } else {
                             hour.order = hour.day_of_week;
                         }
                         storeHours.push(hour);
@@ -229,8 +232,10 @@
             methods: {
                 loadData: async function() {
                     try {
-                        // avoid making LOAD_META_DATA call for now as it will cause the entire Promise.all to fail since no meta data is set up.
-                        let results = await Promise.all([this.$store.dispatch("getData","promotions"), this.$store.dispatch("getData", "jobs")]);
+                        let results = await Promise.all([
+                            this.$store.dispatch("getData","promotions"), 
+                            this.$store.dispatch("getData", "jobs")
+                        ]);
                     } catch (e) {
                         console.log("Error loading data: " + e.message);
                     }
