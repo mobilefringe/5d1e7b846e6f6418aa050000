@@ -38,7 +38,7 @@
                 <div class="col-md-4 col-sm-4">
                     <div class="side_stores">
                         <div class="store_header_btns animated_btn" v-if="currentStore.phone">
-                            <a :href="'tel:'+currentStore.phone"><i class="fa fa-phone"></i>&nbsp;{{currentStore.phone}}</a>
+                            <a :href="'tel:' + currentStore.phone"><i class="fa fa-phone"></i>&nbsp;{{currentStore.phone}}</a>
                         </div>
                         <br v-if="currentStore.phone"/>
                         <br/>
