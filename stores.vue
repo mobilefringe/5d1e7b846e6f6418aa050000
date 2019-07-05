@@ -26,7 +26,7 @@
 				<div class="col-sm-6 col-md-4">
 					<div class="store_search" >
 						<div class="category-select-container">
-							<v-select v-model="selectedCat" :options="dropDownCats" :searchable="false" :on-change="filterByCategory" class="category-select" :placeholder="$t('stores_page.sort_by_cats')" id="selectByCat"></v-select>
+							<v-select v-model="selectedCat" :options="dropDownCats" :searchable="false" :on-change="filterByCategory" class="category-select" placeholder="Sort by Category" id="selectByCat"></v-select>
 						</div>
 					</div>
 				</div>
