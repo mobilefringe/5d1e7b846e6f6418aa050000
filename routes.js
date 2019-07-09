@@ -72,8 +72,8 @@ define([], function() {
             children: [
                 {
                     path: '',
-                    component: view('newsletter'),
-                    name: 'newsletter'
+                    component: view('page_details'),
+                    name: 'pageDetails'
                 }
             ]
         },
