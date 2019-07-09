@@ -1,9 +1,7 @@
 <template>
-    <div class="content_container  position_relative padding_top_20 storelist_container">
-        <div class="shop_mobile_banner show_phone">
-            <img src="//codecloud.cdn.speedyrails.net/sites/5a1f136e6e6f6472c6240000/image/png/1512663245990/shop_mobile_placeholder.png" alt="">
-        </div>
-        <div class="main_container">
+    <div class="main_container">
+
+        <div class="margin_25_across">
             <div class="row hidden_phone">
                 <div class="col-md-12">
                     <h2 class="stores_main_heading">Store Directory</h2>
