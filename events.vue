@@ -10,11 +10,11 @@
                         <img :src="promo.store.store_front_url_abs" class="promo_list_img">
                     </div>
                     <p class="description_text">{{ promo.name }}</p>
-                    <p class="top_promo_date" v-if="isMultiDay(promo)">
-                        {{promo.start_date | moment("MMM D", timezone)}} - {{promo.end_date | moment("MMM D", timezone)}}
+                    <p class="top_promo_date" v-if="isMultiDay(item)">
+                        {{item.start_date | moment("MMM D", timezone)}} - {{item.end_date | moment("MMM D", timezone)}}
                     </p>
-                    <p class="top_promo_date" v-else>{{ promo.start_date | moment("MMM D", timezone)}}</p>
-                    <router-link :to="{ name: 'promotionDetails', params: { id: promo.slug }}" class="animated_btn text_center">Read More</router-link>
+                    <p class="top_promo_date" v-else>{{ item.start_date | moment("MMM D", timezone)}}</p>
+                    <router-link :to="{ name: 'promotionDetails', params: { id: item.slug }}" class="animated_btn text_center">Read More</router-link>
                 </div>
             </div>
         </div>
@@ -41,12 +41,12 @@
                 ...Vuex.mapGetters([
                     'property',
                     'timezone',
-                    'processedPromos',
+                    'processedEvents',
                 ]),
                 events() {
                     var vm = this;
                     var temp_promo = [];
-                    _.forEach(this.processedPromos, function(value, key) {
+                    _.forEach(this.processedEvents, function(value, key) {
                         today = moment().tz(vm.timezone);
                         webDate = moment(value.show_on_web_date).tz(vm.timezone);
                         if (today.format() >= webDate.format()) {
@@ -70,10 +70,10 @@
                 },
             },
             methods: {
-                isMultiDay(currentPromo) {
+                isMultiDay(item) {
 					var timezone = this.timezone
-					var start_date = moment(currentPromo.start_date).tz(timezone).format("MM-DD-YYYY")
-					var end_date = moment(currentPromo.end_date).tz(timezone).format("MM-DD-YYYY")
+					var start_date = moment(item.start_date).tz(timezone).format("MM-DD-YYYY")
+					var end_date = moment(item.end_date).tz(timezone).format("MM-DD-YYYY")
 					if (start_date === end_date) {
 						return false
 					} else {
