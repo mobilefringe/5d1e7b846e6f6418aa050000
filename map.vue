@@ -3,7 +3,7 @@
         <div class="margin_25_across padding_top_40">
             <div class="row">
                 <div class="col-md-12">
-                    <h1 class="inside_heading">E-Newsletter</h1>
+                    <h1 class="inside_heading">{{ property.name }} Map</h1>
                 </div>
             </div>
                 <div class="select_container show_phone">
