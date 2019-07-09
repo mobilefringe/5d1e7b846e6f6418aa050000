@@ -33,7 +33,7 @@ define([], function() {
             ]
         },
         {
-            path: '/leasing',
+            path: '/leasing-opportunities',
             component: view('default'),
             children: [
             	{
