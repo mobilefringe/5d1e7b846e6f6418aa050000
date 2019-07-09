@@ -1,44 +1,25 @@
 define([], function() {
-    return [{
+    return [
+        {
             path: '/',
             component: view('home')
         },
         {
-            path: '/stores',
+            path: '/contact-us',
             component: view('default'),
-            children: [{
-                    path: '',
-                    component: view('stores'),
-                    name: 'storeList'
-                },
-                {
-                    path: ':id',
-                    component: view('store_details'),
-                    name: 'storeDetails',
-                    props: true
-                }
-            ]
-        },
-        {
-            path: '/promotions',
-            component: view('default'),
-            children: [{
-                    path: '',
-                    component: view('promotions'),
-                    name: 'promoList'
-                },
-                {
-                    path: ':id',
-                    component: view('promotion_details'),
-                    name: 'promotionDetails',
-                    props: true
-                }
+            children: [
+            	{
+                	path: '',
+                	component: view('contact_us'),
+                	name: 'contactUs'
+            	}
             ]
         },
         {
             path: '/events',
             component: view('default'),
-            children: [{
+            children: [
+            	{
                     path: '',
                     component: view('events'),
                     name: 'eventList'
@@ -52,81 +33,95 @@ define([], function() {
             ]
         },
         {
-            path: '/jobs',
+            path: '/leasing',
             component: view('default'),
-            children: [{
-                    path: '',
-                    component: view('jobs'),
-                    name: 'jobList'
-                },
-                {
-                    path: ':id',
-                    component: view('job_details'),
-                    name: 'jobDetails',
-                    props: true
-                }
+            children: [
+            	{
+	                path: '',
+	                component: view('newsletter'),
+	                name: 'newsletter'
+            	}
             ]
         },
         {
             path: '/map',
             component: view('default'),
             redirect: '/404',
-            children: [{
-                path: '',
-                component: view('map'),
-                name: 'map'
-            }]
-        },
-        {
-            path: '/hours',
-            component: view('default'),
-            children: [{
-                path: '',
-                component: view('hours'),
-                name: 'hourList'
-            }]
-        },
-        {
-            path: '/contest',
-            component: view('default'),
-            children: [{
-                path: '',
-                component: view('contest'),
-                name: 'contestList'
-            }]
-        },
-        {
-            path: '/contact-us',
-            component: view('default'),
-            children: [{
-                path: '',
-                component: view('contact_us'),
-                name: 'contactUs'
-            }]
+            children: [
+            	{
+                	path: '',
+                	component: view('map'),
+                	name: 'map'
+            	}
+            ]
         },
         {
             path: '/newsletter',
             component: view('default'),
-            children: [{
-                path: '',
-                component: view('newsletter'),
-                name: 'newsletter'
-            }]
+            children: [
+            	{
+	                path: '',
+	                component: view('newsletter'),
+	                name: 'newsletter'
+            	}
+        	]
+        },
+        {
+            path: '/overview',
+            component: view('default'),
+            children: [
+                {
+                    path: '',
+                    component: view('newsletter'),
+                    name: 'newsletter'
+                }
+            ]
         },
         {
             path: '/pages',
             component: view('default'),
             redirect: '/404',
-            children: [{
-                path: ':id',
-                component: view('page_details'),
-                name: 'pageDetails'
-            }]
+            children: [
+                {
+                    path: ':id',
+                    component: view('page_details'),
+                    name: 'pageDetails'
+                }
+            ]
         },
         {
-            path: '/404',
-            name: '404',
-            component: view('notfoundcomponent')
+            path: '/promotions',
+            component: view('default'),
+            children: [
+                {
+                    path: '',
+                    component: view('promotions'),
+                    name: 'promoList'
+                },
+                {
+                    path: ':id',
+                    component: view('promotion_details'),
+                    name: 'promotionDetails',
+                    props: true
+                }
+            ]
+        },
+        {
+            path: '/stores',
+            component: view('default'),
+            children: [
+                {
+                    path: '',
+                    component: view('stores'),
+                    name: 'storeList'
+                },
+                {
+                    path: ':id',
+                    component: view('store_details'),
+                    name: 'storeDetails',
+                    props: true
+                }
+            ]
         },
         {
             path: '*',
