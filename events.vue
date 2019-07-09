@@ -7,9 +7,9 @@
                 <hr class="show_phone">
                 <div class="promo_list_container text_center">
                     <div class="promo_list_img_container">
-                        <img :src="promo.store.store_front_url_abs" class="promo_list_img">
+                        <img :src="item.store.store_front_url_abs" class="promo_list_img">
                     </div>
-                    <p class="description_text">{{ promo.name }}</p>
+                    <p class="description_text">{{ item.name }}</p>
                     <p class="top_promo_date" v-if="isMultiDay(item)">
                         {{item.start_date | moment("MMM D", timezone)}} - {{item.end_date | moment("MMM D", timezone)}}
                     </p>
