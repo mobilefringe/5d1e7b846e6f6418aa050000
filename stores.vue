@@ -4,7 +4,7 @@
         <div class="margin_25_across">
             <div class="row hidden_phone">
                 <div class="col-md-12">
-                    <h2 class="stores_main_heading">Store Directory</h2>
+                    <h1 class="inside_heading">Store Directory</h1>
                     <p class="store_main_desc sub_title">Explore • Enjoy • Shop</p>
                 </div>
 				<div class="col-sm-6 col-md-4">
