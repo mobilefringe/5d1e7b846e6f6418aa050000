@@ -70,7 +70,7 @@
                             temp_event.push(value);
                         }
                     });
-                    temp_event = _.sortBy(temp_event, [function(o) { return o.start_date; }]);
+                    temp_event = _.sortBy(temp_event, [function(o) { return o.event_date; }]);
                     return temp_event;
                 },
             },
