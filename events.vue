@@ -10,7 +10,7 @@
                         <img :src="item.store.store_front_url_abs" class="promo_list_img">
                     </div>
                     <p class="description_text">{{ item.name }}</p>
-                    <p class="top_promo_date" v-if="isMultiDay(item)">
+                    <p class="top_temp_event_date" v-if="isMultiDay(item)">
                         {{item.start_date | moment("MMM D", timezone)}} - {{item.end_date | moment("MMM D", timezone)}}
                     </p>
                     <p class="top_promo_date" v-else>{{ item.start_date | moment("MMM D", timezone)}}</p>
@@ -50,7 +50,7 @@
                 ]),
                 events() {
                     var vm = this;
-                    var temp_promo = [];
+                    var temp_event = [];
                     _.forEach(this.processedEvents, function(value, key) {
                         today = moment().tz(vm.timezone);
                         webDate = moment(value.show_on_web_date).tz(vm.timezone);
@@ -67,11 +67,11 @@
                                 value.store = {};
                                 value.store.store_front_url_abs =  vm.property.default_logo_url;
                             }
-                            temp_promo.push(value);
+                            temp_event.push(value);
                         }
                     });
-                    _.sortBy(temp_promo, [function(o) { return o.start_date; }]);
-                    return temp_promo;
+                    temp_event = _.sortBy(temp_event, [function(o) { return o.start_date; }]);
+                    return temp_event;
                 },
             },
             methods: {
