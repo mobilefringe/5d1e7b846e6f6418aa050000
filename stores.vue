@@ -5,7 +5,7 @@
             <div class="row hidden_phone">
                 <div class="col-md-12">
                     <h1 class="inside_heading">Store Directory</h1>
-                    <p class="store_main_desc sub_title">Explore • Enjoy • Shop</p>
+                    <h2 class="inside_subheading">Explore • Enjoy • Shop</h2>
                 </div>
 				<div class="col-sm-6 col-md-4">
 					<div class="store_search">
