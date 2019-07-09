@@ -1,6 +1,6 @@
 <template>
     <div class="main_container"> <!-- for some reason if you do not put an outer container div this component template will not render -->
-        <div class="margin_25_across padding_top_40">
+        <div class="margin_25_across">
             <div class="row">
                 <div class="col-md-12">
                     <h1 class="inside_heading">{{ property.name }} Map</h1>
