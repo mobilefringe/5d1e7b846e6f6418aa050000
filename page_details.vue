@@ -37,6 +37,7 @@
                 })
             },
             beforeRouteUpdate(to, from, next) {
+                console.log("route", this.$route.path);
                 this.$store.dispatch('LOAD_PAGE_DATA', {
                     url: this.property.mm_host + "/pages/" + to.params.id + ".json"
                 }).then(response => {
