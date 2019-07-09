@@ -1,8 +1,8 @@
 <template>
     <div class="main_container" id="promotions_container" v-if="dataloaded"> <!-- without an outer container this component template will not render -->
         <h3 class="promotion_heading">Upcoming Promotions!</h3>
-        <p class="exclusive_deals sub_title">Don’t miss our exclusive deals & events</p>
-        <div class="row">
+        <p class="exclusive_deals sub_title">Don’t miss our exclusive deals!</p>
+        <div class="row" v-if="promotions.length > 0">
             <div class="col-sm-4" v-for="promo in promotions">
                 <hr class="show_phone">
                 <div class="promo_list_container text_center">
@@ -16,6 +16,11 @@
                     <p class="top_promo_date" v-else>{{ promo.start_date | moment("MMM D", timezone)}}</p>
                     <router-link :to="{ name: 'promotionDetails', params: { id: promo.slug }}" class="animated_btn text_center">Read More</router-link>
                 </div>
+            </div>
+        </div>
+        <div class="row" v-else>
+            <div class="col-sm-12">
+                <p>There are currently no Promotions posted. Please check back soon!</p>
             </div>
         </div>
     </div>
