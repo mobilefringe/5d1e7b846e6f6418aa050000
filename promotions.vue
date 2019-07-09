@@ -1,5 +1,5 @@
 <template>
-    <div class="main_container" v-if="dataloaded"> <!-- without an outer container div this component template will not render -->
+    <div class="main_container" id="promotions_container" v-if="dataloaded"> <!-- without an outer container this component template will not render -->
         <div class="margin_25_across padding_top_40">
             <h3 class="promotion_heading">Upcoming Promotions!</h3>
             <p class="exclusive_deals sub_title">Don’t miss our exclusive deals!</p>
