@@ -1,7 +1,7 @@
 <template>
     <div class="main_container" v-if="dataloaded"> <!-- without an outer container this component template will not render -->
         <div id="promotions_container" class="margin_25_across">
-            <h3 class="promotion_heading">Upcoming Promotions!</h3>
+            <h1 class="inside_heading">Upcoming Promotions!</h1>
             <p class="exclusive_deals sub_title">Don’t miss our exclusive deals!</p>
             <div class="row" v-if="promotions.length > 0">
                 <div class="col-sm-4" v-for="promo in promotions">
