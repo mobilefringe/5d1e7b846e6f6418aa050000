@@ -14,7 +14,7 @@
                         There was an error when trying to submit your request. Please try again later.
                     </div>
                 </div>
-                <div class="col-sm-5 contact_contents">
+                <div class="col-sm-6 contact_contents">
                     <form class="form-horizontal js-cm-form" id="subForm" action="https://www.createsend.com/t/subscribeerror?description=" method="post" data-id="92D4C54F0FEC16E5ADC2B1904DE9ED1AC8067D17410EEBD96ACB1EAF7BA69804E172592B741A21816E434E8D5074574CD7177AEFE5E84B7E60459EF73A52B414" @submit.prevent="validateBeforeSubmit">
                         <div class="form-group ">
                             <div class="col-sm-12 col-xs-12" :class="{'has-error': errors.has('name')}">
@@ -37,7 +37,7 @@
                         </div>
                     </form>
                 </div>
-                <div class="col-sm-7 text-center">
+                <div class="col-sm-6 text-center">
                     <img src="//codecloud.cdn.speedyrails.net/sites/5a1f136e6e6f6472c6240000/image/png/1512580269422/placeholder_contact_image.png" alt="plaza">
                 </div> 
             </div>
@@ -46,25 +46,20 @@
 </template>
 
 <script>
-    define(["Vue", "vuex", "moment", "moment-timezone", "vue-moment", "vue-meta", 'vee-validate', 'campaignMonitor'], function(Vue, Vuex, moment, tz, VueMoment, Meta, VeeValidate, campaignMonitor) {
-        Vue.use(Meta);
+    define(["Vue", "vuex", "moment", "moment-timezone", "vue-moment", "vee-validate", "campaignMonitor"], function(Vue, Vuex, moment, tz, VueMoment, VeeValidate, campaignMonitor) {
         Vue.use(VeeValidate);
         return Vue.component("newsletter-component", {
             template: template, // the variable template will be injected
             data: function() {
                 return {
-                    dayOfTheWeek : [
-                        "Sunday", "Monday","Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"
-                    ],
                     currentPage: null,
                     form_data : {},
-                    loginPending: null,
                     formSuccess : false,
                     formError: false
                 }
             },
             mounted () {
-                if(this.$route.query.success == 'success') {
+                i f(this.$route.query.success == 'success') {
                     this.formSuccess = true;
                     this.$router.replace('/newsletter');
                 }
