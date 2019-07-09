@@ -2,7 +2,7 @@
     <div class="main_container" v-if="dataloaded"> <!-- without an outer container this component template will not render -->
         <div id="promotions_container" class="margin_25_across">
             <h1 class="inside_heading">Exclusive Events at {{ property.name}}!</h1>
-            <p class="exclusive_deals sub_title">Join us to celebrate and enjoy!</p>
+            <h2 class="inside_subheading">Join us to celebrate and enjoy!</h2>
             <div class="row" v-if="events.length > 0">
                 <div class="col-sm-4" v-for="(item, index) in events">
                     <hr class="show_phone">
