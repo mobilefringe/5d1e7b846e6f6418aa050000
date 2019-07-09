@@ -18,41 +18,55 @@
                     currentPage: null
                 }
             },
-            beforeRouteEnter(to, from, next) {
-                next(vm => {
-                    // access to component instance via `vm`
-                    console.log("route", this.$route.path);
-                    // if () {
-                        
-                    // }
-                    // var url = 
-                    vm.$store.dispatch('LOAD_PAGE_DATA', {
-                        url: vm.property.mm_host + "/pages/" + to.params.id + ".json"
-                    }).then(response => {
-                        vm.currentPage = response.data;
-                    }, error => {
-                        console.error("Could not retrieve data from server. Please check internet connection and try again.");
-                        vm.$router.replace('/');
-                    });
-                })
+            created() {
+                // var temp_repo = this.findRepoByName('Inside Page Banner').images;
+                // if (temp_repo != null) {
+                //     this.pageBanner = temp_repo[0];
+                // } else {
+                //     this.pageBanner = {
+                //         "image_url": "//codecloud.cdn.speedyrails.net/sites/5c9a464e6e6f6470e9060000/image/png/1554588744991/default_inside_banner.png"
+                //     }
+                // }
+                            
+                this.updateCurrentPage(this.id);
             },
-            beforeRouteUpdate(to, from, next) {
-                console.log("route", this.$route.path);
-                this.$store.dispatch('LOAD_PAGE_DATA', {
-                    url: this.property.mm_host + "/pages/" + to.params.id + ".json"
-                }).then(response => {
-                    // this.dataLoaded = true;
-                    this.currentPage = response.data;
-                }, error => {
-                    console.error("Could not retrieve data from server. Please check internet connection and try again.");
-                    this.$router.replace('/');
-                });
+            watch: {
+                $route: function () {
+                    this.updateCurrentPage(this.$route.params.id);
+                }
             },
             computed: {
                 ...Vuex.mapGetters([
                     'property',
-                    'timezone',
-                ]),
+                    'findRepoByName'
+                ])
+            },
+            methods: {
+                updateCurrentPage(id) {
+                    this.$nextTick(function() {
+                        // Determine the incoming route
+                        console.log("this.$route.path", this.$route.path)
+                        var route_url = "";
+                        if (_.includes(this.$route.path, "privacy-policy")) {
+                            route_url = this.property.slug + "-privacy-policy"
+                        } else if (_.includes(this.$route.path, "terms-of-use")) {
+                            route_url = this.property.slug + "-terms-of-use"
+                        } else {
+                            route_url = this.id;
+                        }
+                        
+                        var _this = this;
+                        this.property.mm_host = this.property.mm_host.replace("http:", "");
+                        this.$store.dispatch('LOAD_PAGE_DATA', { url: this.property.mm_host + "/pages/" + route_url + ".json" }).then(function (response) {
+                            _this.currentPage = response.data;
+                            _this.dataLoaded = true;
+                        }, function (error) {
+                            console.error( "Could not retrieve data from server. Please check internet connection and try again.");
+                            // _this.$router.replace({ name: 'home' });
+                        });
+                    });
+                }
+            }
             }
         });
     });
