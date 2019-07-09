@@ -1,26 +1,28 @@
 <template>
-    <div class="main_container" id="promotions_container" v-if="dataloaded"> <!-- without an outer container this component template will not render -->
-        <h3 class="promotion_heading">Exclusive Events at {{ property.name}}!</h3>
-        <p class="exclusive_deals sub_title">Join us to celebrate and enjoy!</p>
-        <div class="row" v-if="events.length > 0">
-            <div class="col-sm-4" v-for="(item, index) in events">
-                <hr class="show_phone">
-                <div class="promo_list_container text_center">
-                    <div class="promo_list_img_container">
-                        <img :src="item.store.store_front_url_abs" class="promo_list_img">
+    <div class="main_container" v-if="dataloaded"> <!-- without an outer container this component template will not render -->
+        <div id="promotions_container" class="margin_25_across">
+            <h3 class="promotion_heading">Exclusive Events at {{ property.name}}!</h3>
+            <p class="exclusive_deals sub_title">Join us to celebrate and enjoy!</p>
+            <div class="row" v-if="events.length > 0">
+                <div class="col-sm-4" v-for="(item, index) in events">
+                    <hr class="show_phone">
+                    <div class="promo_list_container text_center">
+                        <div class="promo_list_img_container">
+                            <img :src="item.store.store_front_url_abs" class="promo_list_img">
+                        </div>
+                        <p class="description_text">{{ item.name }}</p>
+                        <p class="top_temp_event_date" v-if="isMultiDay(item)">
+                            {{item.start_date | moment("MMM D", timezone)}} - {{item.end_date | moment("MMM D", timezone)}}
+                        </p>
+                        <p class="top_promo_date" v-else>{{ item.start_date | moment("MMM D", timezone)}}</p>
+                        <router-link :to="{ name: 'promotionDetails', params: { id: item.slug }}" class="animated_btn text_center">Read More</router-link>
                     </div>
-                    <p class="description_text">{{ item.name }}</p>
-                    <p class="top_temp_event_date" v-if="isMultiDay(item)">
-                        {{item.start_date | moment("MMM D", timezone)}} - {{item.end_date | moment("MMM D", timezone)}}
-                    </p>
-                    <p class="top_promo_date" v-else>{{ item.start_date | moment("MMM D", timezone)}}</p>
-                    <router-link :to="{ name: 'promotionDetails', params: { id: item.slug }}" class="animated_btn text_center">Read More</router-link>
                 </div>
             </div>
-        </div>
-        <div class="row" v-else>
-            <div class="col-sm-12">
-                <p>There are currently no Events scheduled. Please check back soon!</p>
+            <div class="row" v-else>
+                <div class="col-sm-12">
+                    <p>There are currently no Events scheduled. Please check back soon!</p>
+                </div>
             </div>
         </div>
     </div>
