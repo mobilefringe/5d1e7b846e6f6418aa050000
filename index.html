@@ -124,7 +124,7 @@
                         <ul class="stc_nav nav navbar-nav">
                             <li v-for="(item, index) in menu_items" :id="item.parent_id" class="nav_li">
                                 <router-link v-if="!item.sub_menu" :to="item.href" :id="item.id" class="all_caps">{{ item.name }}</router-link>
-                                <span data-toggle="dropdown" class="menu_link dropdown-toggle menu_dropdown_parent">{{ item.name }}</span>
+                                <span v-else data-toggle="dropdown" class="menu_link dropdown-toggle menu_dropdown_parent">{{ item.name }}</span>
                                 <div class="dropdown-menu invisible_dropdown_div dd_programs dropdown-menu-hover">
                                     <ul class="dd_guest dropdown_list">
                                         <div class="triangle-up"></div>
