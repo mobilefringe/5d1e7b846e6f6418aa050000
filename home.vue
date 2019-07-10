@@ -8,6 +8,7 @@
                 </div>
             </div>
         </slick>
+        <messages-component></messages-component>
         <div class="content_container main_container  position_relative">
             <div class="feature_row" id="feature_container_2">
                 <div class="feature_item_container" v-for="item in feature_items">
@@ -87,7 +88,7 @@
 </template>
 
 <script>
-    define(["Vue", "vuex", "vue!today_hours", "vue!vue-slick","moment", "moment-timezone", "vue-moment", "vue-meta",'vue-lazy-load'], function(Vue, Vuex, TodayHoursComponent, slick ,moment, tz, VueMoment, Meta,VueLazyload) {
+    define(["Vue", "vuex", "vue!today_hours", "vue!vue-slick", "moment", "moment-timezone", "vue-moment", "vue-meta", "vue-lazy-load", "vue!welcome_msg"], function(Vue, Vuex, TodayHoursComponent, slick ,moment, tz, VueMoment, Meta,VueLazyload, welcomeMessage) {
         Vue.use(VueLazyload);
         return Vue.component("home-component", {
             template: template, // the variable template will be injected
