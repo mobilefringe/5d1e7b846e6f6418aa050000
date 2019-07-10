@@ -1,7 +1,7 @@
 <template>
     <div class="main_container" v-if="currentStore">
         <div class="margin_25_across">
-            <div class="row" >
+            <div class="row">
                 <div class="col-md-12">
                     <div class="promo_main_header sub_title">
                         <span>{{ currentStore.name }}</span>
