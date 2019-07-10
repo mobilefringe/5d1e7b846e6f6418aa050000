@@ -93,7 +93,17 @@ require(['Vue', 'vuex', 'vue2-filters', 'vue_router', 'routes', 'datastore', 'vu
                     {
                         name: "Stores",
                         id: "stores_link",
-                        href: "/stores"
+                        href: "#",
+                        sub_menu: [
+                            {
+                                name: "Map",
+                                href: "/map"
+                            },
+                            {
+                                name: "Store Directory",
+                                href: "/stores"
+                            },
+                        ]
                     },
                     {
                         name: "Sales & Promos",
@@ -116,9 +126,19 @@ require(['Vue', 'vuex', 'vue2-filters', 'vue_router', 'routes', 'datastore', 'vu
                         href: "/overview",
                     },
                     {
-                        name: "Contact Us",
-                        id: "hours_link",
-                        href: "/contact_us",
+                        name: "Connect",
+                        id: "",
+                        href: "#",
+                        sub_menu: [
+                            {
+                                name: "Contact Us",
+                                href: "/contact-us"
+                            },
+                            {
+                                name: "E-Newsletter",
+                                href: "/newsletter"
+                            },
+                        ]
                     }
                 ]
             }
