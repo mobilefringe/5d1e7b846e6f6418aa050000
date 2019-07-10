@@ -2,7 +2,7 @@
     <div v-if="property" class="main_container">
         <div class="message_content">
             <h1 class="inside_heading all_caps">{{ property.welcome_message }}</h1>
-            <h2 class="inside_subheading">{{ property.description }}</h2>
+            <h2 class="inside_subheading home">{{ property.description }}</h2>
         </div>
     </div>
 </template>
