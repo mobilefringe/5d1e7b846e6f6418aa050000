@@ -1,9 +1,8 @@
 <template>
     <div class="main_container">
         <div class="margin_25_across">
-        
             <div class="row" v-if="currentStore">
-                <div id="store_container">
+                <div class="col-md-12">
                     <div class="promo_main_header sub_title">
                         <span>{{ currentStore.name }}</span>
                         <div class="store_details_anchors">
