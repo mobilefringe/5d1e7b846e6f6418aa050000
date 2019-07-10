@@ -60,7 +60,10 @@
                                 <br v-if="currentStore.phone"/>
                                 <br/>
                                 <div class="store_header_btns animated_btn" v-if="currentStore.website">
-                                    <a :href="'http://' + currentStore.website" target="_blank"><i class="fa fa-globe"></i>&nbsp;Visit Store Website</a>
+                                    <a :href="'http://' + currentStore.website" target="_blank">
+                                        <span>Visit Store Website</span>
+                                        <i class="fa fa-globe"></i>
+                                    </a>
                                 </div>
                             </div>
                         </div> 
