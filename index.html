@@ -122,7 +122,7 @@
                     </div>
                     <div class="menu_container hidden_phone main_container menu_header_content" id="menubar" :class="{sticky : stickyMenu}">
                         <ul class="stc_nav nav navbar-nav">
-                            <li v-for="(item, index) in menu_items" :id="item.parent_id" class="nav_li dropdown" :class="{ dropdown : item.sub_menu }">
+                            <li v-for="(item, index) in menu_items" :id="item.parent_id" class="nav_li" :class="{ dropdown : item.sub_menu }">
                                 <router-link v-if="!item.sub_menu" :to="item.href" :id="item.id" class="all_caps">{{ item.name }}</router-link>
                                 <span v-else data-toggle="dropdown" class="menu_link dropdown-toggle menu_dropdown_parent all_caps">{{ item.name }}</span>
                                 <div class="dropdown-menu invisible_dropdown_div dd_programs dropdown-menu-hover">
