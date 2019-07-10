@@ -77,7 +77,7 @@
                  <hr/>
             </div>
             <!--<h2 class="promotion_heading text-center visit_us_header">Visit Us!</h2>-->
-            <iframe  class="grayscale visit_us_iframe hidden_phone" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2198.58586155242!2d-117.33154422162433!3d33.95621236060249!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x80dcafb3e8e622a7%3A0x9e4673950258330a!2s5225+Canyon+Crest+Dr%2C+Riverside%2C+CA+92507%2C+USA!5e0!3m2!1sen!2sca!4v1511989451889"  width="100%" height="300" frameborder="0" style="border:0" allowfullscreen></iframe>
+            <iframe  class="grayscale visit_us_iframe hidden_phone" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d5612.133520073668!2d-75.91785636734846!3d45.30707702090197!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zNDXCsDE4JzI1LjUiTiA3NcKwNTQnNDguNSJX!5e0!3m2!1sen!2sca!4v1562789436153!5m2!1sen!2sca"  width="100%" height="300" frameborder="0" style="border:0" allowfullscreen></iframe>
             <hr class="hidden_phone"/>
         </div>
         <!--<div class="content_container position_relative main_container show_phone ">-->
