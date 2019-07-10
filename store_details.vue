@@ -29,7 +29,6 @@
                     <div class="row">
                         <div class="col-md-8 col-sm-8 col-xs-12">
                             <div id="map">
-                                <!--<svg-map ref="svgRef" @updateMap="updateSVGMap" :svgMapUrl="getSVGurl" :zoomLimit="[0,20]" :colours="{selected: '#b0931c',hover:'#c3a11f'}" :zoomButtons="{show: true,location: 'right' }"></svg-map>-->
                                 <mapplic-map ref="mapplic_ref" :height="328" :minimap= "false" :deeplinking="false" :sidebar="false" :hovertip="true" :maxscale= "5" :storelist="[currentStore]" :floorlist="floorList" :svgWidth="2000" :svgHeight="2000" tooltiplabel="Info" action="none" :showPin="true" @updateMap="updateMap" :key="currentStore.id" :svgId="'Layer_1'"></mapplic-map>
                             </div>
                             
@@ -53,7 +52,10 @@
                         <div class="col-md-4 col-sm-4">
                             <div class="side_stores">
                                 <div class="store_header_btns animated_btn" v-if="currentStore.phone">
-                                    <a :href="'tel:' + currentStore.phone"><i class="fa fa-phone"></i>&nbsp;{{currentStore.phone}}</a>
+                                    <a :href="'tel:' + currentStore.phone">
+                                        <span class="pull-left">{{currentStore.phone}}</span>
+                                        <span class="pull=right"><i class="fa fa-phone"></i></span>
+                                    </a>
                                 </div>
                                 <br v-if="currentStore.phone"/>
                                 <br/>
