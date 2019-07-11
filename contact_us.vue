@@ -41,7 +41,7 @@
                                 <input v-model="form_data.subject" v-validate="'required:true'" class="form-control" :class="{'input': true}" name="subject" type="text" placeholder="Subject" data-vv-delay="1000">
                                 <span v-show="errors.has('subject')" class="form-control-feedback">{{ errors.first('subject') }}</span>
                             </div>
-                        <!--</div>-->
+                        </div>
                         <div class="row form-group">
                             <div class="col-md-12" :class="{'has-error': errors.has('message')}">
                                 <label class="label" for="message">Message</label>
