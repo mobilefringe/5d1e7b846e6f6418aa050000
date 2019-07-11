@@ -4,7 +4,7 @@
             <h1 class="inside_heading">Exclusive Events at {{ property.name}}!</h1>
             <h2 class="inside_subheading">Join us to celebrate and enjoy!</h2>
             <div class="row" v-if="events.length > 0">
-                <div class="col-sm-4" v-for="(item, index) in events">
+                <div class="col-sm-6 col-md-4" v-for="(item, index) in events">
                     <hr class="show_phone">
                     <div class="promo_list_container text_center">
                         <div class="promo_list_img_container">
