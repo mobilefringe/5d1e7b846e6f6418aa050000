@@ -131,8 +131,6 @@
                             send_data.form_data = JSON.stringify(this.serializeObject(this.form_data));
                             this.$store.dispatch("CONTACT_US", send_data).then(res => {
                                 this.formSuccess = true;
-                                let message = document.getElementById("send_contact_success");
-                                message.scrollIntoView();
                             }).catch(error => {
                                 try {
                                     if (error.response.status == 401) {
