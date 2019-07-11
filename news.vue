@@ -12,9 +12,9 @@
                         </div>
                         <p class="description_text">{{ item.name }}</p>
                         <p class="top_temp_event_date" v-if="isMultiDay(item)">
-                            {{item.start_date | moment("MMM D", timezone)}} - {{item.end_date | moment("MMM D", timezone)}}
+                            {{ item.start_date | moment("MMMM D", timezone)}} - {{ item.end_date | moment("MMMM D", timezone)}}
                         </p>
-                        <p class="top_promo_date" v-else>{{ item.start_date | moment("MMM D", timezone)}}</p>
+                        <p class="top_promo_date" v-else>{{ item.start_date | moment("MMMM D", timezone)}}</p>
                         <router-link :to="{ name: 'newsDetails', params: { id: item.slug }}" class="animated_btn text_center">Read More</router-link>
                     </div>
                 </div>
