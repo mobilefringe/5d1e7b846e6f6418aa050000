@@ -15,12 +15,12 @@
                     <img v-if="pageImage" :src="pageImage.image_url" alt="" />
                 </div>
             </div>
-            <div class="row padding_top_20"> 
+            <div class="row padding_top_40"> 
                 <div class="col-md-12">
                     <hr />
                 </div>
             </div>
-            <div class="row padding_top_20"> 
+            <div class="row padding_top_40"> 
                 <div class="col-md-12">
                     <form class="form-horizontal" action="form-submit" @submit.prevent="validateBeforeSubmit">
                         <div class="form-group row">
