@@ -65,14 +65,14 @@
             data: function() {
                 return {
                     currentPromo: null,
-                    storePromos : null
+                    storePromos : {}
                 }
             },
             created(){
                 this.$store.dispatch("getData", "promotions").then(response => {
                     this.updateCurrentPromo(this.id);
                 }, error => {
-                  console.error("Could not retrieve data from server. Please check internet connection and try again.");
+                    console.error("Could not retrieve data from server. Please check internet connection and try again.");
                 });
               },
             watch : {
