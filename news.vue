@@ -49,7 +49,7 @@
                 ...Vuex.mapGetters([
                     'property',
                     'timezone',
-                    'processedNews'
+                    'processedEvents'
                 ]),
                 news() {
                     var vm = this;
