@@ -2,7 +2,7 @@
     <div class="main_container" v-if="currentPromo">
         <div class="margin_25_across">
             <div class="promo_main_header sub_title">
-                <span>{{ currentPromo.store.name | uppercase }}</span>
+                
                 <span class="promo_back all_caps"><i class="fa fa-caret-left"></i>&nbsp;<router-link to="/promotions">Back to Sales & Promos</router-link></span>
             </div>
             <div class="row mobile_padding" id="promo_details_container">
@@ -10,6 +10,7 @@
                     <img :src="currentPromo.image_url"  alt="Store Logo" class="details_image image" />
                 </div>
                 <div class="col-md-8 col-sm-8" style="padding-bottom: 15px;">
+                    <span>{{ currentPromo.store.name | uppercase }}</span>
                     <h2 class="promo_list_name">{{currentPromo.name}}</h2>
                     <p class="promo_dates sub_title" v-if="isMultiDay(currentPromo)">
                         {{ currentPromo.start_date | moment("MMMM D", timezone) }} - {{ currentPromo.end_date | moment("MMMM D", timezone) }}
