@@ -59,17 +59,6 @@
                     if (this.currentNews === null || this.currentNews === undefined){
                         this.$router.replace('/');
                     }
-                },
-                truncate(val_body) {
-                    var truncate = _.truncate(val_body, {
-                        'length': 99,
-                        'separator': ' '
-                    });
-                    return truncate;
-                },
-                shareURL(slug) {
-                    var share_url = "https://kanatacentral.com/news/" + slug;
-                    return share_url;
                 }
             }
         });
