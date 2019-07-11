@@ -15,10 +15,11 @@
                     <img v-if="pageImage" :src="pageImage.image_url" alt="" />
                 </div>
             </div>
-
+            <div class="padding_top_20"></div>
+            <hr />
             <div class="row"> 
-                <div class="col-md-12 contact_contents padding_top_20">
-                                <hr/>
+                <div class="col-md-12 contact_contents ">
+                            
                     <form class="form-horizontal" action="form-submit" @submit.prevent="validateBeforeSubmit">
                         <div class="form-group ">
                             <div class="col-sm-6 col-xs-12" :class="{'has-error': errors.has('name')}">
