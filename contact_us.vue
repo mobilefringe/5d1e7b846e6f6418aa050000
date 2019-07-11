@@ -87,56 +87,46 @@
             template: template, // the variable template will be injected
             data: function() {
                 return {
-                    currentPage: null,
+                    dataLoaded: false,
+                    currentPage: {},
+                    pageImage: null,
                     form_data : {},
-                    loginPending: null,
                     formSuccess : false,
-                    formError: false,
-                    time: new Date(),
-                    leasingPage: null
+                    formError: false
                 }
             },
-            created(){
-               this.updateContactUsPage();
-               this.updateLeasingInfo();
-            },
-            watch: {
-                $route : function () {
-                    this.updateCurrentPage(this.$route.params.id);
-                }  
+            created () {
+                this.loadData().then(response => {
+                    var temp_repo = this.findRepoByName('Contact Us Page Image').images;
+                    if (temp_repo != null) {
+                        this.pageImage = temp_repo[0];
+                    } else {
+                        this.pageBanner = "";
+                    }
+                    
+                    this.currentPage = response[1].data;
+                    
+                    this.dataLoaded = true;
+                });
             },
             computed: {
                 ...Vuex.mapGetters([
                     'property',
                     'timezone',
-                ]),
-                rannumber () {
-                    var rannumber='';
-                    for(ranNum=1; ranNum<=6; ranNum++){
-                      rannumber+=Math.floor(Math.random()*10).toString();
-                    }
-                    return rannumber;
-                }
+                    'findRepoByName'
+                ])
             },
             methods: {
-                updateContactUsPage () {
-                    this.$store.dispatch('LOAD_PAGE_DATA', {
-                        url: this.property.mm_host + "/pages/canyoncrest-contact.json"
-                    }).then(response => {
-                        this.currentPage = response.data;
-                    }, error => {
-                        console.error("Could not retrieve data from server. Please check internet connection and try again.");
-                    });
-                },
-                updateLeasingInfo () {
-                    this.$store.dispatch('LOAD_PAGE_DATA', {
-                        url: this.property.mm_host + "/pages/canyoncrest-leasing-info.json"
-                    }).then(response => {
-                        this.leasingPage = response.data;
-                    }, error => {
-                        console.error("Could not retrieve data from server. Please check internet connection and try again.");
-                        // this.$router.replace('/');
-                    });
+                loadData: async function() {
+                    try {
+                        let results = await Promise.all([
+                            this.$store.dispatch("getData", "repos"),
+                            this.$store.dispatch('LOAD_PAGE_DATA', { url: this.property.mm_host + "/pages/kanata-contact-us.json" })
+                        ]);
+                        return results;
+                    } catch (e) {
+                        console.log("Error loading data: " + e.message);
+                    }
                 },
                 validateBeforeSubmit() {
                     this.$validator.validateAll().then((result) => {
