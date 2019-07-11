@@ -1,7 +1,10 @@
 <template>
-    <div class="row main_container" v-if="currentNews">
-        <div class="promo_main_header sub_title" v-if="property">
-                {{property.name | uppercase}}
+    <div class="main_container" v-if="currentNews">
+        <div class="margin_25_across">
+            <div class="promo_main_header sub_title">
+                <span>{{ currentNews.store.name | uppercase }}</span>
+                <span class="promo_back all_caps"><i class="fa fa-caret-left"></i>&nbsp;<router-link to="/promotions">Back to Sales & Promos</router-link></span>
+            </div>
         </div>
         <div class="row mobile_padding" id="promo_details_container">
             <div class="col-md-4 col-sm-4">
