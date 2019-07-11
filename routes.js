@@ -56,6 +56,23 @@ define([], function() {
             ]
         },
         {
+            path: '/news',
+            component: view('default'),
+            children: [
+            	{
+                    path: '',
+                    component: view('news'),
+                    name: 'newsList'
+                },
+                {
+                    path: ':id',
+                    component: view('news_details'),
+                    name: 'newsDetails',
+                    props: true
+                }
+            ]
+        },
+        {
             path: '/newsletter',
             component: view('default'),
             children: [
