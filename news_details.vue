@@ -11,21 +11,6 @@
                 <h2 class="promo_list_name">{{currentNews.name}}</h2>
                 <p class="promo_dates sub_title">{{currentNews.start_date | moment("MMM D", timezone)}} - {{currentNews.end_date | moment("MMM D", timezone)}}</p>
                 <div class="store_details_desc" v-html="currentNews.rich_description"></div>
-                <div class="padding_tb_20">
-                    <social-sharing :url="shareURL(currentNews.slug)" :title="currentNews.title" :description="currentNews.description" :quote="truncate(currentNews.description)" twitter-user="ShopCanyonCrest" :media="currentNews.image_url" inline-template>
-                        <div class="blog-social-share">
-                            <h5>Share this event</h5>
-                            <div class="social_share">
-                                <network network="facebook">
-                                    <img src="//codecloud.cdn.speedyrails.net/sites/5a1f136e6e6f6472c6240000/image/png/1512057980767/fb@2x_whiteborder.png" class="" alt="">
-                                </network>
-                                <network network="twitter">
-                                    <img src="//codecloud.cdn.speedyrails.net/sites/5a1f136e6e6f6472c6240000/image/png/1512058120246/twt@2x_whiteborder.png" class="" alt="">
-                                </network>
-                            </div>
-                        </div>
-                    </social-sharing>
-                </div>
             </div>
         </div>
         <div class="padding_top_40"></div>
