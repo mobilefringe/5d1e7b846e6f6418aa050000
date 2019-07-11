@@ -54,6 +54,7 @@
                 news() {
                     var vm = this;
                     var temp_event = [];
+                    console.log("news", this.processedNews)
                     _.forEach(this.processedNews, function(value, key) {
                         today = moment().tz(vm.timezone);
                         webDate = moment(value.show_on_web_date).tz(vm.timezone);
