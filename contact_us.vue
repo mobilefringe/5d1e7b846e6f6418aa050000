@@ -5,17 +5,14 @@
                 <div class="col-md-12">
                     <h1 class="inside_heading">Get In Touch</h1>
                     <h2 class="inside_subheading">Stay up-to-date with all our latest happenings!</h2>
-                    <div v-if="currentPage" v-html="currentPage.body"></div>
                 </div>
             </div>
             <div class="row">
-                <div class="col-md-5 col-sm-5">
-                    <div  v-if="currentPage">
-                        <div class="description_text text_left" v-html="currentPage.body"></div>
-                    </div>
+                <div class="col-md-6">
+                    <div v-if="currentPage" v-html="currentPage.body"></div>
                 </div>
-                <div class="col-md-7 col-sm-7 hidden_phone">
-                    <img style="margin-bottom:20px;" src="//codecloud.cdn.speedyrails.net/sites/5a1f136e6e6f6472c6240000/image/png/1512580269422/placeholder_contact_image.png" alt="plaza">
+                <div class="col-md-6 hidden_phone">
+                    <img :src="pageImage.image_url" alt="" />
                 </div>
             </div>
             <hr/>
