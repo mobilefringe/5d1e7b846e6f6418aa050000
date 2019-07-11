@@ -34,52 +34,30 @@
 
 <script>
     define(["Vue", "vuex","moment", "moment-timezone", "vue-moment"], function(Vue, Vuex, moment, tz, VueMoment) {
-        return Vue.component("event-details-component", {
+        return Vue.component("news-details-component", {
             template: template, // the variable template will be injected,
             props:['id'],
             data: function() {
                 return {
                     currentNews: null,
-                    success_subscribe: false,
-                    storePromos: null
                 }
             },
-            created(){
+            watch: {
+                $route : function () {
+                    this.updateCurrentNews(this.$route.params.id);
+                },
+                currentNews: function() {
+                    if (_.includes(this.currentNews.image_url, 'missing')) {
+                        this.currentNews.image_url =  this.property.default_logo_url;
+                    }
+                }
+            },
+            mounted() {
                 this.$store.dispatch("getData", "news").then(response => {
                     this.updateCurrentNews(this.id);
                 }, error => {
                     console.error("Could not retrieve data from server. Please check internet connection and try again.");
                 });
-            },
-            watch: {
-                currentNews: function() {
-                    if(this.currentNews.store !== null && this.currentNews.store !== undefined && _.includes(this.currentNews.store.store_front_url_abs, 'missing')) {
-                        this.currentNews.store.store_front_url_abs =  this.property.default_logo_url;
-                    }
-                    else if (this.currentNews.store == null && this.currentNews.store == undefined) {
-                        this.currentNews.store = {};
-                        this.currentNews.store.store_front_url_abs =  this.property.default_logo_url;
-                    }
-                    if(this.currentNews.image_url != null && this.currentNews.image_url != undefined && _.includes(this.currentNews.image_url, 'missing')){
-                        this.currentNews.image_url =  this.property.default_logo_url;
-                    }
-                    var vm = this;
-                    var temp_promo = [];
-                    var current_id = _.toNumber(this.currentNews.id);
-                    _.forEach(this.allNews, function(value, key) {
-                        if (_.toNumber(value.id) != current_id) {
-                            var current_news = vm.findNewsById(value.id);
-                            current_news.description_short = _.truncate(current_news.description, {
-                                'length': 50
-                            });
-                            temp_promo.push(current_news);
-                        }
-                    });
-                    this.storePromos = temp_promo;
-                },
-                $route : function () {
-                    this.updateCurrentNews(this.$route.params.id);
-                }
             },
             computed: {
                 ...Vuex.mapGetters([
@@ -88,25 +66,7 @@
                     'processedNews',
                     'findNewsBySlug',
                     'findNewsById'
-                ]),
-                allNews() {
-                    var events = this.processedNews;
-                    var vm = this;
-                    events.map(event => {
-                        if(event.store != null && event.store != undefined && _.includes(event.store.store_front_url_abs, 'missing')){
-                            event.store.store_front_url_abs =  vm.property.default_logo_url;
-                        }
-                        else if (event.store == null && event.store == undefined) {
-                            event.store = {};
-                            event.store.store_front_url_abs =  vm.property.default_logo_url;
-                        }
-                        
-                        if(event.image_url != null && event.image_url != undefined && _.includes(event.image_url, 'missing')){
-                            event.image_url =  event.store.store_front_url_abs
-                        }
-                    });
-                    return events;
-                },
+                ])
             },
             methods: {
                 updateCurrentNews (id) {
