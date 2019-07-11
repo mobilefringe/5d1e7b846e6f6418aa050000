@@ -14,7 +14,7 @@
                     <p class="promo_dates sub_title" v-if="isMultiDay(currentPromo)">
                         {{ currentPromo.start_date | moment("MMMM D", timezone) }} - {{ currentPromo.end_date | moment("MMMM D", timezone) }}
                     </p>
-                    <p class="promo_dates sub_title" v-else>{{  currentPromo.start_date | moment("MMMM D", timezone)}}
+                    <p class="promo_dates sub_title" v-else>{{  currentPromo.start_date | moment("MMMM D", timezone)}}</p>
                     <div class="store_details_desc" v-html="currentPromo.rich_description"></div>
                     <social-sharing :url="shareURL(currentPromo.slug)" :title="currentPromo.title" :description="currentPromo.body" :quote="truncate(currentPromo.description)" twitter-user="ShopCanyonCrest" :media="currentPromo.image_url" inline-template>
                         <div class="blog-social-share">
