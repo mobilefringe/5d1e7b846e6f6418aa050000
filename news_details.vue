@@ -5,18 +5,19 @@
                 <span>{{ currentNews.store.name | uppercase }}</span>
                 <span class="promo_back all_caps"><i class="fa fa-caret-left"></i>&nbsp;<router-link to="/promotions">Back to Sales & Promos</router-link></span>
             </div>
-        </div>
-        <div class="row mobile_padding" id="promo_details_container">
-            <div class="col-md-4 col-sm-4">
-                <img :src="currentNews.image_url"  alt="Store Logo" class="details_image" />
+        
+            <div class="row mobile_padding" id="promo_details_container">
+                <div class="col-md-4 col-sm-4">
+                    <img :src="currentNews.image_url"  alt="Store Logo" class="details_image" />
+                </div>
+                <div class="col-md-8 col-sm-8" style="padding-bottom: 15px;">
+                    <h2 class="promo_list_name">{{currentNews.name}}</h2>
+                    <p class="promo_dates sub_title">{{currentNews.start_date | moment("MMM D", timezone)}} - {{currentNews.end_date | moment("MMM D", timezone)}}</p>
+                    <div class="store_details_desc" v-html="currentNews.rich_description"></div>
+                </div>
             </div>
-            <div class="col-md-8 col-sm-8" style="padding-bottom: 15px;">
-                <h2 class="promo_list_name">{{currentNews.name}}</h2>
-                <p class="promo_dates sub_title">{{currentNews.start_date | moment("MMM D", timezone)}} - {{currentNews.end_date | moment("MMM D", timezone)}}</p>
-                <div class="store_details_desc" v-html="currentNews.rich_description"></div>
-            </div>
+            <div class="padding_top_40"></div>
         </div>
-        <div class="padding_top_40"></div>
     </div>
 </template>
 
