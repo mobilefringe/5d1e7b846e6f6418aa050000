@@ -1,18 +1,18 @@
 <template>
-    <div class="row main_container" v-if="currentEvent">
+    <div class="row main_container" v-if="currentNews">
         <div class="promo_main_header sub_title" v-if="property">
                 {{property.name | uppercase}}
         </div>
         <div class="row mobile_padding" id="promo_details_container">
             <div class="col-md-4 col-sm-4">
-                <img :src="currentEvent.image_url"  alt="Store Logo" class="details_image" />
+                <img :src="currentNews.image_url"  alt="Store Logo" class="details_image" />
             </div>
             <div class="col-md-8 col-sm-8" style="padding-bottom: 15px;">
-                <h2 class="promo_list_name">{{currentEvent.name}}</h2>
-                <p class="promo_dates sub_title">{{currentEvent.start_date | moment("MMM D", timezone)}} - {{currentEvent.end_date | moment("MMM D", timezone)}}</p>
-                <div class="store_details_desc" v-html="currentEvent.rich_description"></div>
+                <h2 class="promo_list_name">{{currentNews.name}}</h2>
+                <p class="promo_dates sub_title">{{currentNews.start_date | moment("MMM D", timezone)}} - {{currentNews.end_date | moment("MMM D", timezone)}}</p>
+                <div class="store_details_desc" v-html="currentNews.rich_description"></div>
                 <div class="padding_tb_20">
-                    <social-sharing :url="shareURL(currentEvent.slug)" :title="currentEvent.title" :description="currentEvent.description" :quote="truncate(currentEvent.description)" twitter-user="ShopCanyonCrest" :media="currentEvent.image_url" inline-template>
+                    <social-sharing :url="shareURL(currentNews.slug)" :title="currentNews.title" :description="currentNews.description" :quote="truncate(currentNews.description)" twitter-user="ShopCanyonCrest" :media="currentNews.image_url" inline-template>
                         <div class="blog-social-share">
                             <h5>Share this event</h5>
                             <div class="social_share">
@@ -62,33 +62,33 @@
             props:['id'],
             data: function() {
                 return {
-                    currentEvent: null,
+                    currentNews: null,
                     success_subscribe: false,
                     storePromos: null
                 }
             },
             created(){
                 this.$store.dispatch("getData", "news").then(response => {
-                    this.updateCurrentEvent(this.id);
+                    this.updateCurrentNews(this.id);
                 }, error => {
                   console.error("Could not retrieve data from server. Please check internet connection and try again.");
                 });
             },
             watch: {
-                currentEvent: function() {
-                    if(this.currentEvent.store !== null && this.currentEvent.store !== undefined && _.includes(this.currentEvent.store.store_front_url_abs, 'missing')) {
-                        this.currentEvent.store.store_front_url_abs =  this.property.default_logo_url;
+                currentNews: function() {
+                    if(this.currentNews.store !== null && this.currentNews.store !== undefined && _.includes(this.currentNews.store.store_front_url_abs, 'missing')) {
+                        this.currentNews.store.store_front_url_abs =  this.property.default_logo_url;
                     }
-                    else if (this.currentEvent.store == null && this.currentEvent.store == undefined) {
-                        this.currentEvent.store = {};
-                        this.currentEvent.store.store_front_url_abs =  this.property.default_logo_url;
+                    else if (this.currentNews.store == null && this.currentNews.store == undefined) {
+                        this.currentNews.store = {};
+                        this.currentNews.store.store_front_url_abs =  this.property.default_logo_url;
                     }
-                    if(this.currentEvent.image_url != null && this.currentEvent.image_url != undefined && _.includes(this.currentEvent.image_url, 'missing')){
-                        this.currentEvent.image_url =  this.property.default_logo_url;
+                    if(this.currentNews.image_url != null && this.currentNews.image_url != undefined && _.includes(this.currentNews.image_url, 'missing')){
+                        this.currentNews.image_url =  this.property.default_logo_url;
                     }
                     var vm = this;
                     var temp_promo = [];
-                    var current_id = _.toNumber(this.currentEvent.id);
+                    var current_id = _.toNumber(this.currentNews.id);
                     _.forEach(this.allEvents, function(value, key) {
                         if (_.toNumber(value.id) != current_id) {
                             var current_promo = vm.findEventById(value.id);
@@ -101,16 +101,16 @@
                     this.storePromos = temp_promo;
                 },
                 $route : function () {
-                    this.updateCurrentEvent(this.$route.params.id);
+                    this.updatecurrentNews(this.$route.params.id);
                 }
             },
             computed: {
                 ...Vuex.mapGetters([
                     'property',
                     'timezone',
-                    'processedEvents',
-                    'findEventBySlug',
-                    'findEventById'
+                    'processedNews',
+                    'findNewsBySlug',
+                    'findNewsById'
                 ]),
                 allEvents() {
                     var events = this.processedEvents;
@@ -132,9 +132,9 @@
                 },
             },
             methods: {
-                updateCurrentEvent (id) {
-                    this.currentEvent = this.findEventBySlug(id);
-                    if (this.currentEvent === null || this.currentEvent === undefined){
+                updatecurrentNews (id) {
+                    this.currentNews = this.findEventBySlug(id);
+                    if (this.currentNews === null || this.currentNews === undefined){
                         this.$router.replace('/');
                     }
                 },
