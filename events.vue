@@ -24,6 +24,7 @@
                     <p>There are currently no Events scheduled. Please check back soon!</p>
                 </div>
             </div>
+            <div class="padding_top_40"></div>
         </div>
     </div>
 </template>
