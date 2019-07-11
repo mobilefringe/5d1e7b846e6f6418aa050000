@@ -96,7 +96,7 @@
             },
             created () {
                 this.loadData().then(response => {
-                    var temp_repo = this.findRepoByName('Contact Us Page Image').images;
+                    var temp_repo = this.findRepoByName('Contact Us Image').images;
                     if (temp_repo != null && temp_repo != undefined) {
                         this.pageImage = temp_repo[0];
                     } else {
