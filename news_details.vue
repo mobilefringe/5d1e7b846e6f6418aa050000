@@ -66,7 +66,17 @@
                     if (this.currentNews === null || this.currentNews === undefined){
                         this.$router.replace('/');
                     }
-                }
+                },
+                isMultiDay(currentNews) {
+					var timezone = this.timezone
+					var start_date = moment(currentNews.start_date).tz(timezone).format("MM-DD-YYYY")
+					var end_date = moment(currentNews.end_date).tz(timezone).format("MM-DD-YYYY")
+					if (start_date === end_date) {
+						return false
+					} else {
+						return true
+					}
+				},
             }
         });
     });
