@@ -3,7 +3,7 @@
         <div class="margin_25_across">
             <div class="promo_main_header sub_title">
                 <span>{{ currentPromo.store.name | uppercase }}</span>
-                <router-link to="/promotions">Back to Sales & Promos</router-link>
+                <span><i class="fa fa-caret-left"></i>&nbsp;<router-link to="/promotions">Back to Sales & Promos</router-link></span>
             </div>
             <div class="row mobile_padding" id="promo_details_container">
                 <div class="col-md-4 col-sm-4">
