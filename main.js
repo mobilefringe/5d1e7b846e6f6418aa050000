@@ -20,7 +20,7 @@ require.config({
         'datastore_getters': 'https://preview-mmvue.codecloudapp.com/datastore_getters',
         'datastore_actions': 'https://preview-mmvue.codecloudapp.com/datastore_actions',
         'datastore_mutations': 'https://preview-mmvue.codecloudapp.com/datastore_mutations',
-        'datastore': 'https://preview-mmvue.codecloudapp.com/datastore',
+        'datastore': 'https://mmvue.codecloudapp.com/datastore',
         'vue-moment': 'https://mmvue.codecloudapp.com/vue-moment',
         'today_hours': 'https://mmvue.codecloudapp.com/today_hours.vue?noext', //append a dummy query string so requireJS doesn't auto-append .js to the end of the url
         'search-component': 'https://mmvue.codecloudapp.com/search-component.vue?noext',
