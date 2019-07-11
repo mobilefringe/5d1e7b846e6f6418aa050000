@@ -125,18 +125,18 @@
                 validateBeforeSubmit() {
                     this.$validator.validateAll().then((result) => {
                         if (result) {
+                            let message = document.getElementById("send_contact_success");
                             let errors = this.errors;
                             send_data = {};
                             send_data.form_data = JSON.stringify(this.serializeObject(this.form_data));
                             this.$store.dispatch("CONTACT_US", send_data).then(res => {
                                 this.formSuccess = true;
+                                message.scrollIntoView();
                             }).catch(error => {
                                 try {
                                     if (error.response.status == 401) {
                                         console.log("Data load error: " + error.message);
                                         this.formError = true;
-                                        let message = document.getElementById("send_contact_success");
-                                        message.scrollIntoView();
                                     } else {
                                         console.log("Data load error: " + error.message);
                                         this.formError = true;
