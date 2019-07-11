@@ -71,7 +71,7 @@
                 this.$store.dispatch("getData", "news").then(response => {
                     this.updateCurrentNews(this.id);
                 }, error => {
-                  console.error("Could not retrieve data from server. Please check internet connection and try again.");
+                    console.error("Could not retrieve data from server. Please check internet connection and try again.");
                 });
             },
             watch: {
@@ -89,19 +89,19 @@
                     var vm = this;
                     var temp_promo = [];
                     var current_id = _.toNumber(this.currentNews.id);
-                    _.forEach(this.allEvents, function(value, key) {
+                    _.forEach(this.allNews, function(value, key) {
                         if (_.toNumber(value.id) != current_id) {
-                            var current_promo = vm.findEventById(value.id);
-                            current_promo.description_short = _.truncate(current_promo.description, {
+                            var current_news = vm.findNewsById(value.id);
+                            current_news.description_short = _.truncate(current_news.description, {
                                 'length': 50
                             });
-                            temp_promo.push(current_promo);
+                            temp_promo.push(current_news);
                         }
                     });
                     this.storePromos = temp_promo;
                 },
                 $route : function () {
-                    this.updatecurrentNews(this.$route.params.id);
+                    this.updateCurrentNews(this.$route.params.id);
                 }
             },
             computed: {
@@ -112,8 +112,8 @@
                     'findNewsBySlug',
                     'findNewsById'
                 ]),
-                allEvents() {
-                    var events = this.processedEvents;
+                allNews() {
+                    var events = this.processedNews;
                     var vm = this;
                     events.map(event => {
                         if(event.store != null && event.store != undefined && _.includes(event.store.store_front_url_abs, 'missing')){
@@ -132,8 +132,8 @@
                 },
             },
             methods: {
-                updatecurrentNews (id) {
-                    this.currentNews = this.findEventBySlug(id);
+                updateCurrentNews (id) {
+                    this.currentNews = this.findNewsBySlug(id);
                     if (this.currentNews === null || this.currentNews === undefined){
                         this.$router.replace('/');
                     }
@@ -146,7 +146,7 @@
                     return truncate;
                 },
                 shareURL(slug) {
-                    var share_url = "http://www.shopcanyoncrest.com/events/" + slug;
+                    var share_url = "https://kanatacentral.com/news/" + slug;
                     return share_url;
                 }
             }
