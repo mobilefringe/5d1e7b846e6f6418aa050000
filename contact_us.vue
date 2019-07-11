@@ -12,7 +12,7 @@
                     <div v-if="currentPage" v-html="currentPage.body"></div>
                 </div>
                 <div class="col-md-6 hidden_phone">
-                    <img :src="pageImage.image_url" alt="" />
+                    <img v-if="pageImage" :src="pageImage.image_url" alt="" />
                 </div>
             </div>
             <hr/>
