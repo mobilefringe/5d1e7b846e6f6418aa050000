@@ -146,7 +146,7 @@ require(['Vue', 'vuex', 'vue2-filters', 'vue_router', 'routes', 'datastore', 'vu
         created() {
             this.loadData().then(response => {
                 this.dataLoaded = true;
-                this.property.default_logo_url = "//codecloud.cdn.speedyrails.net/sites/5a1f136e6e6f6472c6240000/image/jpeg/1515531874445/canyon_crest_default.jpg";
+                this.property.default_logo_url = "//codecloud.cdn.speedyrails.net/sites/5d1e7b846e6f6418aa050000/image/jpeg/1562788670350/kanatacentral.jpg";
             });
             window.addEventListener('scroll', this.enableStickyNavbar);
         },
