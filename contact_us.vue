@@ -16,9 +16,9 @@
                 </div>
             </div>
             <!--<div class="padding_top_20"></div>-->
-            <!--<hr />-->
+            <hr />
             <div class="row"> 
-                <div class="col-md-12 contact_contents ">
+                <div class="col-md-12 contact_contents padding_top_20 ">
                             
                     <form class="form-horizontal" action="form-submit" @submit.prevent="validateBeforeSubmit">
                         <div class="form-group ">
