@@ -12,7 +12,10 @@
                 </div>
                 <div class="col-md-8 col-sm-8" style="padding-bottom: 15px;">
                     <h2 class="promo_list_name">{{currentNews.name}}</h2>
-                    <p class="promo_dates sub_title">{{currentNews.start_date | moment("MMM D", timezone)}} - {{currentNews.end_date | moment("MMM D", timezone)}}</p>
+                    <p class="promo_dates sub_title" v-if="isMultiDay(currentNews)">
+                        {{ currentNews.start_date | moment("MMMM D", timezone) }} - {{ currentNews.end_date | moment("MMMM D", timezone) }}
+                    </p>
+                    <p class="promo_dates sub_title" v-else>{{  currentNews.start_date | moment("MMMM D", timezone)}}
                     <div class="store_details_desc" v-html="currentNews.rich_description"></div>
                 </div>
             </div>
