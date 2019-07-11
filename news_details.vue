@@ -2,7 +2,7 @@
     <div class="main_container" v-if="currentNews">
         <div class="margin_25_across">
             <div class="promo_main_header sub_title">
-                <span>{{ property.name | uppercase }}</span>
+                <!--<span>{{ property.name | uppercase }}</span>-->
                 <span class="promo_back all_caps"><i class="fa fa-caret-left"></i>&nbsp;<router-link to="/news">Back to News</router-link></span>
             </div>
         
