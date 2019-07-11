@@ -18,35 +18,34 @@
             <!--<div class="padding_top_20"></div>-->
             <hr />
             <div class="row"> 
-                <div class="col-md-12 contact_contents padding_top_20 ">
-                            
+                <div class="col-md-12">
                     <form class="form-horizontal" action="form-submit" @submit.prevent="validateBeforeSubmit">
-                        <div class="form-group ">
-                            <div class="col-sm-6 col-xs-12" :class="{'has-error': errors.has('name')}">
+                        <div class="form-group row">
+                            <div class="col-md-6" :class="{'has-error': errors.has('name')}">
                                 <label class="label" for="name">Name</label>
                                 <input v-model="form_data.name" v-validate="'required|alpha_spaces'" class="form-control" :class="{'input': true}" name="name" type="text" placeholder="Name" data-vv-delay="1000">
                                 <span v-show="errors.has('name')" class="form-control-feedback">{{ errors.first('name') }}</span>
                             </div>
-                            <div class="col-sm-6 col-xs-12" :class="{'has-error': errors.has('email')}">
+                            <div class="col-md-6" :class="{'has-error': errors.has('email')}">
                                 <label class="label" for="email">Email</label>
                                 <input v-model="form_data.email" v-validate="'required|email'" class="form-control" :class="{'input': true}" name="email" type="email" placeholder="Email" data-vv-delay="1000">
                                 <span v-show="errors.has('email')" class="form-control-feedback">{{ errors.first('email') }}</span>
                             </div>
                         </div>
-                        <div class="form-group">
-                            <div class="col-sm-6 col-xs-12" :class="{'has-error': errors.has('phone')}">
+                        <div class="form-group row">
+                            <div class="col-md-6" :class="{'has-error': errors.has('phone')}">
                                 <label class="label" for="phone">Phone</label>
                                 <input v-model="form_data.phone" v-validate="'required|alpha_dash'" class="form-control" :class="{'input': true}" name="phone" type="phone" placeholder="Phone" data-vv-delay="1000">
                                 <span v-show="errors.has('phone')" class="form-control-feedback">{{ errors.first('phone') }}</span>
                             </div>
-                            <div class="col-sm-6 col-xs-12" :class="{'has-error': errors.has('subject')}">
+                            <div class="col-md-6" :class="{'has-error': errors.has('subject')}">
                                 <label class="label" for="subject">Subject</label>
                                 <input v-model="form_data.subject" v-validate="'required:true'" class="form-control" :class="{'input': true}" name="subject" type="text" placeholder="Subject" data-vv-delay="1000">
                                 <span v-show="errors.has('subject')" class="form-control-feedback">{{ errors.first('subject') }}</span>
                             </div>
                         </div>
-                        <div class="form-group">
-                            <div class="col-xs-12" :class="{'has-error': errors.has('message')}">
+                        <div class="form-group row">
+                            <div class="col-md-12" :class="{'has-error': errors.has('message')}">
                                 <label class="label" for="message">Message</label>
                                  <textarea v-model="form_data.message" v-validate="'required:true'" class="form-control" :class="{'input': true}" name="message" type="text" placeholder="Message" data-vv-delay="500"></textarea>
                                 <span v-show="errors.has('message')" class="form-control-feedback">{{ errors.first('message') }}</span>
