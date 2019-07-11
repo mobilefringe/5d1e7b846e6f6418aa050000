@@ -16,7 +16,7 @@ require.config({
         'js-cookie': 'https://cdnjs.cloudflare.com/ajax/libs/js-cookie/2.1.4/js.cookie.min',
         'vue-meta': 'https://unpkg.com/vue-meta@1.0.4/lib/vue-meta.min',
         'Fuse': 'https://cdnjs.cloudflare.com/ajax/libs/fuse.js/3.0.4/fuse.min',
-        'datastore_mutation_types': 'https://preview-mmvue.codecloudapp.com/datastore_mutation_types',
+        'datastore_mutation_types': 'https://mmvue.codecloudapp.com/datastore_mutation_types',
         'datastore_getters': 'https://preview-mmvue.codecloudapp.com/datastore_getters',
         'datastore_actions': 'https://preview-mmvue.codecloudapp.com/datastore_actions',
         'datastore_mutations': 'https://preview-mmvue.codecloudapp.com/datastore_mutations',
