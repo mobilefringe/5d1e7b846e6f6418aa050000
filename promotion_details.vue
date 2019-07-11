@@ -1,54 +1,56 @@
 <template>
-    <div class="row main_container" v-if="currentPromo">
-        <div class="promo_main_header sub_title">
-            <span>{{ currentPromo.store.name | uppercase }}</span>
-            <router-link to="/promotions">Back to Sales & Promos</router-link>
-        </div>
-        <div class="row mobile_padding" id="promo_details_container">
-            <div class="col-md-4 col-sm-4">
-                <img :src="currentPromo.image_url"  alt="Store Logo" class="details_image image" />
+    <div class="main_container" v-if="currentPromo">
+        <div class="margin_25_across">
+            <div class="promo_main_header sub_title">
+                <span>{{ currentPromo.store.name | uppercase }}</span>
+                <router-link to="/promotions">Back to Sales & Promos</router-link>
             </div>
-            <div class="col-md-8 col-sm-8" style="padding-bottom: 15px;">
-                <h2 class="promo_list_name">{{currentPromo.name}}</h2>
-                <p class="promo_dates sub_title" v-if="isMultiDay(currentPromo)">
-                    {{ currentPromo.start_date | moment("MMM D", timezone) }} - {{ currentPromo.end_date | moment("MMM D", timezone) }}
-                </p>
-                <p class="promo_dates sub_title" v-else>{{  currentPromo.start_date | moment("MMM D", timezone)}}
-                <div class="store_details_desc" v-html="currentPromo.rich_description"></div>
-                <social-sharing :url="shareURL(currentPromo.slug)" :title="currentPromo.title" :description="currentPromo.body" :quote="truncate(currentPromo.description)" twitter-user="ShopCanyonCrest" :media="currentPromo.image_url" inline-template>
-                    <div class="blog-social-share">
-                        <h5 class="all_caps">Share this Promotion</h5>
-                        <div class="social_share">
-                            <network network="facebook">
-                                <img src="//codecloud.cdn.speedyrails.net/sites/5a1f136e6e6f6472c6240000/image/png/1512057980767/fb@2x_whiteborder.png" class="" alt="">
-                            </network>
-                            <network network="twitter">
-                                <img src="//codecloud.cdn.speedyrails.net/sites/5a1f136e6e6f6472c6240000/image/png/1512058120246/twt@2x_whiteborder.png" class="" alt="">
-                            </network>
+            <div class="row mobile_padding" id="promo_details_container">
+                <div class="col-md-4 col-sm-4">
+                    <img :src="currentPromo.image_url"  alt="Store Logo" class="details_image image" />
+                </div>
+                <div class="col-md-8 col-sm-8" style="padding-bottom: 15px;">
+                    <h2 class="promo_list_name">{{currentPromo.name}}</h2>
+                    <p class="promo_dates sub_title" v-if="isMultiDay(currentPromo)">
+                        {{ currentPromo.start_date | moment("MMM D", timezone) }} - {{ currentPromo.end_date | moment("MMM D", timezone) }}
+                    </p>
+                    <p class="promo_dates sub_title" v-else>{{  currentPromo.start_date | moment("MMM D", timezone)}}
+                    <div class="store_details_desc" v-html="currentPromo.rich_description"></div>
+                    <social-sharing :url="shareURL(currentPromo.slug)" :title="currentPromo.title" :description="currentPromo.body" :quote="truncate(currentPromo.description)" twitter-user="ShopCanyonCrest" :media="currentPromo.image_url" inline-template>
+                        <div class="blog-social-share">
+                            <h5 class="all_caps">Share this Promotion</h5>
+                            <div class="social_share">
+                                <network network="facebook">
+                                    <img src="//codecloud.cdn.speedyrails.net/sites/5a1f136e6e6f6472c6240000/image/png/1512057980767/fb@2x_whiteborder.png" class="" alt="">
+                                </network>
+                                <network network="twitter">
+                                    <img src="//codecloud.cdn.speedyrails.net/sites/5a1f136e6e6f6472c6240000/image/png/1512058120246/twt@2x_whiteborder.png" class="" alt="">
+                                </network>
+                            </div>
                         </div>
-                    </div>
-                </social-sharing>
+                    </social-sharing>
+                </div>
             </div>
-        </div>
-        <div class="promo_main_header sub_title" v-if="storePromos.length > 0" style="border-top: 1px solid #000;">
-               OTHER {{currentPromo.store.name | uppercase }} PROMOTIONS
-        </div>
-        <div id="promos_container" v-if="storePromos">
-            <div class="col-md-6 col-sm-6 no_padding" v-for="promo in storePromos" :data-cat="promo.cat_list">
-                <div class="promo_item cats_row is-table-row">
-                    <div class="col-md-5 col-xs-4 no_padding">
-                        <img class="promo_store_image" :src="promo.store.store_front_url_abs" :alt="promo.name" />
-                    </div>
-                    <div class="col-md-7 padding_tb_20">
-                        <router-link :to="'/promotions/'+promo.slug" class="">
-                            <h2 class="promo_list_name">{{promo.name}}</h2>
-                        </router-link>
-                        <p>
-                            <span class="promo_dates sub_title">{{promo.start_date | moment("MMM D", timezone)}} - {{promo.end_date | moment("MMM D", timezone)}}</span>
-                        </p>
-                        <div class="promo_list_desc hidden_phone">{{promo.description_short }}</div>
-                        <div class="text_center position_relative hidden_phone">
-                            <router-link :to="'/promotions/'+promo.slug" class="animated_btn text_center">Read More</router-link>
+            <div class="promo_main_header sub_title" v-if="storePromos.length > 0" style="border-top: 1px solid #000;">
+                   OTHER {{currentPromo.store.name | uppercase }} PROMOTIONS
+            </div>
+            <div id="promos_container" v-if="storePromos">
+                <div class="col-md-6 col-sm-6 no_padding" v-for="promo in storePromos" :data-cat="promo.cat_list">
+                    <div class="promo_item cats_row is-table-row">
+                        <div class="col-md-5 col-xs-4 no_padding">
+                            <img class="promo_store_image" :src="promo.store.store_front_url_abs" :alt="promo.name" />
+                        </div>
+                        <div class="col-md-7 padding_tb_20">
+                            <router-link :to="'/promotions/'+promo.slug" class="">
+                                <h2 class="promo_list_name">{{promo.name}}</h2>
+                            </router-link>
+                            <p>
+                                <span class="promo_dates sub_title">{{promo.start_date | moment("MMM D", timezone)}} - {{promo.end_date | moment("MMM D", timezone)}}</span>
+                            </p>
+                            <div class="promo_list_desc hidden_phone">{{promo.description_short }}</div>
+                            <div class="text_center position_relative hidden_phone">
+                                <router-link :to="'/promotions/'+promo.slug" class="animated_btn text_center">Read More</router-link>
+                            </div>
                         </div>
                     </div>
                 </div>
