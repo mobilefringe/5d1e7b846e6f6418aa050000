@@ -80,8 +80,7 @@
 </template>
 
 <script>
-    define(["Vue", "vuex","moment", "moment-timezone", "vue-moment", "vue-meta", 'vee-validate'], function(Vue, Vuex, moment, tz, VueMoment, Meta, VeeValidate) {
-        Vue.use(Meta);
+    define(["Vue", "vuex", "moment", "moment-timezone", "vue-moment", "vee-validate"], function(Vue, Vuex, moment, tz, VueMoment, VeeValidate) {
         Vue.use(VeeValidate);
         return Vue.component("contact-us-component", {
             template: template, // the variable template will be injected
