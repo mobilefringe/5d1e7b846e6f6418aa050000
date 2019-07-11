@@ -10,6 +10,7 @@
                     <img :src="currentNews.image_url"  alt="Store Logo" class="details_image" />
                 </div>
                 <div class="col-md-8 col-sm-8" style="padding-bottom: 15px;">
+                    <p class="promo_dates sub_title">{{ property.name | uppercase }}</p>
                     <h2 class="promo_list_name">{{currentNews.name}}</h2>
                     <p class="promo_dates sub_title" v-if="isMultiDay(currentNews)">
                         {{ currentNews.start_date | moment("MMMM D", timezone) }} - {{ currentNews.end_date | moment("MMMM D", timezone) }}
