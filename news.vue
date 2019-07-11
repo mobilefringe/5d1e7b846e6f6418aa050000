@@ -3,8 +3,8 @@
         <div id="promotions_container" class="margin_25_across">
             <h1 class="inside_heading">Exclusive Events at {{ property.name}}!</h1>
             <h2 class="inside_subheading">Join us to celebrate and enjoy!</h2>
-            <div class="row" v-if="events.length > 0">
-                <div class="col-sm-6 col-md-4" v-for="(item, index) in events">
+            <div class="row" v-if="news.length > 0">
+                <div class="col-sm-6 col-md-4" v-for="(item, index) in news">
                     <hr class="show_phone">
                     <div class="promo_list_container text_center">
                         <div class="promo_list_img_container">
@@ -21,7 +21,7 @@
             </div>
             <div class="row" v-else>
                 <div class="col-sm-12">
-                    <p>There are currently no Events scheduled. Please check back soon!</p>
+                    <p>There are currently no News postings scheduled. Please check back soon!</p>
                 </div>
             </div>
             <div class="padding_top_40"></div>
@@ -31,7 +31,7 @@
 
 <script>
     define(["Vue", "vuex", "moment", "moment-timezone", "vue-moment"], function(Vue, Vuex, moment, tz, VueMoment) {
-        return Vue.component("events-component", {
+        return Vue.component("news-component", {
             template: template, // the variable template will be injected
             data: function() {
                 return {
@@ -39,7 +39,7 @@
                 }
             },
             created () {
-                this.$store.dispatch("getData", "events").then(response => {
+                this.$store.dispatch("getData", "news").then(response => {
                     this.dataloaded = true;
                 }, error => {
                     console.error("Could not retrieve data from server. Please check internet connection and try again.");
@@ -49,12 +49,12 @@
                 ...Vuex.mapGetters([
                     'property',
                     'timezone',
-                    'processedEvents',
+                    'processedNews'
                 ]),
-                events() {
+                news() {
                     var vm = this;
                     var temp_event = [];
-                    _.forEach(this.processedEvents, function(value, key) {
+                    _.forEach(this.processedNews, function(value, key) {
                         today = moment().tz(vm.timezone);
                         webDate = moment(value.show_on_web_date).tz(vm.timezone);
                         if (today.format() >= webDate.format()) {
@@ -72,7 +72,7 @@
                     });
                     temp_event = _.sortBy(temp_event, [function(o) { return o.event_date; }]);
                     return temp_event;
-                },
+                }
             },
             methods: {
                 isMultiDay(item) {
