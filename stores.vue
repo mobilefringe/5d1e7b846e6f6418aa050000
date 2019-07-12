@@ -9,7 +9,7 @@
                 </div>
 				<div class="col-sm-6 col-md-4">
 					<div class="store_search">
-						<search-component :list="allStores" placeholder="Find Your Store" suggestion-attribute="name" v-model="search_result" @select="onOptionSelect" class="text-left" :keys="['name']" :tokenize="true">
+						<search-component id="storeSearch":list="allStores" placeholder="Find Your Store" suggestion-attribute="name" v-model="search_result" @select="onOptionSelect" class="text-left" :keys="['name']" :tokenize="true">
 							<template slot="item" scope="option" class="manual">
 								<article class="media">
 									<p>
