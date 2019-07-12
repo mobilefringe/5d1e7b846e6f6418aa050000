@@ -10,6 +10,7 @@
                     <img :src="currentEvent.image_url"  alt="Store Logo" class="details_image" />
                 </div>
                 <div class="col-md-8 col-sm-8" style="padding-bottom: 15px;">
+                    <p class="promo_dates sub_title">{{ property.name | uppercase }}</p>
                     <h2 class="promo_list_name">{{currentEvent.name}}</h2>
                     <p class="promo_dates sub_title" v-if="isMultiDay(currentEvent)">
                         {{ currentEvent.start_date | moment("MMMM D", timezone) }} - {{ currentEvent.end_date | moment("MMMM D", timezone) }}
@@ -19,13 +20,13 @@
                     <div class="padding_tb_20">
                         <social-sharing :url="shareURL(currentEvent.slug)" :title="currentEvent.title" :description="currentEvent.description" :quote="truncate(currentEvent.description)" twitter-user="ShopCanyonCrest" :media="currentEvent.image_url" inline-template>
                             <div class="blog-social-share">
-                                <h5 class="all_caps">Share this event</h5>
+                                <h5 class="all_caps">Share this Event</h5>
                                 <div class="social_share">
                                     <network network="facebook">
-                                        <img src="//codecloud.cdn.speedyrails.net/sites/5a1f136e6e6f6472c6240000/image/png/1512057980767/fb@2x_whiteborder.png" class="" alt="">
+                                        <img src="//codecloud.cdn.speedyrails.net/sites/5a1f136e6e6f6472c6240000/image/png/1512057980767/fb@2x_whiteborder.png" alt="Share on Facebook">
                                     </network>
                                     <network network="twitter">
-                                        <img src="//codecloud.cdn.speedyrails.net/sites/5a1f136e6e6f6472c6240000/image/png/1512058120246/twt@2x_whiteborder.png" class="" alt="">
+                                        <img src="//codecloud.cdn.speedyrails.net/sites/5a1f136e6e6f6472c6240000/image/png/1512058120246/twt@2x_whiteborder.png" alt="Share on Twitter">
                                     </network>
                                 </div>
                             </div>
