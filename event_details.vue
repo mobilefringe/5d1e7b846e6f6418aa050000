@@ -11,7 +11,10 @@
                 </div>
                 <div class="col-md-8 col-sm-8" style="padding-bottom: 15px;">
                     <h2 class="promo_list_name">{{currentEvent.name}}</h2>
-                    <p class="promo_dates sub_title">{{currentEvent.start_date | moment("MMM D", timezone)}} - {{currentEvent.end_date | moment("MMM D", timezone)}}</p>
+                    <p class="promo_dates sub_title" v-if="isMultiDay(currentPromo)">
+                        {{ currentPromo.start_date | moment("MMMM D", timezone) }} - {{ currentPromo.end_date | moment("MMMM D", timezone) }}
+                    </p>
+                    <p class="promo_dates sub_title" v-else>{{  currentPromo.start_date | moment("MMMM D", timezone)}}</p>
                     <div class="store_details_desc" v-html="currentEvent.rich_description"></div>
                     <div class="padding_tb_20">
                         <social-sharing :url="shareURL(currentEvent.slug)" :title="currentEvent.title" :description="currentEvent.description" :quote="truncate(currentEvent.description)" twitter-user="ShopCanyonCrest" :media="currentEvent.image_url" inline-template>
@@ -142,6 +145,16 @@
                         this.$router.replace('/');
                     }
                 },
+                isMultiDay(currentPromo) {
+					var timezone = this.timezone
+					var start_date = moment(currentPromo.start_date).tz(timezone).format("MM-DD-YYYY")
+					var end_date = moment(currentPromo.end_date).tz(timezone).format("MM-DD-YYYY")
+					if (start_date === end_date) {
+						return false
+					} else {
+						return true
+					}
+				},
                 truncate(val_body) {
                     var truncate = _.truncate(val_body, {
                         'length': 99,
