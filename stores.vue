@@ -37,7 +37,7 @@
 				</div>
 			</div>
 			<div class="row">
-				<div id="store_list_container">
+				<div class="col-md-12" id="store_list_container">
 				    <store-masonry :filteredStores="filteredStores"></store-masonry>
 				</div>
 			</div>
