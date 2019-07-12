@@ -19,7 +19,7 @@
                     <div class="padding_tb_20">
                         <social-sharing :url="shareURL(currentEvent.slug)" :title="currentEvent.title" :description="currentEvent.description" :quote="truncate(currentEvent.description)" twitter-user="ShopCanyonCrest" :media="currentEvent.image_url" inline-template>
                             <div class="blog-social-share">
-                                <h5>Share this event</h5>
+                                <h5 class="all_caps">Share this event</h5>
                                 <div class="social_share">
                                     <network network="facebook">
                                         <img src="//codecloud.cdn.speedyrails.net/sites/5a1f136e6e6f6472c6240000/image/png/1512057980767/fb@2x_whiteborder.png" class="" alt="">
