@@ -68,7 +68,7 @@
                         this.currentEvent.store.store_front_url_abs =  this.property.default_logo_url;
                     }
                     
-                    if (this.currentEvent.image_url != null || this.currentEvent.image_url != undefined || _.includes(this.currentEvent.image_url, 'missing')){
+                    if (this.currentEvent.image_url != null && this.currentEvent.image_url != undefined && _.includes(this.currentEvent.image_url, 'missing')){
                         this.currentEvent.image_url =  this.property.default_logo_url;
                     }
                 }
