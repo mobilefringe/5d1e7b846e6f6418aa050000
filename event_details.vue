@@ -34,30 +34,6 @@
                     </div>
                 </div>
             </div>
-            <div class="promo_main_header sub_title" v-if="storePromos.length > 0 && property" style="border-top: 1px solid #000;">
-                   OTHER {{property.name | uppercase }} EVENTS
-            </div>
-            <div id="promos_container" v-if="storePromos">
-                <div class="col-md-6 col-sm-6 no_padding" v-for="promo in storePromos" :data-cat="promo.cat_list">
-                    <div class="promo_item cats_row">
-                        <div class="col-md-5 col-xs-4 no_padding">
-                            <img class="promo_store_image" :src="promo.store.store_front_url_abs" :alt="promo.name" />
-                        </div>
-                        <div class="col-md-7 padding_tb_20">
-                            <router-link :to="{ name: 'eventDetails', params: { id: promo.slug }}" class="">
-                                <h2 class="promo_list_name">{{promo.name}}</h2>
-                            </router-link>
-                            <p>
-                                <span class="promo_dates sub_title">{{promo.start_date | moment("MMM D", timezone)}} - {{promo.end_date | moment("MMM D", timezone)}}</span>
-                            </p>
-                            <div class="promo_list_desc hidden_phone">{{promo.description_short }}</div>
-                            <div class="text_center position_relative hidden_phone">
-                                <router-link :to="{ name: 'eventDetails', params: { id: promo.slug }}" class="animated_btn text_center">Read More</router-link>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
         </div>
         <div class="padding_top_40"></div>
     </div>
@@ -70,46 +46,31 @@
             props:['id'],
             data: function() {
                 return {
-                    currentEvent: null,
-                    success_subscribe: false,
-                    storePromos: null
+                    currentEvent: null
                 }
             },
             created(){
                 this.$store.dispatch("getData", "events").then(response => {
                     this.updateCurrentEvent(this.id);
                 }, error => {
-                  console.error("Could not retrieve data from server. Please check internet connection and try again.");
+                    console.error("Could not retrieve data from server. Please check internet connection and try again.");
                 });
             },
             watch: {
+                $route : function () {
+                    this.updateCurrentEvent(this.$route.params.id);
+                },
                 currentEvent: function() {
-                    if(this.currentEvent.store !== null && this.currentEvent.store !== undefined && _.includes(this.currentEvent.store.store_front_url_abs, 'missing')) {
+                    if (this.currentEvent.store !== null && this.currentEvent.store !== undefined && _.includes(this.currentEvent.store.store_front_url_abs, 'missing')) {
                         this.currentEvent.store.store_front_url_abs =  this.property.default_logo_url;
-                    }
-                    else if (this.currentEvent.store == null && this.currentEvent.store == undefined) {
+                    } else if (this.currentEvent.store == null && this.currentEvent.store == undefined) {
                         this.currentEvent.store = {};
                         this.currentEvent.store.store_front_url_abs =  this.property.default_logo_url;
                     }
-                    if(this.currentEvent.image_url != null && this.currentEvent.image_url != undefined && _.includes(this.currentEvent.image_url, 'missing')){
+                    
+                    if (this.currentEvent.image_url != null || this.currentEvent.image_url != undefined || _.includes(this.currentEvent.image_url, 'missing')){
                         this.currentEvent.image_url =  this.property.default_logo_url;
                     }
-                    var vm = this;
-                    var temp_promo = [];
-                    var current_id = _.toNumber(this.currentEvent.id);
-                    _.forEach(this.allEvents, function(value, key) {
-                        if (_.toNumber(value.id) != current_id) {
-                            var current_promo = vm.findEventById(value.id);
-                            current_promo.description_short = _.truncate(current_promo.description, {
-                                'length': 50
-                            });
-                            temp_promo.push(current_promo);
-                        }
-                    });
-                    this.storePromos = temp_promo;
-                },
-                $route : function () {
-                    this.updateCurrentEvent(this.$route.params.id);
                 }
             },
             computed: {
@@ -119,25 +80,7 @@
                     'processedEvents',
                     'findEventBySlug',
                     'findEventById'
-                ]),
-                allEvents() {
-                    var events = this.processedEvents;
-                    var vm = this;
-                    events.map(event => {
-                        if(event.store != null && event.store != undefined && _.includes(event.store.store_front_url_abs, 'missing')){
-                            event.store.store_front_url_abs =  vm.property.default_logo_url;
-                        }
-                        else if (event.store == null && event.store == undefined) {
-                            event.store = {};
-                            event.store.store_front_url_abs =  vm.property.default_logo_url;
-                        }
-                        
-                        if(event.image_url != null && event.image_url != undefined && _.includes(event.image_url, 'missing')){
-                            event.image_url =  event.store.store_front_url_abs
-                        }
-                    });
-                    return events;
-                },
+                ])
             },
             methods: {
                 updateCurrentEvent (id) {
