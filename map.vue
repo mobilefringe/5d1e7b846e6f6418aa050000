@@ -107,7 +107,7 @@
                 mapStores() {
                     var all_stores = this.processedStores;
                     _.forEach(all_stores, function(value, key) {
-                        value.zoom = 2;
+                        value.zoom = 1;
                         if (value.svgmap_region == null) {
                             value.svgmap_region = value.id;
                         }
