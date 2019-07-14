@@ -15,7 +15,7 @@
                     <div class="map_storelist hidden_phone">
                         <v-select :options="mapStores" :placeholder="'Select A Store'" :searchable="false" :label="'name'" :on-change="dropPin"></v-select>
                     </div>
-                    <mapplic-map ref="mapplic_ref" :height="700" :minimap= "false" :deeplinking="false" :sidebar="false" :hovertip="true" :maxscale= "5" :storelist="mapStores" :floorlist="floorList" :svgWidth="2500" :svgHeight="2500" tooltiplabel="Info"></mapplic-map>
+                    <mapplic-map ref="mapplic_ref" :height="700" :minimap= "false" :deeplinking="false" :sidebar="false" :hovertip="true" :maxscale= "5" :storelist="mapStores" :floorlist="floorList" :svgWidth="2500" :svgHeight="2500" tooltiplabel="View Details"></mapplic-map>
                 </div>
             </div>
             <div class="padding_top_40"></div>
