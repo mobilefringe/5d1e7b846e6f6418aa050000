@@ -1,5 +1,5 @@
 <template>
-    <div class="main_container"> <!-- without an outer container div this component template will not render -->
+    <div class="main_container" v-if="dataLoaded"> <!-- without an outer container div this component template will not render -->
         <div class="margin_25_across">
             <div class="row">
                 <div class="col-md-12">
@@ -40,21 +40,22 @@
             template: template, // the variable template will be injected
             data: function() {
                 return {
+                    dataLoaded: false,
                     listMode: "alphabetical",
                     selectedCat: null,
                     selectedAlpha: "All",
                     
                     filteredStores: null,
-                    dataloaded: false,
+                    
                     mobile_store: false,
                     windowWidth: 0,
-                    storeBanner : null,
+                    
                     search_result : null,
                 }
             },
             created (){
                 this.loadData().then(response => {
-                    this.dataloaded = true;
+                    this.dataLoaded = true;
                 });
             },
             watch: {
