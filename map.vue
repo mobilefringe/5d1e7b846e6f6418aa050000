@@ -8,7 +8,7 @@
                 </div>
             </div>
             <div class="row">
-                <div class="col-sm-12">
+                <div class="col-md-12">
                     <div class="select_container map_storelist show_phone">
                         <v-select :options="mapStores" :placeholder="'Select A Store'" :searchable="false" :label="'name'" :on-change="dropPin" id="mobile_alpha_list"></v-select> 
                     </div>
