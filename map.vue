@@ -29,7 +29,7 @@
   .center{
     text-align: center
   }
-  .store-section a{
+  .store-section a {
     color: #708090;
   }
 </style>
@@ -55,22 +55,22 @@
                 getSVGurl () {
                     return "https://www.mallmaverick.com" + this.property.svgmap_url; 
                 },
-                regions () {
-                    var regions = {}
-                    _.forEach( this.processedStores , function( val, key ) {
-                        if(val.svgmap_region != null && typeof(val.svgmap_region)  != 'undefined'){
-                            if(!val.store_front_url_abs ||  val.store_front_url_abs.indexOf('missing.png') > -1 || val.store_front_url_abs.length === 0){
-                                val.store_front_url_abs = '//codecloud.cdn.speedyrails.net/sites/55ddf3f86e6f640775000000/a22fcf023d728855c6f575ba100806d7/default.jpg';
-                            }
-                            obj = {};
-                            obj["tooltip"] = "<p class='tooltip_name'>"+val.name+"</p>";
-                            obj["attr"] = {};
-                            obj["attr"]["href"] = "/stores/"+val.slug;
-                            regions[val.svgmap_region] = obj;
-                        }
-                    });
-                    return regions;
-                },
+                // regions () {
+                //     var regions = {}
+                //     _.forEach( this.processedStores , function( val, key ) {
+                //         if (val.svgmap_region != null && typeof(val.svgmap_region)  != 'undefined') {
+                //             if (!val.store_front_url_abs ||  val.store_front_url_abs.indexOf('missing.png') > -1 || val.store_front_url_abs.length === 0) {
+                //                 val.store_front_url_abs = '//codecloud.cdn.speedyrails.net/sites/55ddf3f86e6f640775000000/a22fcf023d728855c6f575ba100806d7/default.jpg';
+                //             }
+                //             obj = {};
+                //             obj["tooltip"] = "<p class='tooltip_name'>"+val.name+"</p>";
+                //             obj["attr"] = {};
+                //             obj["attr"]["href"] = "/stores/"+val.slug;
+                //             regions[val.svgmap_region] = obj;
+                //         }
+                //     });
+                //     return regions;
+                // },
                 floorList () {
                     var floor_list = [];
                     
