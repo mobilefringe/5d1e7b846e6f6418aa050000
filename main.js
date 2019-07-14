@@ -201,20 +201,12 @@ require(['Vue', 'vuex', 'vue2-filters', 'vue_router', 'routes', 'datastore', 'vu
             },
             allStores() {
                 return this.processedStores;
-            },
-            // magazine_url() {
-            //     if( this.$store.state.repos) {
-            //         var temp_repo = this.findRepoByName('Magazine PDFs');
-            //         if(temp_repo && temp_repo.images) {
-            //             return temp_repo.images[0];
-            //         }
-            //     }
-            // }
+            }
         },
         methods: {
             loadData: async function() {
                 try {
-                    await this.$store.dispatch('initializeApi', { site: "kanata", version: "v4" });
+                    await this.$store.dispatch('initializeApi', { site: "sudburycentre", version: "v4" });
                     await Promise.all([this.$store.dispatch("getData", "property")]);
                     this.property.mm_host = this.property.mm_host.replace("http:", "");
                     this.property.name = "Kanata Central BIA"
