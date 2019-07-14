@@ -1,19 +1,20 @@
 <template>
-    <div class="main_container"> <!-- for some reason if you do not put an outer container div this component template will not render -->
+    <div class="main_container"> <!-- without an outer container div this component template will not render -->
         <div class="margin_25_across">
             <div class="row">
                 <div class="col-md-12">
                     <h1 class="inside_heading">{{ property.name }} Map</h1>
+                    <h2 class="inside_subheading">Join us to celebrate and enjoy!</h2>
                 </div>
             </div>
-                <div class="select_container show_phone">
-                    <v-select :options="allStores" :placeholder="'Select A Store'" :searchable="false" :label="'name'" :on-change="dropPin" id="mobile_alpha_list"></v-select> 
-                </div>
             <div class="row">
                 <div class="col-sm-12">
+                    <div class="select_container show_phone">
+                        <v-select :options="allStores" :placeholder="'Select A Store'" :searchable="false" :label="'name'" :on-change="dropPin" id="mobile_alpha_list"></v-select> 
+                    </div>
                     <div class="map_container">
                         <div class="map_storelist hidden_phone">
-                            <v-select :options="allStores" :placeholder="'Select A Store'" :searchable="false" :label="'name'" :on-change="dropPin"></v-select>                         </div>
+                        <v-select :options="allStores" :placeholder="'Select A Store'" :searchable="false" :label="'name'" :on-change="dropPin"></v-select>                         </div>
                     </div>
                     <div>
                         <mapplic-map ref="mapplic_ref" :height="700" :minimap= "false" :deeplinking="false" :sidebar="false" :hovertip="true" :maxscale= "5" :storelist="allStores" :floorlist="floorList" :svgWidth="2000" :svgHeight="2000" tooltiplabel="Info" :svgId="'Layer_1'"></mapplic-map>
@@ -52,8 +53,7 @@
                     return this.processedStores;
                 },
                 getSVGurl () {
-                    console.log("this.property.svgmap_url", this.property.svgmap_url)
-                    return "https://www.mallmaverick.com" + this.property.svgmap_url; //"https://www.mallmaverick.com/system/site_images/photos/000/037/217/original/Canyon_Crest_-_Map_-_Mar-02-2018_-_Presentation_Attributes.svg";//"https://www.mallmaverick.com" + this.property.svgmap_url.split("?")[0];
+                    return "https://www.mallmaverick.com" + this.property.svgmap_url; 
                 },
                 regions () {
                     var regions = {}
