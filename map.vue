@@ -17,7 +17,7 @@
                         <v-select :options="mapStores" :placeholder="'Select A Store'" :searchable="false" :label="'name'" :on-change="dropPin"></v-select>                         </div>
                     </div>
                     <div>
-                        <mapplic-map ref="mapplic_ref" :height="700" :minimap= "false" :deeplinking="false" :sidebar="false" :hovertip="true" :maxscale= "5" :storelist="mapStores" :floorlist="floorList" :svgWidth="2000" :svgHeight="2000" tooltiplabel="Info" :svgId="'Layer_1'"></mapplic-map>
+                        <mapplic-map ref="mapplic_ref" :height="700" :minimap= "false" :deeplinking="false" :sidebar="false" :hovertip="true" :maxscale= "5" :storelist="mapStores" :floorlist="floorList" :svgWidth="2500" :svgHeight="2500" tooltiplabel="Info"></mapplic-map>
                     </div>
                 </div>
             </div>
