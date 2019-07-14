@@ -10,14 +10,14 @@
             <div class="row">
                 <div class="col-sm-12">
                     <div class="select_container show_phone">
-                        <v-select :options="allStores" :placeholder="'Select A Store'" :searchable="false" :label="'name'" :on-change="dropPin" id="mobile_alpha_list"></v-select> 
+                        <v-select :options="mapStores" :placeholder="'Select A Store'" :searchable="false" :label="'name'" :on-change="dropPin" id="mobile_alpha_list"></v-select> 
                     </div>
                     <div class="map_container">
                         <div class="map_storelist hidden_phone">
-                        <v-select :options="allStores" :placeholder="'Select A Store'" :searchable="false" :label="'name'" :on-change="dropPin"></v-select>                         </div>
+                        <v-select :options="mapStores" :placeholder="'Select A Store'" :searchable="false" :label="'name'" :on-change="dropPin"></v-select>                         </div>
                     </div>
                     <div>
-                        <mapplic-map ref="mapplic_ref" :height="700" :minimap= "false" :deeplinking="false" :sidebar="false" :hovertip="true" :maxscale= "5" :storelist="allStores" :floorlist="floorList" :svgWidth="2000" :svgHeight="2000" tooltiplabel="Info" :svgId="'Layer_1'"></mapplic-map>
+                        <mapplic-map ref="mapplic_ref" :height="700" :minimap= "false" :deeplinking="false" :sidebar="false" :hovertip="true" :maxscale= "5" :storelist="mapStores" :floorlist="floorList" :svgWidth="2000" :svgHeight="2000" tooltiplabel="Info" :svgId="'Layer_1'"></mapplic-map>
                     </div>
                 </div>
             </div>
@@ -43,7 +43,7 @@
                     listMode: "alphabetical",
                     selectedCat: null,
                     selectedAlpha: "All",
-                    alphabet: ["All", "A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"],
+                    
                     filteredStores: null,
                     dataloaded: false,
                     mobile_store: false,
@@ -55,16 +55,6 @@
             created (){
                 this.loadData().then(response => {
                     this.dataloaded = true;
-                    this.filteredStores = this.allStores;
-
-                    var temp_repo = this.findRepoByName('Map Banner');
-                    if(temp_repo && temp_repo.images) {
-                        this.pageBanner = temp_repo.images[0];
-                    }
-                    else {
-                        this.pageBanner = {};
-                        this.pageBanner.image_url = "";
-                    }
                 });
             },
             watch: {
@@ -74,7 +64,7 @@
                     } else {
                         this.mobile_store = false;
                     }
-                },
+                }
             },
             mounted() {
                 this.$nextTick(function() {
@@ -87,31 +77,10 @@
                 ...Vuex.mapGetters([
                     'property',
                     'timezone',
-                    'processedStores',
-                    'findRepoByName'
+                    'processedStores'
                 ]),
-                allStores() {
-                    var all_stores = this.processedStores;
-                    _.forEach(all_stores, function(value, key) {
-                        value.zoom = 2;
-                    });
-                    return all_stores;
-                },
-                mapStores() {
-                    var all_stores = this.processedStores;
-                    _.forEach(all_stores, function(value, key) {
-                        value.zoom = 2;
-                        if(value.svgmap_region == null){
-                            value.svgmap_region = value.id;
-                        }
-                    });
-                    return all_stores;
-                },
-                storeNames () {
-                    return _.map(this.processedStores, 'name');
-                },
                 getSVGMap(){
-                  return "//mallmaverick.com"+this.property.svgmap_url;  
+                  return "//mallmaverick.com" + this.property.svgmap_url;  
                 },
                 floorList () {
                     var floor_list = [];
@@ -124,12 +93,25 @@
                     floor_list.push(floor_1);
                     
                     return floor_list;
+                },
+                mapStores() {
+                    var all_stores = this.processedStores;
+                    _.forEach(all_stores, function(value, key) {
+                        value.zoom = 2;
+                        if (value.svgmap_region == null) {
+                            value.svgmap_region = value.id;
+                        }
+                    });
+                    return all_stores;
                 }
             },
             methods: {
                 loadData: async function() {
                     try {
-                        let results = await Promise.all([this.$store.dispatch("getData", "categories"), this.$store.dispatch("getData", "repos")]);
+                        let results = await Promise.all([
+                            this.$store.dispatch("getData", "categories"), 
+                            this.$store.dispatch("getData", "repos")
+                        ]);
                     } catch (e) {
                         console.log("Error loading data: " + e.message);
                     }
@@ -143,11 +125,11 @@
                 onOptionSelect(option) {
                     this.search_result = "";
                     this.dropPin(option);
-                },
+                }
             },
             beforeDestroy: function() {
                 window.removeEventListener('resize', this.getWindowWidth);
-            },
+            }
         });
     });
 </script>
