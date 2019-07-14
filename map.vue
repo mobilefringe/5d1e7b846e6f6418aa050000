@@ -30,7 +30,7 @@
                     </div>
                     <mapplic-map v-if="!isMobile" ref="mapplic_ref" :height="700" :minimap= "false" :deeplinking="false" :sidebar="false" :hovertip="true" :maxscale= "5" :storelist="mapStores" :floorlist="floorList" :svgWidth="2500" :svgHeight="2500" tooltiplabel="View Details"></mapplic-map>
                     
-                    <mapplic-map v-if="isMobile" ref="mapplic_ref" :height="350" :minimap= "false" :deeplinking="false" :sidebar="false" :hovertip="true" :maxscale= "5" :storelist="mapStores" :floorlist="floorList" :svgWidth="2500" :svgHeight="2500" tooltiplabel="View Details"></mapplic-map>
+                    <mapplic-map v-if="isMobile" ref="mapplic_ref" :height="375" :minimap= "false" :deeplinking="false" :sidebar="false" :hovertip="true" :maxscale= "5" :storelist="mapStores" :floorlist="floorList" :svgWidth="2500" :svgHeight="2500" tooltiplabel="View Details"></mapplic-map>
                 </div>
             </div>
             <div class="padding_top_40"></div>
