@@ -52,16 +52,11 @@
             data: function() {
                 return {
                     dataLoaded: false,
-                    listMode: "alphabetical",
-                    selectedCat: null,
-                    selectedAlpha: "All",
-                    
-                    filteredStores: null,
+
                     
                     mobile_store: false,
                     windowWidth: 0,
-                    
-                    search_result : null,
+
                 }
             },
             created (){
@@ -76,6 +71,7 @@
                     } else {
                         this.mobile_store = false;
                     }
+                    console.log("width", this.windowWidth)
                 }
             },
             mounted() {
