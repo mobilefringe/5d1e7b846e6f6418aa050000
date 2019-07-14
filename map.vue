@@ -54,7 +54,7 @@
                     dataLoaded: false,
 
                     
-                    mobile_store: false,
+                    isMobile: false,
                     windowWidth: 0,
 
                 }
@@ -67,9 +67,9 @@
             watch: {
                 windowWidth: function() {
                     if (this.windowWidth <= 768) {
-                        this.mobile_store = true;
+                        this.isMobile = true;
                     } else {
-                        this.mobile_store = false;
+                        this.isMobile = false;
                     }
                     console.log("width", this.windowWidth)
                 }
