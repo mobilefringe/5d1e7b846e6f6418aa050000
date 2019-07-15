@@ -53,11 +53,8 @@
                             
                             <ul>
                                 <li v-for="(item, index) in menu_items">
-                                    <router-link :to="item.href" :id="item.id" class="all_caps">{{item.name}} </router-link>
+                                    <router-link :to="item.href" :id="item.id" class="all_caps">{{ item.name }}</router-link>
                                 </li>
-                                <!--<li>-->
-                                <!--    <router-link to="/map" id="map_link" class="all_caps"> Centre Map </router-link>-->
-                                <!--</li>-->
                             </ul>
                             <div class="tel_num" v-if="property">
                                 <a :href="'tel:'+property.contact_phone">{{property.contact_phone}}</a>
@@ -67,9 +64,11 @@
                             </div>
                             <div class="social_icons_menu show_phone text-center">
                                 <a href="https://www.facebook.com/kanatacentralBIA/" target="_blank">
+                                    <p class="accessibility">Follow us on Facebook</p>
                                     <img src="//codecloud.cdn.speedyrails.net/sites/5a1f136e6e6f6472c6240000/image/png/1512590798000/fb.png" alt="Follow Us On Facebook">
                                 </a>
                                 <a href="https://www.instagram.com/kanatacentralbia/" target="_blank">
+                                    <p class="accessibility">Follow us on Instagram</p>
                                     <img src="//codecloud.cdn.speedyrails.net/sites/5a1f136e6e6f6472c6240000/image/png/1512590798000/insta.png" class="" alt="Follow Us On Instagram">
                                 </a>
                             </div>
