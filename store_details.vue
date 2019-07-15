@@ -97,7 +97,6 @@
                                 <div class="col-md-7 padding_tb_20">
                                     <h2 class="promo_list_name">{{ promo.name }}</h2>
                                     <p class="promo_dates sub_title">{{ promo.start_date | moment("MMM D", timezone) }} - {{ promo.end_date | moment("MMM D", timezone) }}</p>
-                                    <div class="promo_list_desc hidden_phone">{{ promo.description_short }}</div>
                                     <div class="text_center position_relative hidden_phone">
                                         <router-link :to="'/promotions/' + promo.slug" class="animated_btn text_center">View Details</router-link>
                                     </div>
