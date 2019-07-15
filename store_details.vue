@@ -7,22 +7,22 @@
                         <span>{{ currentStore.name }}</span>
                         <div class="store_details_anchors">
                             <a href="/map">
-                                <span>
+                                <div>
                                     <tt>Map</tt>
                                     <img src="//codecloud.cdn.speedyrails.net/sites/5a1f136e6e6f6472c6240000/image/png/1520025071000/locationicon.png" class="map_icon" alt="">
-                                </span>
+                                </div>
                             </a>
                             <a id="promo_anchor" href="#promos_main" v-if="promotions.length > 0">
-                                <span>
+                                <div>
                                     <tt>Promos (<span>{{currentStore.total_published_promos}}</span>)</tt>
                                     <img src="//codecloud.cdn.speedyrails.net/sites/5a1f136e6e6f6472c6240000/image/png/1520025071000/tagicon.png" class="promo_icon" alt="">
-                                </span>
+                                </div>
                             </a>
                             <a id="job_anchor" href="#jobs_main" v-if="jobs.length > 0">
-                                <span>
+                                <div>
                                     <tt>Jobs (<span>{{currentStore.total_published_jobs}}</span>)</tt>
                                     <img src="//codecloud.cdn.speedyrails.net/sites/5a1f136e6e6f6472c6240000/image/png/1520025071000/careericon.png" class="job_icon" alt="jobs icon">
-                                </span>
+                                </div>
                             </a>
                         </div>
                     </div>
