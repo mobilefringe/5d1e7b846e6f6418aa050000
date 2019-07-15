@@ -134,7 +134,7 @@
 </template>
 
 <script>
-    define(["Vue", "vuex", "vue!mapplic-map"], function(Vue, Vuex, MapplicComponent) {
+    define(["Vue", "vuex", "vue!mapplic-map", "moment", "moment-timezone", "vue-moment"], function(Vue, Vuex, MapplicComponent, moment, tz, VueMoment) {
         return Vue.component("store-details-component", {
             template: template, // the variable template will be injected,
             data: function() {
