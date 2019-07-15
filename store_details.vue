@@ -75,8 +75,8 @@
                     <div class="row">
                         <div class="col-md-6">
                             <div class="row" v-for="hour in storeHours">
-                                <div class="col-md-6">{{ hour.day_of_week | moment("dddd", timezone) }}</div>
-                                <div class="col-md-6 text-right">
+                                <div class="col-xs-5 col-sm-6">{{ hour.day_of_week | moment("dddd", timezone) }}</div>
+                                <div class="col-xs-7 col-sm-6 text-right">
                                     <span v-if="hour.is_closed">Closed</span>
         						    <span v-else>{{ hour.open_time | moment("h:mm A", timezone) }} - {{ hour.close_time | moment("h:mm A", timezone) }}</span>
         					    </div>
