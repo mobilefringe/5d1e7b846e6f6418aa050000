@@ -45,7 +45,7 @@
             <div class="main_content_container" v-if="dataLoaded">
                 <transition name="custom-classes-transition" enter-active-class="animated slideInDown" leave-active-class="animated slideOutUp">
                     <div class="mobile_menu_container" v-show="show_mobile_menu">
-                        <div class="opened_mobile_menu" >
+                        <div class="opened_mobile_menu">
                             <div class="text-left" style="padding-bottom: 20px;border-bottom: 1px solid #fff;">
                                 <img src="//codecloud.cdn.speedyrails.net/sites/5a1f136e6e6f6472c6240000/image/png/1513273840666/mobile_menu_logo.png"  alt="">
                                 <img src="//codecloud.cdn.speedyrails.net/sites/5a1f136e6e6f6472c6240000/image/png/1513274154350/close_menu_icon.png" class="pull-right" alt="" style="margin-top: 10px;" id="close_menu" @click="show_mobile_menu = !show_mobile_menu">
@@ -56,8 +56,8 @@
                                     <router-link :to="item.href" :id="item.id" class="all_caps">{{ item.name }}</router-link>
                                 </li>
                             </ul>
-                            <div class="tel_num" v-if="property">
-                                <a :href="'tel:'+property.contact_phone">{{property.contact_phone}}</a>
+                            <div class="tel_num" v-if="property.contact_phone">
+                                <a :href="'tel:' + property.contact_phone">{{ property.contact_phone }}</a>
                             </div>
                             <div class="m_menu_today_hour" v-if="todays_hours">
                                Open Today: {{todays_hours.open_time | moment("h:mma", timezone)}} - {{todays_hours.close_time | moment("h:mma", timezone)}}
