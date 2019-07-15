@@ -31,7 +31,6 @@
                             <div id="map">
                                 <mapplic-map ref="mapplic_ref" :height="328" :minimap= "false" :deeplinking="false" :sidebar="false" :hovertip="true" :maxscale= "5" :storelist="[currentStore]" :floorlist="floorList" :svgWidth="2000" :svgHeight="2000" tooltiplabel="Info" action="none" :showPin="true" @updateMap="updateMap" :key="currentStore.id" :svgId="'Layer_1'"></mapplic-map>
                             </div>
-                            
                         </div>
                         <div class="col-md-4 col-sm-4">
                             <div class="image_container details_store_image">
@@ -47,13 +46,13 @@
                     </div>
                     <div class="row">
                         <div class="col-md-8 col-sm-8">
-                            <div class="store_details_desc hidden_phone">{{currentStore.description}}</div>
+                            <div class="store_details_desc hidden_phone">{{ currentStore.description }}</div>
                         </div>
                         <div class="col-md-4 col-sm-4">
                             <div class="side_stores">
                                 <div class="store_header_btns animated_btn" v-if="currentStore.phone">
                                     <a :href="'tel:' + currentStore.phone">
-                                        <span>{{currentStore.phone}}</span>
+                                        <span>{{ currentStore.phone }}</span>
                                         <i class="fa fa-phone"></i>
                                     </a>
                                 </div>
@@ -72,14 +71,12 @@
             </div>
             <div class="row">
                 <div class="col-md-12 promo_item" id="hours_main"  v-if="storeHours.length > 0 ">
-                    <h2 class="store_details_promo_heading sub_title">
-                       {{currentStore.name}} Hours
-                    </h2>
+                    <h2 class="store_details_promo_heading sub_title">{{ currentStore.name }} Hours</h2>
                     <div id="promos_container" class="col-sm-6 no_padding" style="color:#424242;">
                         <div class="no_padding" v-for="hour in storeHours">
-                            <span class="col-xs-4 text-left" style="padding-top:3px;">{{hour.day_of_week | moment("dddd", timezone)}}</span>
-                            <span v-if="hour.is_closed" class="col-xs-6 text-left" style="padding-top:3px;">Closed</span>
-    						<span v-else class="col-xs-6 text-left" style="padding-top:3px;">{{hour.open_time | moment("h A", timezone)}} - {{hour.close_time | moment("h A", timezone)}}</span>
+                            <span class="col-xs-4 text-left">{{ hour.day_of_week | moment("dddd", timezone) }}</span>
+                            <span v-if="hour.is_closed" class="col-xs-6 text-left">Closed</span>
+    						<span v-else class="col-xs-6 text-left">{{ hour.open_time | moment("h A", timezone) }} - {{ hour.close_time | moment("h A", timezone) }}</span>
                         </div>
                     </div>
                 </div>
