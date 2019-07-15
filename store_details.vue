@@ -96,7 +96,6 @@
                                 </div>
                                 <div class="col-md-7 padding_tb_20">
                                     <h2 class="promo_list_name text_center">{{ promo.name }}</h2>
-                                    
                                     <p class="promo_dates sub_title text_center" v-if="isMultiDay(promo)">{{promo.start_date | moment("MMM D", timezone)}} - {{promo.end_date | moment("MMM D", timezone)}}</p>
                                     <p class="promo_dates sub_title text_center" v-else>{{ promo.start_date | moment("MMM D", timezone)}}</p>
                                     <div class="text_center position_relative hidden_phone">
