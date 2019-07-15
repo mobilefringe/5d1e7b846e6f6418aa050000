@@ -251,8 +251,18 @@
                 updateMap () {
                     this.$refs.mapplic_ref.showLocation(this.currentStore.svgmap_region);
                     this.$refs.mapplic_ref.addActiveClass(this.currentStore.svgmap_region);
-                }
-            },
+                },
+                isMultiDay(item) {
+					var timezone = this.timezone
+					var start_date = moment(item.start_date).tz(timezone).format("MM-DD-YYYY")
+					var end_date = moment(item.end_date).tz(timezone).format("MM-DD-YYYY")
+					if (start_date === end_date) {
+						return false
+					} else {
+						return true
+					}
+				}
+            }
         });
     });
 </script>
