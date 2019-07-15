@@ -97,8 +97,8 @@
                                 <div class="col-md-7 padding_tb_20">
                                     <h2 class="promo_list_name text_center">{{ promo.name }}</h2>
                                     
-                                    <p class="top_promo_date text_center" v-if="isMultiDay(promo)">{{ promo.start_date | moment("MMMM D", timezone) }} - {{ promo.end_date | moment("MMMM D", timezone) }}</p>
-                                    <p class="top_promo_date text_center" v-else>{{ promo.start_date | moment("MMM D", timezone)}}</p>
+                                    <p class="promo_dates sub_title text_center" v-if="isMultiDay(promo)">{{promo.start_date | moment("MMM D", timezone)}} - {{promo.end_date | moment("MMM D", timezone)}}</p>
+                                    <p class="promo_dates sub_title text_center" v-else>{{ promo.start_date | moment("MMM D", timezone)}}</p>
                                     <div class="text_center position_relative hidden_phone">
                                         <router-link :to="'/promotions/' + promo.slug" class="animated_btn text_center">View Details</router-link>
                                     </div>
@@ -135,7 +135,7 @@
 </template>
 
 <script>
-    define(["Vue", "vuex", "vue!mapplic-map", "moment", "moment-timezone", "vue-moment"], function(Vue, Vuex, MapplicComponent, moment, tz, VueMoment) {
+    define(["Vue", "vuex", "vue!mapplic-map"], function(Vue, Vuex, MapplicComponent) {
         return Vue.component("store-details-component", {
             template: template, // the variable template will be injected,
             data: function() {
