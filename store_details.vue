@@ -130,8 +130,7 @@
 </template>
 
 <script>
-    define(["Vue","vuex", "vue!mapplic-map"], function(Vue, Vuex, MapplicComponent) {
-        //  define(["Vue","vuex", "jquery", "Raphael", "mm_mapsvg","mousewheel","vue!svg-map", "vue2-filters"], function(Vue, Vuex, $, Raphael, mapSvg,mousewheel,SVGMapComponent, Vue2Filters) {
+    define(["Vue", "vuex", "vue!mapplic-map"], function(Vue, Vuex, MapplicComponent) {
         return Vue.component("store-details-component", {
             template: template, // the variable template will be injected,
             data: function() {
