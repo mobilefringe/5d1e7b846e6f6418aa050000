@@ -72,12 +72,13 @@
             <div class="row">
                 <div class="col-md-12 promo_item" id="hours_main"  v-if="storeHours.length > 0 ">
                     <h2 class="store_details_promo_heading sub_title">{{ currentStore.name }} Hours</h2>
-                    <div id="promos_container" class="col-sm-6 no_padding" style="color:#424242;">
-                        <div class="no_padding" v-for="hour in storeHours">
-                            <span class="col-xs-4 text-left">{{ hour.day_of_week | moment("dddd", timezone) }}</span>
-                            <span v-if="hour.is_closed" class="col-xs-6 text-left">Closed</span>
-    						<span v-else class="col-xs-6 text-left">{{ hour.open_time | moment("h:mm A", timezone) }} - {{ hour.close_time | moment("h:mm A", timezone) }}</span>
-                        </div>
+       
+                    <div class="row" v-for="hour in storeHours">
+                        <div class="col-md-6">{{ hour.day_of_week | moment("dddd", timezone) }}</div>
+                        <div class="col-md-6">
+                            <span v-if="hour.is_closed">Closed</span>
+						    <span v-else>{{ hour.open_time | moment("h:mm A", timezone) }} - {{ hour.close_time | moment("h:mm A", timezone) }}</span>
+					    </div>
                     </div>
                 </div>
             </div>
