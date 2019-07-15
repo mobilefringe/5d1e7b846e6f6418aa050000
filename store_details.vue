@@ -91,7 +91,7 @@
                     <div id="promos_container" class="row">
                         <div class="col-md-6" v-for="promo in promotions" :data-cat="promo.cat_list">
                             <div class="promo_item is-table-row">
-                                <div class="col-md-5 col-xs-4 no_padding">
+                                <div class="col-md-5 col-xs-4">
                                     <img class="promo_store_image" :src="promo.store.image_url" :alt="promo.name" />
                                 </div>
                                 <div class="col-md-7 padding_tb_20">
