@@ -69,64 +69,58 @@
                         </div> 
                     </div>
                 </div>
-                <div class="row">
-                    <div class="col-md-12 promo_item" id="hours_main"  v-if="storeHours.length > 0 ">
-                        <h2 class="store_details_promo_heading sub_title">
-                           {{currentStore.name}} Hours
-                        </h2>
-                        <div id="promos_container" class="col-sm-6 no_padding" style="color:#424242;">
-                            <div class="no_padding" v-for="hour in storeHours">
-                                <span class="col-xs-4 text-left" style="padding-top:3px;">{{hour.day_of_week | moment("dddd", timezone)}}</span>
-                                <span v-if="hour.is_closed" class="col-xs-6 text-left" style="padding-top:3px;">Closed</span>
-        						<span v-else class="col-xs-6 text-left" style="padding-top:3px;">{{hour.open_time | moment("h A", timezone)}} - {{hour.close_time | moment("h A", timezone)}}</span>
-                            </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12 promo_item" id="hours_main"  v-if="storeHours.length > 0 ">
+                    <h2 class="store_details_promo_heading sub_title">
+                       {{currentStore.name}} Hours
+                    </h2>
+                    <div id="promos_container" class="col-sm-6 no_padding" style="color:#424242;">
+                        <div class="no_padding" v-for="hour in storeHours">
+                            <span class="col-xs-4 text-left" style="padding-top:3px;">{{hour.day_of_week | moment("dddd", timezone)}}</span>
+                            <span v-if="hour.is_closed" class="col-xs-6 text-left" style="padding-top:3px;">Closed</span>
+    						<span v-else class="col-xs-6 text-left" style="padding-top:3px;">{{hour.open_time | moment("h A", timezone)}} - {{hour.close_time | moment("h A", timezone)}}</span>
                         </div>
                     </div>
-                    <div class="col-md-12 promo_item" id="promos_main" v-if="currentStore && currentStore.total_published_promos > 0">
-                        <h2 class="store_details_promo_heading sub_title">
-                            {{currentStore.name}} Promotions
-                        </h2>
-                        <div id="promos_container">
-                            <div class="col-md-6 col-sm-6 no_padding" v-for="promo in promotions" :data-cat="promo.cat_list">
-                                <div class="promo_item cats_row is-table-row">
-                                    <div class="col-md-5 col-xs-4 no_padding">
-                                        <img class="promo_store_image" :src="promo.store.image_url" :alt="promo.name" />
-                                    </div>
-                                    <div class="col-md-7 padding_tb_20">
-                                        <router-link :to="'/promotions/'+promo.slug" class="">
-                                            <h2 class="promo_list_name">{{promo.name}}</h2>
-                                        </router-link>
-                                        <p>
-                                            <span class="promo_dates sub_title">{{promo.start_date | moment("MMM D", timezone)}} - {{promo.end_date | moment("MMM D", timezone)}}</span>
-                                        </p>
-                                        <div class="promo_list_desc hidden_phone">{{promo.description_short }}</div>
-                                        <div class="text_center position_relative hidden_phone">
-                                            <router-link :to="'/promotions/'+promo.slug" class="animated_btn text_center">Read More</router-link>
-                                        </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12 promo_item" id="promos_main" v-if="currentStore && currentStore.total_published_promos > 0">
+                    <h2 class="store_details_promo_heading sub_title">{{ currentStore.name }} Promotions</h2>
+                    <div id="promos_container">
+                        <div class="col-md-6 col-sm-6 no_padding" v-for="promo in promotions" :data-cat="promo.cat_list">
+                            <div class="promo_item cats_row is-table-row">
+                                <div class="col-md-5 col-xs-4 no_padding">
+                                    <img class="promo_store_image" :src="promo.store.image_url" :alt="promo.name" />
+                                </div>
+                                <div class="col-md-7 padding_tb_20">
+                                    <h2 class="promo_list_name">{{promo.name}}</h2>
+                                    <p class="promo_dates sub_title">{{ promo.start_date | moment("MMM D", timezone) }} - {{ promo.end_date | moment("MMM D", timezone) }}</p>
+                                    <div class="promo_list_desc hidden_phone">{{ promo.description_short }}</div>
+                                    <div class="text_center position_relative hidden_phone">
+                                        <router-link :to="'/promotions/' + promo.slug" class="animated_btn text_center">Read More</router-link>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
-                    <div class="col-md-12 promo_item" id="jobs_main" v-if="currentStore && currentStore.total_published_jobs > 0">
-                        <h2 class="store_details_promo_heading sub_title">
-                            {{currentStore.name}} Jobs
-                        </h2>
-                        <div id="jobs_container">
-                            <div class="col-md-6 col-sm-6" v-for="job in jobs" :data-cat="job.cat_list">
-                                <div class="promo_item cats_row is-table-row">
-                                    <div class="col-md-5 col-xs-4 no_padding">
-                                        <img class="promo_store_image" :src="currentStore.image_url" :alt="job.name" />
-                                    </div>
-                                    <div class="col-md-7 padding_tb_20">
-                                        <h2 class="promo_list_name">{{job.name}}</h2>
-                                        <p>
-                                            <span class="promo_dates sub_title">{{job.start_date | moment("MMM D", timezone)}} </span>
-                                        </p>
-                                        <div class="promo_list_desc">{{job.description_short }}</div>
-                                        <div class="text_center position_relative">
-                                            <router-link :to="'/jobs/'+job.slug" class="animated_btn text_center">Read More</router-link>
-                                        </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12 promo_item" id="jobs_main" v-if="currentStore && currentStore.total_published_jobs > 0">
+                    <h2 class="store_details_promo_heading sub_title">{{ currentStore.name }} Jobs</h2>
+                    <div id="jobs_container">
+                        <div class="col-md-6 col-sm-6" v-for="job in jobs" :data-cat="job.cat_list">
+                            <div class="promo_item cats_row is-table-row">
+                                <div class="col-md-5 col-xs-4 no_padding">
+                                    <img class="promo_store_image" :src="currentStore.image_url" :alt="job.name" />
+                                </div>
+                                <div class="col-md-7 padding_tb_20">
+                                    <h2 class="promo_list_name">{{ job.name }}</h2>
+                                    <p class="promo_dates sub_title">{{job.start_date | moment("MMM D", timezone)}}</p>
+                                    <div class="promo_list_desc">{{job.description_short }}</div>
+                                    <div class="text_center position_relative">
+                                        <router-link :to="'/jobs/' + job.slug" class="animated_btn text_center">Read More</router-link>
                                     </div>
                                 </div>
                             </div>
