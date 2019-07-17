@@ -89,6 +89,7 @@ require(['Vue', 'vuex', 'vue2-filters', 'vue_router', 'routes', 'datastore', 'vu
                 stickyMenu: false,
                 isSticky: 225,
                 navbar: null,
+                subdomain: "sudburycentre"
                 menu_items: [
                     {
                         name: "Stores",
