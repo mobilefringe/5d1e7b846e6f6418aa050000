@@ -34,37 +34,26 @@
                     </div>
                 </div>
             </div>
-            <!--<div class="promotions" id="feature_promotions" v-if="promotions.length > 0">-->
-            <!--    <h3 class="promotion_heading">Upcoming Events & Promotions!</h3>-->
-            <!--    <p class="exclusive_deals sub_title">Don’t miss our exclusive deals & events</p>-->
-                
-            <!--    <div class="home_promotions feature_row" id="promos_container">-->
-            <!--        <div class="promotion_item wow animated flipInX animated teamy-team text_center" v-for="promo in promotions">-->
-            <!--            <hr class="show_phone" />-->
-            <!--            <p class="promotion_dates">{{promo.start_date | moment("MMM D", timezone)}} - {{promo.end_date | moment("MMM D", timezone)}}</p>-->
-            <!--            <article class="teamy teamy_style2 teamy_mask-circle teamy_zoom-photo">-->
-            <!--                <div class="teamy__layout">-->
-            <!--                    <router-link :to="'/promotions/'+promo.slug">-->
-            <!--                        <div class="teamy__preview">-->
-            <!--                            <img :src="promo.image_url" class="teamy__avatar featured_promo_img" alt="The demo photo">-->
-            <!--                        </div>-->
-            <!--                        <div class="teamy__back">-->
-            <!--                            <div class="teamy__back-inner">-->
-            <!--                                <div class="teamy__content">-->
-            <!--                                    <h3 class="teamy__name">View Details</h3>-->
-            <!--                                </div>-->
-            <!--                            </div>-->
-            <!--                        </div>-->
-            <!--                    </router-link>-->
-            <!--                </div>-->
-            <!--            </article>-->
-            <!--            <h3 class="promotion_header home_promos">{{promo.name}}</h3>-->
-            <!--            <router-link :to="'/promotions/'+promo.slug" class="animated_btn text_center">Read More</router-link>-->
-            <!--        </div>-->
-            <!--    </div>-->
-            <!--    <hr class="show_phone" />-->
-            <!--    <div class="clearfix"></div>-->
-            <!--</div>-->
+            <div class="insta-feed-container" v-if="instaFeed && instaFeed.length > 0">
+                <div class="insta-feed-image " v-for="(item, index) in instaFeed">
+                    <a :href="item.link" target="_blank">
+                        <div class="insta-feed-background" v-bind:style="{ backgroundImage: 'url(' + item.images.standard_resolution.url + ')' }"></div>
+                        <div class="insta_content">
+                            <div class="insta_caption" >
+                                <p v-if="item.caption && item.caption.text">{{ _.truncate(item.caption.text,{'length':75}) }}</p>
+                                <div>
+                                    <span>
+                                        <i class="fa fa-heart"></i> {{ item.likes.count }}
+                                    </span>
+                                    <span>
+                                        <i class="fa fa-comment"></i> {{ item.comments.count }}
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+            </div>
         </div>
         
         <div class="content_container  position_relative hidden_phone" style="padding:0">
@@ -115,8 +104,14 @@
             },
             created () {
                 this.loadData().then(response => {
-                    this.dataLoaded = true;
+                    var socialFeed = response[2].data;
+                    var social_feed = socialFeed.social.instagram;
+                    this.instaFeed = _.slice(social_feed, [0], [4]);
+                    console.log("insta", this.instaFeed)
+                    
                     this.meta = this.findMetaDataByPath(this.$route.path);
+                    
+                    this.dataLoaded = true;
                 });
             },
             computed: {
@@ -154,7 +149,10 @@
                 loadData: async function() {
                     try {
                         // avoid making LOAD_META_DATA call for now as it will cause the entire Promise.all to fail since no meta data is set up.
-                        let results = await Promise.all([this.$store.dispatch("getData", "banners"), this.$store.dispatch("getData", "feature_items"), this.$store.dispatch("getData", "promotions")]);
+                        let results = await Promise.all([
+                            this.$store.dispatch("getData", "banners"), 
+                            this.$store.dispatch("getData", "feature_items"), 
+                            this.$store.dispatch('LOAD_PAGE_DATA', { url: this.property.mm_host + "/api/v4/" + this.$root.subdomain + "/social.json" });
                     } catch (e) {
                         console.log("Error loading data: " + e.message);
                     }
