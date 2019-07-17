@@ -33,8 +33,8 @@
                     </social-sharing>
                 </div>
             </div>
-            <div class="promo_main_header sub_title" v-if="storePromos.length > 0" style="border-top: 1px solid #000;">
-                   OTHER {{currentPromo.store.name | uppercase }} PROMOTIONS
+            <div class="promo_main_header sub_title" v-if="storePromos.length > 0" style="border-top: 1px solid #979797;">
+               OTHER {{currentPromo.store.name | uppercase }} PROMOTIONS
             </div>
             <div id="promos_container" v-if="storePromos">
                 <div class="col-md-6 col-sm-6 no_padding" v-for="promo in storePromos" :data-cat="promo.cat_list">
