@@ -37,7 +37,7 @@
                OTHER {{currentPromo.store.name | uppercase }} PROMOTIONS
             </div>
             <div id="promos_container" v-if="storePromos">
-                <div class="col-md-6 col-sm-6 no_padding" v-for="promo in storePromos" :data-cat="promo.cat_list">
+                <div class="col-md-6 col-sm-6" v-for="promo in storePromos" :data-cat="promo.cat_list">
                     <div class="promo_item cats_row is-table-row">
                         <div class="col-md-5 col-xs-4 no_padding">
                             <img class="promo_store_image" :src="promo.store.store_front_url_abs" :alt="promo.name" />
