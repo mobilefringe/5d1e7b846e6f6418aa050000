@@ -36,7 +36,7 @@
             <div class="promo_main_header sub_title" v-if="storePromos.length > 0" style="border-top: 1px solid #979797;">
                OTHER {{currentPromo.store.name | uppercase }} PROMOTIONS
             </div>
-            <div id="promos_container" v-if="storePromos">
+            <div id="promos_container" class="row" v-if="storePromos">
                 <div class="col-md-6 col-sm-6" v-for="promo in storePromos" :data-cat="promo.cat_list">
                     <div class="promo_item cats_row is-table-row">
                         <div class="col-md-5 col-xs-4 no_padding">
