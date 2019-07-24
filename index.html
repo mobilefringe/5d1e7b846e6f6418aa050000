@@ -52,38 +52,86 @@
                                 <img style="max-width: 120px;" src="//codecloud.cdn.speedyrails.net/sites/5d1e7b846e6f6418aa050000/image/jpeg/1562788670350/kanatacentral.jpg"  alt="">
                                 <img src="//codecloud.cdn.speedyrails.net/sites/5a1f136e6e6f6472c6240000/image/png/1513274154350/close_menu_icon.png" class="pull-right" alt="" style="margin-top: 10px;" id="close_menu" @click="show_mobile_menu = !show_mobile_menu">
                             </div>
-                            
-                            <ul>
+                            <nav id="mobile_nav" v-show="show_mobile_menu">
+    							<ul>
+    								<div class="mobile_menu_site_logo">
+    									<router-link to="/">
+    									    <img v-if="property" src="//codecloud.cdn.speedyrails.net/sites/5d07eb7b6e6f646394010000/image/png/1561568787667/sevenoaks_logo.png" :alt="property.name +' Mobile Logo'"/>
+									    </router-link>
+    								</div>
+    								<li v-for="(item,key) in menu_items" class="menu_item">
+        								<span @click="closeMobileMenu()" v-if="item.sub_menu == undefined">
+        								     <router-link :to="item.href">{{$t(item.name)}}</router-link>
+        								</span>
+    							        <div v-else>
+    							            <b-card no-body class="mb-1">
+                                                <b-card-header header-tag="header" class="p-1" role="tab">
+                                                    <b-btn block @click="item.show_sub_menu = !item.show_sub_menu; toggleVar=!toggleVar;" :class="item.show_sub_menu ? 'collapsed' : null" :aria-controls="$t(item.name)" :aria-expanded="item.show_sub_menu ? 'true' : 'false'">
+                                                        {{$t(item.name)}}
+                                                        <i v-if="item.show_sub_menu"  class="fa fa-minus"></i>
+                                                        <i v-else  class="fa fa-plus"></i>
+                                                    </b-btn>
+                                                </b-card-header>
+                                                <b-collapse v-model="item.show_sub_menu" :id="$t(item.name)" :visible="item.show_sub_menu" accordion="my-accordion" role="tabpanel" class="accordion_body">
+                                                    <b-card-body v-for="sub_menu in item.sub_menu">
+                                                        <p class="card-text" @click="closeMobileMenu()">
+                                                            <a v-if="sub_menu.external" :href="sub_menu.href" target="_blank">{{$t(sub_menu.name)}}</a>
+                                                            <a v-else-if="sub_menu.external_in_window" :href="sub_menu.href">{{$t(sub_menu.name)}}</a>
+                    						                <router-link v-else-if="!sub_menu.router_name" :to="sub_menu.href">{{$t(sub_menu.name)}}</router-link>
+                    						                <router-link v-else :to="{name : sub_menu.router_name, params: { new_store: sub_menu.prop }, query:{new_store: 'new_store'}} ">{{$t(sub_menu.name)}}</router-link>
+                                                        </p>
+                                                    </b-card-body>
+                                                </b-collapse>
+                                            </b-card>
+    							        </div>
+    							    </li>
+    							</ul>
+    							
+    							<div class="small_hr"></div>
+    							<div class="tel_num" v-if="property">
+                                    <a v-if="property.contact_phone" :href="'tel:'+property.contact_phone">{{ property.contact_phone }}</a>
+                                </div>
+                                <div class="address" v-if="property">
+                                    <p> {{ property.address1 }}<br/>
+                                    {{ property.city }}, {{ property.province_state }} {{ property.postal_code }}</p>
+                                </div>
+    							<div class="header_social">
+    							    <social-links></social-links>
+    							</div>
+    							<span style="visibility: hidden;width: 0;height: 0;display: inline-block;">{{toggleVar}}</span>
+    							<div class="small_hr"></div>
+    						</nav>
+           <!--                 <ul>-->
                                 <!--<li v-for="(item, index) in menu_items">-->
                                 <!--    <router-link :to="item.href" :id="item.id" class="all_caps">{{ item.name }}</router-link>-->
                                 <!--</li>-->
-                                <li v-for="(item,key) in menu_items">
-    								<span @click="closeMobileMenu()" v-if="item.sub_menu == undefined">
-    								     <router-link :to="item.href">{{ item.name }}</router-link>
-    								</span>
-							        <div v-else>
-							            <b-card no-body class="mb-1">
-                                            <b-card-header header-tag="header" class="p-1" role="tab">
-                                                <b-btn block @click="item.show_sub_menu = !item.show_sub_menu; toggleVar=!toggleVar;" :class="item.show_sub_menu ? 'collapsed' : null" :aria-controls="$t(item.name)" :aria-expanded="item.show_sub_menu ? 'true' : 'false'">
-                                                    {{ item.name }}
-                                                    <i v-if="item.show_sub_menu"  class="fa fa-minus"></i>
-                                                    <i v-else  class="fa fa-plus"></i>
-                                                </b-btn>
-                                            </b-card-header>
-                                            <b-collapse v-model="item.show_sub_menu" :id="$t(item.name)" :visible="item.show_sub_menu" accordion="my-accordion" role="tabpanel" class="accordion_body">
-                                                <b-card-body v-for="sub_menu in item.sub_menu">
-                                                    <p class="card-text" @click="closeMobileMenu()">
-                                                        <a v-if="sub_menu.external" :href="sub_menu.href" target="_blank">{{ sub_menu.name }}</a>
-                                                        <a v-else-if="sub_menu.external_in_window" :href="sub_menu.href">{{ sub_menu.name }}</a>
-                						                <router-link v-else-if="!sub_menu.router_name" :to="sub_menu.href">{{ sub_menu.name }}</router-link>
-                						                <router-link v-else :to="{name : sub_menu.router_name, params: { new_store: sub_menu.prop }, query:{new_store: 'new_store'}} ">{{ sub_menu.name }}</router-link>
-                                                    </p>
-                                                </b-card-body>
-                                            </b-collapse>
-                                        </b-card>
-							        </div>
-							    </li>
-                            </ul>
+           <!--                     <li v-for="(item,key) in menu_items">-->
+    							<!--	<span @click="closeMobileMenu()" v-if="item.sub_menu == undefined">-->
+    							<!--	     <router-link :to="item.href">{{ item.name }}</router-link>-->
+    							<!--	</span>-->
+							    <!--    <div v-else>-->
+							    <!--        <b-card no-body class="mb-1">-->
+           <!--                                 <b-card-header header-tag="header" class="p-1" role="tab">-->
+           <!--                                     <b-btn block @click="item.show_sub_menu = !item.show_sub_menu; toggleVar=!toggleVar;" :class="item.show_sub_menu ? 'collapsed' : null" :aria-controls="$t(item.name)" :aria-expanded="item.show_sub_menu ? 'true' : 'false'">-->
+           <!--                                         {{ item.name }}-->
+           <!--                                         <i v-if="item.show_sub_menu"  class="fa fa-minus"></i>-->
+           <!--                                         <i v-else  class="fa fa-plus"></i>-->
+           <!--                                     </b-btn>-->
+           <!--                                 </b-card-header>-->
+           <!--                                 <b-collapse v-model="item.show_sub_menu" :id="$t(item.name)" :visible="item.show_sub_menu" accordion="my-accordion" role="tabpanel" class="accordion_body">-->
+           <!--                                     <b-card-body v-for="sub_menu in item.sub_menu">-->
+           <!--                                         <p class="card-text" @click="closeMobileMenu()">-->
+           <!--                                             <a v-if="sub_menu.external" :href="sub_menu.href" target="_blank">{{ sub_menu.name }}</a>-->
+           <!--                                             <a v-else-if="sub_menu.external_in_window" :href="sub_menu.href">{{ sub_menu.name }}</a>-->
+           <!--     						                <router-link v-else-if="!sub_menu.router_name" :to="sub_menu.href">{{ sub_menu.name }}</router-link>-->
+           <!--     						                <router-link v-else :to="{name : sub_menu.router_name, params: { new_store: sub_menu.prop }, query:{new_store: 'new_store'}} ">{{ sub_menu.name }}</router-link>-->
+           <!--                                         </p>-->
+           <!--                                     </b-card-body>-->
+           <!--                                 </b-collapse>-->
+           <!--                             </b-card>-->
+							    <!--    </div>-->
+							    <!--</li>-->
+           <!--                 </ul>-->
                             <div class="tel_num" v-if="property.contact_phone">
                                 <a :href="'tel:' + property.contact_phone">{{ property.contact_phone }}</a>
                             </div>
