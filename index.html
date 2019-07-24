@@ -54,6 +54,7 @@
                             <ul>
                                 <li v-for="(item, index) in menu_items">
                                     <sapn v-if="item.sub_menu">
+                                        {{ item.name }}
                                         <router-link v-for="(subitem, index) in item.submenu"  :to="subitem.href" :id="item.id" class="all_caps">
                                             {{ subitem.name }}
                                         </router-link>
