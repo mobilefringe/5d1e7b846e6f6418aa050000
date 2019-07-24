@@ -27,12 +27,12 @@
                         </div>
                     </div>
                     <div class="row">
-                        <div class="col-md-8 col-sm-8 col-xs-12">
+                        <div class="col-md-8 col-sm-12">
                             <div id="map">
                                 <mapplic-map ref="mapplic_ref" :height="328" :minimap= "false" :deeplinking="false" :sidebar="false" :hovertip="true" :maxscale= "5" :storelist="[currentStore]" :floorlist="floorList" :svgWidth="2000" :svgHeight="2000" tooltiplabel="Info" action="none" :showPin="true" @updateMap="updateMap" :key="currentStore.id" :svgId="'Layer_1'"></mapplic-map>
                             </div>
                         </div>
-                        <div class="col-md-4 col-sm-4">
+                        <div class="col-md-4 hidden_phone">
                             <div class="image_container details_store_image">
         						<div v-if="currentStore.no_store_logo" class="store_details_image center-block">
                                     <div class="no_logo">
