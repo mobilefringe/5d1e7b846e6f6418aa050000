@@ -49,7 +49,7 @@
                             </p>
                             <p class="promo_dates sub_title" v-else>{{ promo.start_date | moment("MMM D", timezone)}}</p>
                             <div class="promo_list_desc hidden_phone">{{promo.description_short }}</div>
-                            <div class="text_center position_relative hidden_phone">
+                            <div class="text_center position_relative">
                                 <router-link :to="'/promotions/'+promo.slug" class="animated_btn text_center">Read More</router-link>
                             </div>
                         </div>
