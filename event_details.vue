@@ -7,9 +7,9 @@
 
             <div class="row" id="promo_details_container">
                 <div class="col-md-4 col-sm-4">
-                    <img v-if="currentEvent.image_url" :src="currentEvent.image_url"  alt="Store Logo" class="details_image" />
+                    <img :src="currentEvent.image_url"  alt="Store Logo" class="details_image" />
                 </div>
-                <div class="col-md-8 col-sm-8">
+                <div class="col-md-8 col-sm-8" style="padding-bottom: 15px;">
                     <p class="promo_dates sub_title">{{ property.name | uppercase }}</p>
                     <h2 class="promo_list_name">{{currentEvent.name}}</h2>
                     <p class="promo_dates sub_title" v-if="isMultiDay(currentEvent)">
@@ -68,7 +68,7 @@
                     }
                     
                     if (this.currentEvent.image_url != null && this.currentEvent.image_url != undefined && _.includes(this.currentEvent.image_url, 'missing')){
-                        this.currentEvent.image_url =  "";
+                        this.currentEvent.image_url =  this.property.default_logo_url;
                     }
                 }
             },
