@@ -34,7 +34,7 @@
                 </div>
             </div>
             <div class="promo_main_header sub_title" v-if="storePromos.length > 0">
-                <h2> Other {{currentPromo.store.name | uppercase }} Promotions</h2>
+                <h2> Other {{ currentPromo.store.name }} Promotions</h2>
             </div>
             <div id="promos_container" class="row" v-if="storePromos">
                 <div class="col-md-6 col-sm-6" v-for="promo in storePromos" :data-cat="promo.cat_list">
