@@ -36,8 +36,7 @@
 				</div>
 			</div>
 			<div id="store_list_container">
-				    <store-masonry :filteredStores="filteredStores"></store-masonry>
-				<!--</div>-->
+			    <store-masonry :filteredStores="filteredStores"></store-masonry>
 			</div>
         </div>
     </div>
