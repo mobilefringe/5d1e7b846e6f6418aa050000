@@ -19,7 +19,6 @@
                     <div class="store_details_desc" v-html="currentNews.rich_description"></div>
                 </div>
             </div>
-            <div class="padding_top_40"></div>
         </div>
     </div>
 </template>
