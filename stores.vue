@@ -1,6 +1,5 @@
 <template>
-    <div class="main_container">
-
+    <div class="main_container" id="stores_page">
         <div class="margin_25_across">
             <div class="row hidden_phone">
                 <div class="col-md-12">
