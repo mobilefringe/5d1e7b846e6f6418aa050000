@@ -45,10 +45,10 @@
                         </div> 
                     </div>
                     <div class="row">
-                        <div class="col-md-8 col-sm-8">
+                        <div class="col-md-8 col-sm-12">
                             <div class="store_details_desc hidden_phone">{{ currentStore.description }}</div>
                         </div>
-                        <div class="col-md-4 col-sm-4">
+                        <div class="col-md-4 col-sm-12">
                             <div class="side_stores">
                                 <div class="store_header_btns animated_btn" v-if="currentStore.phone">
                                     <a :href="'tel:' + currentStore.phone">
