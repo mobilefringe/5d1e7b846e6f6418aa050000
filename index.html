@@ -53,14 +53,18 @@
                             
                             <ul>
                                 <li v-for="(item, index) in menu_items">
-                                    <sapn v-if="item.sub_menu">
-                                        {{ item.name }}
-                                        <router-link v-for="(subitem, index) in item.submenu"  :to="subitem.href" :id="item.id" class="all_caps">
-                                            {{ subitem.name }}
-                                        </router-link>
-                                    </sapn>
-                                    <span v-if="!item.submenu">
+                                    <span v-if="!item.sub_menu">
                                         <router-link :to="item.href" :id="item.id" class="all_caps">{{ item.name }}</router-link>
+                                    </span>
+                                    <span v-else>
+                                        <span v-for="(subitem, index) in item.submenu">
+                                            <router-link :to="subitem.href" :id="item.id" class="all_caps">
+                                                {{ subitem.name }}
+                                            </router-link>
+                                        </span>
+                                    
+                                    
+                                        
                                     </span>
                                 </li>
                             </ul>
