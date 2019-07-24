@@ -10,7 +10,7 @@
                 <div class="col-md-4 col-sm-4">
                     <img :src="currentPromo.image_url"  alt="Store Logo" class="details_image image" />
                 </div>
-                <div class="col-md-8 col-sm-8" style="padding-bottom: 15px;">
+                <div class="col-md-8 col-sm-8">
                     <p class="promo_dates sub_title">{{ currentPromo.store.name | uppercase }}</p>
                     <h2 class="promo_list_name">{{currentPromo.name}}</h2>
                     <p class="promo_dates sub_title" v-if="isMultiDay(currentPromo)">
