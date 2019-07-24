@@ -56,7 +56,7 @@
                                     <span v-if="!item.sub_menu">
                                         <router-link :to="item.href" :id="item.id" class="all_caps">{{ item.name }}</router-link>
                                     </span>
-                                    <spanv-if="item.sub_menu">
+                                    <span v-if="item.sub_menu">
                                         <span v-for="(subitem, index) in item.submenu">
                                             <router-link :to="subitem.href" :id="item.id" class="all_caps">
                                                 {{ subitem.name }}
