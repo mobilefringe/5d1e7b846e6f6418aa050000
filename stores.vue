@@ -1,7 +1,7 @@
 <template>
     <div class="main_container" id="stores_page">
         <div class="margin_25_across">
-            <div class="row hidden_phone">
+            <div class="row">
                 <div class="col-md-12">
                     <h1 class="inside_heading">Store Directory</h1>
                     <h2 class="inside_subheading">Explore • Enjoy • Shop</h2>
