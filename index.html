@@ -56,16 +56,13 @@
                                     <span v-if="!item.sub_menu">
                                         <router-link :to="item.href" :id="item.id" class="all_caps">{{ item.name }}</router-link>
                                     </span>
-                                    <span v-if="item.sub_menu">
-                                        <span v-for="(subitem, index) in item.submenu">
-                                            <router-link :to="subitem.href" :id="item.id" class="all_caps">
-                                                {{ subitem.name }}
-                                            </router-link>
-                                        </span>
-                                    
-                                    
-                                        
+                                    <span v-if="item.sub_menu" v-for="(subitem, index) in item.sub_menu">
+                                  
+                                        <router-link :to="subitem.href" :id="item.id" class="all_caps">
+                                            {{ subitem.name }}
+                                        </router-link>
                                     </span>
+
                                 </li>
                             </ul>
                             <div class="tel_num" v-if="property.contact_phone">
