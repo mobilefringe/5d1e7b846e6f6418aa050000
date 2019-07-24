@@ -7,7 +7,7 @@
 
             <div class="row" id="promo_details_container">
                 <div class="col-md-4 col-sm-4">
-                    <img :src="currentEvent.image_url"  alt="Store Logo" class="details_image" />
+                    <img v-if="currentEvent.image_url" :src="currentEvent.image_url"  alt="Store Logo" class="details_image" />
                 </div>
                 <div class="col-md-8 col-sm-8" style="padding-bottom: 15px;">
                     <p class="promo_dates sub_title">{{ property.name | uppercase }}</p>
