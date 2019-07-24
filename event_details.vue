@@ -17,21 +17,19 @@
                     </p>
                     <p class="promo_dates sub_title" v-else>{{  currentEvent.start_date | moment("MMMM D", timezone)}}</p>
                     <div class="store_details_desc" v-html="currentEvent.rich_description"></div>
-                    <div class="padding_tb_20">
-                        <social-sharing :url="shareURL(currentEvent.slug)" :title="currentEvent.title" :description="currentEvent.description" :quote="truncate(currentEvent.description)" twitter-user="ShopCanyonCrest" :media="currentEvent.image_url" inline-template>
-                            <div class="blog-social-share">
-                                <h5 class="all_caps">Share this Event</h5>
-                                <div class="social_share">
-                                    <network network="facebook">
-                                        <img src="//codecloud.cdn.speedyrails.net/sites/5a1f136e6e6f6472c6240000/image/png/1512057980767/fb@2x_whiteborder.png" alt="Share on Facebook">
-                                    </network>
-                                    <network network="twitter">
-                                        <img src="//codecloud.cdn.speedyrails.net/sites/5a1f136e6e6f6472c6240000/image/png/1512058120246/twt@2x_whiteborder.png" alt="Share on Twitter">
-                                    </network>
-                                </div>
+                    <social-sharing :url="shareURL(currentEvent.slug)" :title="currentEvent.title" :description="currentEvent.description" :quote="truncate(currentEvent.description)" twitter-user="ShopCanyonCrest" :media="currentEvent.image_url" inline-template>
+                        <div class="blog-social-share">
+                            <h5 class="all_caps">Share this Event</h5>
+                            <div class="social_share">
+                                <network network="facebook">
+                                    <img src="//codecloud.cdn.speedyrails.net/sites/5a1f136e6e6f6472c6240000/image/png/1512057980767/fb@2x_whiteborder.png" alt="Share on Facebook">
+                                </network>
+                                <network network="twitter">
+                                    <img src="//codecloud.cdn.speedyrails.net/sites/5a1f136e6e6f6472c6240000/image/png/1512058120246/twt@2x_whiteborder.png" alt="Share on Twitter">
+                                </network>
                             </div>
-                        </social-sharing>
-                    </div>
+                        </div>
+                    </social-sharing>
                 </div>
             </div>
         </div>
