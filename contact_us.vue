@@ -49,7 +49,7 @@
                                 <span v-show="errors.has('message')" class="form-control-feedback">{{ errors.first('message') }}</span>
                             </div>
                         </div>
-                        <div class="row form-group">
+                        <div class="row">
                             <div class="col-md-12">
                                 <button class="animated_btn" type="submit" :disabled="formSuccess">Submit</button>
                             </div>
