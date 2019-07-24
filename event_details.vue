@@ -5,7 +5,7 @@
                 <span class="promo_back all_caps"><i class="fa fa-caret-left"></i>&nbsp;<router-link to="/events">Back to Events</router-link></span>
             </div>
 
-            <div class="row mobile_padding" id="promo_details_container">
+            <div class="row" id="promo_details_container">
                 <div class="col-md-4 col-sm-4">
                     <img :src="currentEvent.image_url"  alt="Store Logo" class="details_image" />
                 </div>
