@@ -6,7 +6,7 @@
                     <i class="fa fa-caret-left"></i>&nbsp;<router-link to="/promotions">Back to Sales & Promos</router-link>
                 </span>
             </div>
-            <div class="row mobile_padding" id="promo_details_container">
+            <div class="row" id="promo_details_container">
                 <div class="col-md-4 col-sm-4">
                     <img :src="currentPromo.image_url"  alt="Store Logo" class="details_image image" />
                 </div>
