@@ -12,7 +12,7 @@
                 </div>
                 <div class="col-md-8 col-sm-8">
                     <p class="promo_dates sub_title">{{ currentPromo.store.name | uppercase }}</p>
-                    <h1 class="promo_list_name">{{currentPromo.name}}</h1>
+                    <h2 class="promo_list_name">{{currentPromo.name}}</h2>
                     <p class="promo_dates sub_title" v-if="isMultiDay(currentPromo)">
                         {{ currentPromo.start_date | moment("MMMM D", timezone) }} - {{ currentPromo.end_date | moment("MMMM D", timezone) }}
                     </p>
@@ -34,7 +34,7 @@
                 </div>
             </div>
             <div class="promo_main_header sub_title" v-if="storePromos.length > 0" style="border-top: 1px solid #979797;">
-               <h2>Other {{ currentPromo.store.name }} Promotions</h2>
+               OTHER {{currentPromo.store.name | uppercase }} PROMOTIONS
             </div>
             <div id="promos_container" class="row" v-if="storePromos">
                 <div class="col-md-6 col-sm-6" v-for="promo in storePromos" :data-cat="promo.cat_list">
@@ -43,11 +43,12 @@
                             <img class="promo_store_image" :src="promo.store.store_front_url_abs" :alt="promo.name" />
                         </div>
                         <div class="col-md-7 padding_tb_20">
-                            <h2 class="promo_list_name">{{promo.name}}</h2>
-                            <p class="promo_dates sub_title" v-if="isMultiDay(promo)">
-                                {{ promo.start_date | moment("MMM D", timezone) }} - {{ promo.end_date | moment("MMM D", timezone) }}
+                            <router-link :to="'/promotions/'+promo.slug" class="">
+                                <h2 class="promo_list_name">{{promo.name}}</h2>
+                            </router-link>
+                            <p>
+                                <span class="promo_dates sub_title">{{promo.start_date | moment("MMM D", timezone)}} - {{promo.end_date | moment("MMM D", timezone)}}</span>
                             </p>
-                            <p class="promo_dates sub_title" v-else>{{ promo.start_date | moment("MMM D", timezone)}}</p>
                             <div class="promo_list_desc hidden_phone">{{promo.description_short }}</div>
                             <div class="text_center position_relative hidden_phone">
                                 <router-link :to="'/promotions/'+promo.slug" class="animated_btn text_center">Read More</router-link>
