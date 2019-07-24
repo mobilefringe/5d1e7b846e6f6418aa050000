@@ -5,7 +5,6 @@
             <h2 class="inside_subheading">Don’t miss our exclusive deals!</h2>
             <div class="row" v-if="promotions.length > 0">
                 <div class="col-sm-6 col-md-4" v-for="promo in promotions">
-                    <hr class="show_phone">
                     <div class="promo_list_container text_center">
                         <div class="promo_list_img_container">
                             <img :src="promo.store.store_front_url_abs" class="promo_list_img">
