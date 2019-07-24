@@ -4,7 +4,7 @@
             <div class="row">
                 <div class="col-md-12">
                     <div class="promo_main_header sub_title">
-                        <span>{{ currentStore.name }}</span>
+                        <h1 class="sub_title">{{ currentStore.name }}</h1>
                         <div class="store_details_anchors">
                             <a href="/map">
                                 <div>
