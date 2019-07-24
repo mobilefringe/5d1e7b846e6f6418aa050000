@@ -39,10 +39,10 @@
             <div id="promos_container" class="row" v-if="storePromos">
                 <div class="col-md-6" v-for="promo in storePromos" :data-cat="promo.cat_list">
                     <div class="promo_item cats_row is-table-row">
-                        <div class="col-md-5 hidden_mobile">
+                        <div class="col-sm-5 hidden_mobile">
                             <img class="promo_store_image" :src="promo.store.store_front_url_abs" :alt="promo.name" />
                         </div>
-                        <div class="col-md-7 padding_tb_20">
+                        <div class="col-sm-7 padding_tb_20">
                             <h2 class="promo_list_name">{{promo.name}}</h2>
                             <p class="promo_dates sub_title" v-if="isMultiDay(promo)">
                                 {{ promo.start_date | moment("MMM D", timezone) }} - {{ promo.end_date | moment("MMM D", timezone) }}
