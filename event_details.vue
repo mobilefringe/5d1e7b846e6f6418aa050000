@@ -68,7 +68,7 @@
                     }
                     
                     if (this.currentEvent.image_url != null && this.currentEvent.image_url != undefined && _.includes(this.currentEvent.image_url, 'missing')){
-                        this.currentEvent.image_url =  this.property.default_logo_url;
+                        this.currentEvent.image_url =  "";
                     }
                 }
             },
