@@ -50,7 +50,7 @@
                             </div>
                         </div>
                         <div class="row">
-                            <div class="col-md-12">
+                            <div class="col-md-12 text-center">
                                 <button class="animated_btn" type="submit" :disabled="formSuccess">Submit</button>
                             </div>
                         </div>
