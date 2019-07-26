@@ -17,7 +17,7 @@
                     </p>
                     <p class="promo_dates sub_title" v-else>{{  currentEvent.start_date | moment("MMMM D", timezone)}}</p>
                     <div class="store_details_desc" v-html="currentEvent.rich_description"></div>
-                    <social-sharing :url="shareURL(currentEvent.slug)" :title="currentEvent.title" :description="currentEvent.description" :quote="truncate(currentEvent.description)" twitter-user="ShopCanyonCrest" :media="currentEvent.image_url" inline-template>
+                    <social-sharing :url="shareURL(currentEvent.slug)" :title="currentEvent.title" :description="currentEvent.description" :quote="truncate(currentEvent.description)" :media="currentEvent.image_url" inline-template>
                         <div class="blog-social-share">
                             <h5 class="all_caps">Share this Event</h5>
                             <div class="social_share">
