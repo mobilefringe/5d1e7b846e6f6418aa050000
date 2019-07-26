@@ -104,7 +104,7 @@
                     return truncate;
                 },
                 shareURL(slug) {
-                    var share_url = "http://www.shopcanyoncrest.com/events/" + slug;
+                    var share_url = "https://kanatacentral.com/events/" + slug;
                     return share_url;
                 }
             }
