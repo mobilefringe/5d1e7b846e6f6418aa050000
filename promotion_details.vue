@@ -18,7 +18,7 @@
                     </p>
                     <p class="promo_dates sub_title" v-else>{{  currentPromo.start_date | moment("MMMM D", timezone)}}</p>
                     <div class="store_details_desc" v-html="currentPromo.rich_description"></div>
-                    <social-sharing :url="shareURL(currentPromo.slug)" :title="currentPromo.title" :description="currentPromo.body" :quote="truncate(currentPromo.description)" twitter-user="ShopCanyonCrest" :media="currentPromo.image_url" inline-template>
+                    <social-sharing :url="shareURL(currentPromo.slug)" :title="currentPromo.title" :description="currentPromo.body" :quote="truncate(currentPromo.description)" :media="currentPromo.image_url" inline-template>
                         <div class="blog-social-share">
                             <h5 class="all_caps">Share this Promotion</h5>
                             <div class="social_share">
@@ -50,7 +50,7 @@
                             <p class="promo_dates sub_title" v-else>{{ promo.start_date | moment("MMM D", timezone)}}</p>
                             <div class="promo_list_desc hidden_phone">{{promo.description_short }}</div>
                             <div class="text_center position_relative">
-                                <router-link :to="'/promotions/'+promo.slug" class="animated_btn text_center">Read More</router-link>
+                                <router-link :to="'/promotions/' + promo.slug" class="animated_btn text_center">Read More</router-link>
                             </div>
                         </div>
                     </div>
@@ -146,7 +146,7 @@
                     return truncate;
                 },
                 shareURL(slug){
-                    var share_url = "http://www.shopcanyoncrest.com/promotions/" + slug;
+                    var share_url = "https://kanatacentral.com/promotions/" + slug;
                     return share_url;
                 }
             }
