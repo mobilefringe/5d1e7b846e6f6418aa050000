@@ -14,7 +14,7 @@
                             {{promo.start_date | moment("MMM D", timezone)}} - {{promo.end_date | moment("MMM D", timezone)}}
                         </p>
                         <p class="top_promo_date" v-else>{{ promo.start_date | moment("MMM D", timezone)}}</p>
-                        <router-link :to="{ name: 'promotionDetails', params: { id: promo.slug }}" class="animated_btn text_center">Read More</router-link>
+                        <router-link :to="{ name: 'promotionDetails', params: { id: promo.slug }}" class="animated_btn text_center">View Promo Details</router-link>
                     </div>
                 </div>
             </div>
