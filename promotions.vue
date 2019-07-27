@@ -7,7 +7,7 @@
                 <div class="col-sm-6 col-md-4" v-for="promo in promotions">
                     <div class="promo_list_container text_center">
                         <div class="promo_list_img_container">
-                            <img :src="promo.store.store_front_url_abs" class="promo_list_img">
+                            <img :src="promo.store.store_front_url_abs" class="promo_list_img" alt="">
                         </div>
                         <p class="description_text">{{ promo.name }}</p>
                         <p class="top_promo_date" v-if="isMultiDay(promo)">
@@ -67,6 +67,7 @@
                             } else if (value.store == null || value.store == undefined) {
                                 value.store = {};
                                 value.store.store_front_url_abs =  vm.property.default_logo_url;
+                                value.store.name = vm.property.name
                             }
                             temp_promo.push(value);
                         }
