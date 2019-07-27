@@ -9,7 +9,7 @@
                         <div class="promo_list_img_container">
                             <img :src="promo.store.store_front_url_abs" class="promo_list_img" :alt="promo.store.name + ' Logo'">
                         </div>
-                        <p class="description_text">{{ promo.name }}</p>
+                        <h3 class="description_text">{{ promo.name }}</h3>
                         <p class="top_promo_date" v-if="isMultiDay(promo)">
                             {{promo.start_date | moment("MMM D", timezone)}} - {{promo.end_date | moment("MMM D", timezone)}}
                         </p>
