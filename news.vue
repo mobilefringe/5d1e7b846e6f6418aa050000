@@ -51,6 +51,7 @@
                     'processedNews'
                 ]),
                 news() {
+                    console.log("news", this.processedNews)
                     var vm = this;
                     var temp_event = [];
                     _.forEach(this.processedNews, function(value, key) {
