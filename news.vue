@@ -40,6 +40,7 @@
             created () {
                 this.$store.dispatch("getData", "news").then(response => {
                     this.dataloaded = true;
+                    console.log("hi")
                 }, error => {
                     console.error("Could not retrieve data from server. Please check internet connection and try again.");
                 });    
