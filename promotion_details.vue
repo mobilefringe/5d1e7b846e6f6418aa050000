@@ -20,7 +20,7 @@
                     <div class="store_details_desc" v-html="currentPromo.rich_description"></div>
                     <social-sharing :url="shareURL(currentPromo.slug)" :title="currentPromo.name" :description="currentPromo.body" :quote="truncate(currentPromo.description)" :media="currentPromo.image_url" inline-template>
                         <div class="blog-social-share">
-                            <h5 class="all_caps">Share this Promotion</h5>
+                            <p class="all_caps">Share this Promotion</p>
                             <div class="social_share">
                                 <network network="facebook">
                                     <img src="//codecloud.cdn.speedyrails.net/sites/5a1f136e6e6f6472c6240000/image/png/1512057980767/fb@2x_whiteborder.png" class="" alt="">
