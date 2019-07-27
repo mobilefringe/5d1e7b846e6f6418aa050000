@@ -26,26 +26,26 @@
                         <div class="row form-group">
                             <div class="col-md-6" :class="{'has-error': errors.has('name')}">
                                 <label class="label" for="name">Name</label>
-                                <input v-model="form_data.name" v-validate="'required|alpha_spaces'" class="form-control" :class="{'input': true}" name="name" type="text" placeholder="Name" data-vv-delay="1000">
+                                <input id="name" v-model="form_data.name" v-validate="'required|alpha_spaces'" class="form-control" :class="{'input': true}" name="name" type="text" placeholder="Name" data-vv-delay="1000">
                                 <span v-show="errors.has('name')" class="form-control-feedback">{{ errors.first('name') }}</span>
                             </div>
                             <div class="col-md-6" :class="{'has-error': errors.has('email')}">
                                 <label class="label" for="email">Email</label>
-                                <input v-model="form_data.email" v-validate="'required|email'" class="form-control" :class="{'input': true}" name="email" type="email" placeholder="Email" data-vv-delay="1000">
+                                <input id="email" v-model="form_data.email" v-validate="'required|email'" class="form-control" :class="{'input': true}" name="email" type="email" placeholder="Email" data-vv-delay="1000">
                                 <span v-show="errors.has('email')" class="form-control-feedback">{{ errors.first('email') }}</span>
                             </div>
                         </div>
                         <div class="row form-group">
                             <div class="col-md-12" :class="{'has-error': errors.has('subject')}">
                                 <label class="label" for="subject">Subject</label>
-                                <input v-model="form_data.subject" v-validate="'required:true'" class="form-control" :class="{'input': true}" name="subject" type="text" placeholder="Subject" data-vv-delay="1000">
+                                <input id="subject" v-model="form_data.subject" v-validate="'required:true'" class="form-control" :class="{'input': true}" name="subject" type="text" placeholder="Subject" data-vv-delay="1000">
                                 <span v-show="errors.has('subject')" class="form-control-feedback">{{ errors.first('subject') }}</span>
                             </div>
                         </div>
                         <div class="row form-group">
                             <div class="col-md-12" :class="{'has-error': errors.has('message')}">
                                 <label class="label" for="message">Message</label>
-                                 <textarea v-model="form_data.message" v-validate="'required:true'" class="form-control" :class="{'input': true}" name="message" type="text" placeholder="Message" data-vv-delay="500"></textarea>
+                                 <textarea id="message" v-model="form_data.message" v-validate="'required:true'" class="form-control" :class="{'input': true}" name="message" type="text" placeholder="Message" data-vv-delay="500"></textarea>
                                 <span v-show="errors.has('message')" class="form-control-feedback">{{ errors.first('message') }}</span>
                             </div>
                         </div>
