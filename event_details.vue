@@ -19,7 +19,7 @@
                     <div class="store_details_desc" v-html="currentEvent.rich_description"></div>
                     <social-sharing :url="shareURL(currentEvent.slug)" :title="currentEvent.name" :description="currentEvent.description" :quote="truncate(currentEvent.description)" :media="currentEvent.image_url" inline-template>
                         <div class="blog-social-share">
-                            <h5 class="all_caps">Share this Event</h5>
+                            <p class="all_caps">Share this Event</p>
                             <div class="social_share">
                                 <network network="facebook">
                                     <img src="//codecloud.cdn.speedyrails.net/sites/5a1f136e6e6f6472c6240000/image/png/1512057980767/fb@2x_whiteborder.png" alt="Share on Facebook">
