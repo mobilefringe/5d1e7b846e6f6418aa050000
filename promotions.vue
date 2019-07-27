@@ -7,7 +7,7 @@
                 <div class="col-sm-6 col-md-4" v-for="promo in promotions">
                     <div class="promo_list_container text_center">
                         <div class="promo_list_img_container">
-                            <img :src="promo.store.store_front_url_abs" class="promo_list_img" alt="">
+                            <img :src="promo.store.store_front_url_abs" class="promo_list_img" :alt="promo.store.name + ' Logo'">
                         </div>
                         <p class="description_text">{{ promo.name }}</p>
                         <p class="top_promo_date" v-if="isMultiDay(promo)">
