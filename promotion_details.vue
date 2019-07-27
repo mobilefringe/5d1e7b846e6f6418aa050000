@@ -1,6 +1,6 @@
 <template>
     <div class="main_container" v-if="currentPromo">
-        <h1 class="accessibility">{{ property.name }} Promotion</h1>
+        <h1 class="accessibility">{{ property.name }} Promotions</h1>
         <div class="margin_25_across">
             <div class="promo_main_header sub_title">
                 <span class="promo_back all_caps">
