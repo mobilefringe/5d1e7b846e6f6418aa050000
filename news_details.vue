@@ -4,10 +4,9 @@
             <div class="promo_main_header sub_title">
                 <span class="promo_back all_caps"><i class="fa fa-caret-left"></i>&nbsp;<router-link to="/news">Back to News</router-link></span>
             </div>
-        
             <div class="row mobile_padding" id="promo_details_container">
                 <div class="col-md-4 col-sm-4">
-                    <img :src="currentNews.image_url"  alt="Store Logo" class="details_image" />
+                    <img :src="currentNews.image_url" alt="" class="details_image" />
                 </div>
                 <div class="col-md-8 col-sm-8" style="padding-bottom: 15px;">
                     <p class="promo_dates sub_title">{{ property.name | uppercase }}</p>
