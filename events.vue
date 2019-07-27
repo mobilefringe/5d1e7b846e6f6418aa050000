@@ -8,14 +8,14 @@
                     <hr class="show_phone">
                     <div class="promo_list_container text_center">
                         <div class="promo_list_img_container">
-                            <img :src="item.store.store_front_url_abs" class="promo_list_img">
+                            <img :src="item.store.store_front_url_abs" class="promo_list_img" alt="">
                         </div>
                         <p class="description_text">{{ item.name }}</p>
                         <p class="top_temp_event_date" v-if="isMultiDay(item)">
                             {{item.start_date | moment("MMMM D", timezone)}} - {{item.end_date | moment("MMMM D", timezone)}}
                         </p>
                         <p class="top_promo_date" v-else>{{ item.start_date | moment("MMMM D", timezone)}}</p>
-                        <router-link :to="{ name: 'eventDetails', params: { id: item.slug }}" class="animated_btn text_center">Read More</router-link>
+                        <router-link :to="{ name: 'eventDetails', params: { id: item.slug }}" class="animated_btn text_center">View Event Details</router-link>
                     </div>
                 </div>
             </div>
