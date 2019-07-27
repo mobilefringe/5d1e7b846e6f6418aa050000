@@ -8,7 +8,7 @@
                     <hr class="show_phone">
                     <div class="promo_list_container text_center">
                         <div class="promo_list_img_container">
-                            <img :src="item.store.store_front_url_abs" class="promo_list_img">
+                            <img :src="item.store.store_front_url_abs" class="promo_list_img" alt="">
                         </div>
                         <h3 class="description_text">{{ item.name }}</h3>
                         <p class="top_temp_event_date" v-if="isMultiDay(item)">
