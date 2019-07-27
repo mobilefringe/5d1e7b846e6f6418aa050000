@@ -41,6 +41,7 @@
                 this.$store.dispatch("getData", "news").then(response => {
                     this.dataloaded = true;
                     console.log("hi")
+                    console.log("news", this.processedNews)
                 }, error => {
                     console.error("Could not retrieve data from server. Please check internet connection and try again.");
                 });    
@@ -52,7 +53,7 @@
                     'processedNews'
                 ]),
                 news() {
-                    console.log("news", this.processedNews)
+                    
                     var vm = this;
                     var temp_event = [];
                     _.forEach(this.processedNews, function(value, key) {
