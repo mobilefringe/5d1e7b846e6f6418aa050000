@@ -17,7 +17,7 @@
 								</article>
 							</template>
 						</search-component>
-						<img src="//codecloud.cdn.speedyrails.net/sites/5a6a54eb6e6f647da51e0100/image/png/1517497861636/search_icon_2x.png" class="pull-right" id="store_search_img" alt="search icon">
+						<img src="//codecloud.cdn.speedyrails.net/sites/5d1e7b846e6f6418aa050000/image/png/1566404342403/search_icon.png" class="pull-right" id="store_search_img" alt="search icon">
 					</div>
 				</div>
 				<div class="col-sm-6 col-md-4">
