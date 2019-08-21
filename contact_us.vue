@@ -22,7 +22,7 @@
             </div>
             <div class="row padding_top_40"> 
                 <div class="col-md-12">
-                    <form action="form-submit" @submit.prevent="validateBeforeSubmit">
+                    <form id="contact_form" action="form-submit" @submit.prevent="validateBeforeSubmit">
                         <div class="row form-group">
                             <div class="col-md-6" :class="{'has-error': errors.has('name')}">
                                 <label class="label" for="name">Name</label>
