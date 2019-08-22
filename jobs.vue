@@ -59,6 +59,7 @@
                 allJobs() {
                     var vm = this;
                     var temp_event = [];
+                    console.log("this.processedJob", this.processedJob)
                     _.forEach(this.processedJobs, function(value, key) {
                         today = moment().tz(vm.timezone);
                         webDate = moment(value.show_on_web_date).tz(vm.timezone);
