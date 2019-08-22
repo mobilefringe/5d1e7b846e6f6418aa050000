@@ -39,7 +39,7 @@
 
 <script>
     define(["Vue", "vuex","moment", "moment-timezone", "vue-moment"], function(Vue, Vuex, moment, tz, VueMoment) {
-        return Vue.component("event-details-component", {
+        return Vue.component("job-details-component", {
             template: template, // the variable template will be injected,
             props:['id'],
             data: function() {
@@ -75,9 +75,8 @@
                 ...Vuex.mapGetters([
                     'property',
                     'timezone',
-                    'processedEvents',
-                    'findEventBySlug',
-                    'findEventById'
+                    'processedJobs',
+                    'findJobBySlug'
                 ])
             },
             methods: {
