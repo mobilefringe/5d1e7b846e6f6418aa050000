@@ -77,15 +77,14 @@
             methods: {
                 updateCurrentJob (id) {
                     this.currentJob = this.findJobBySlug(id);
-                    console.log("job", this.currentJob)
-                    if (this.currentJob === null || this.currentJob === undefined){
-                        // this.$router.replace('/');
+                    if (this.currentJob === null || this.currentJob === undefined) {
+                        this.$router.replace('/');
                     }
                 },
                 isMultiDay(currentJob) {
 					var timezone = this.timezone
-					var start_date = moment(currentJob.start_date).tz(timezone).format("MM-DD-YYYY")
-					var end_date = moment(currentJob.end_date).tz(timezone).format("MM-DD-YYYY")
+					var start_date = moment(currentJob.start_date).tz(timezone).format("MM-DD-YYYY");
+					var end_date = moment(currentJob.end_date).tz(timezone).format("MM-DD-YYYY");
 					if (start_date === end_date) {
 						return false
 					} else {
