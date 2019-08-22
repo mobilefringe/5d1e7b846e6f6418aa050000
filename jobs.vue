@@ -3,7 +3,7 @@
         <div id="promotions_container" class="margin_25_across">
             <h1 class="inside_heading">Start Your Career at {{ property.name}}!</h1>
             <h2 class="inside_subheading">Join our family of dedicated professionals!</h2>
-            <div class="row" v-if="events.length > 0">
+            <div class="row" v-if="allJobs.length > 0">
                 <div class="col-sm-6 col-md-4" v-for="(item, index) in allJobs">
                     <hr class="show_phone">
                     <div class="promo_list_container text_center">
@@ -44,7 +44,7 @@
             template: template, // the variable template will be injected
             data: function() {
                 return {
-                    success_subscribe: false
+                    dataloaded: false
                 }
             },
             created () {
