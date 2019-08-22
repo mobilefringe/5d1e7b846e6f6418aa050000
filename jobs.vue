@@ -57,22 +57,44 @@
                     'processedJobs'
                 ]),
                 allJobs() {
-                    var jobs = this.processedJobs; //_.filter(this.$store.getters.processedJobs, function(o) { return o.store !=null && o.jobable_type === "Store" });
                     var vm = this;
-                    jobs.map(job => {
-                        if (job.store != null && job.store != undefined && _.includes(job.store.image_url, 'missing')) {
-                            job.store.image_url = vm.property.default_logo_url;
-                        }
-                        else if (job.store == null && job.store == undefined) {
-                            job.store = {};
-                            job.store.store_front_url_abs =  vm.property.default_logo_url;
-                        }
+                    var temp_event = [];
+                    _.forEach(this.processedJobs, function(value, key) {
+                        today = moment().tz(vm.timezone);
+                        webDate = moment(value.show_on_web_date).tz(vm.timezone);
+                        // if (today.format() >= webDate.format()) {
+                            value.description_short = _.truncate(value.description, { 'length': 150 });
+
+                            if (value.store != null && value.store != undefined && _.includes(value.store.store_front_url_abs, 'missing')) {
+                                value.store.store_front_url_abs = vm.property.default_logo_url;
+                            } else if (value.store == null || value.store == undefined) {
+                                value.store = {};
+                                value.store.store_front_url_abs =  vm.property.default_logo_url;
+                            }
+                            
+                            temp_event.push(value);
+                        // }
                     });
-                    jobs = _.sortBy(jobs, [function(o) {
-                        if (o.store) return o.store.name;
-                    }]);
-                    return _.groupBy(jobs, job => (isNaN(job.store) ? job.store.name : this.property.name));
+                    temp_event = _.sortBy(temp_event, [function(o) { return o.event_date; }]);
+                    return temp_event;
                 },
+                // allJobs() {
+                //     var jobs = this.processedJobs;
+                //     var vm = this;
+                //     jobs.map(job => {
+                //         if (job.store != null && job.store != undefined && _.includes(job.store.image_url, 'missing')) {
+                //             job.store.image_url = vm.property.default_logo_url;
+                //         }
+                //         else if (job.store == null && job.store == undefined) {
+                //             job.store = {};
+                //             job.store.store_front_url_abs =  vm.property.default_logo_url;
+                //         }
+                //     });
+                //     jobs = _.sortBy(jobs, [function(o) {
+                //         if (o.store) return o.store.name;
+                //     }]);
+                //     return _.groupBy(jobs, job => (isNaN(job.store) ? job.store.name : this.property.name));
+                // },
             },
             methods: {
                 loadData: async function() {
