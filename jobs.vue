@@ -1,36 +1,31 @@
 <template>
-    <div class=" main_container" id="jobs_container"><!-- for some reason if you do not put an outer container div this component template will not render -->
-        <h3 class="promotion_heading" v-if="property">Start your Career at {{property.name}}</h3>
-        <p class="exclusive_deals sub_title">Join our family of dedicated professionals!</p>
-        <div class="row" v-for="(jobs,store_name) in allJobs">
-            <h2 class="store_details_promo_heading sub_title">
-                    {{store_name}}
-                </h2>
-            <div id="promos_container">
-                <div class="col-sm-6 no_padding" v-for="promo in jobs" :data-cat="promo.cat_list">
-                    <div class="promo_item cats_row is-table-row" v-if="promo">
-                        <div class="col-sm-5 col-xs-4 no_padding">
-                            <img class="promo_store_image" v-if="promo.store" :src="promo.store.image_url" :alt="promo.name" />
-                            <img class="promo_store_image" v-else src="//codecloud.cdn.speedyrails.net/sites/5a1f136e6e6f6472c6240000/image/jpeg/1515531874445/canyon_crest_default.jpg" :alt="promo.name" />
+    <div class="main_container" v-if="dataloaded"> <!-- without an outer container this component template will not render -->
+        <div id="promotions_container" class="margin_25_across">
+            <h1 class="inside_heading">Start Your Career at {{ property.name}}!</h1>
+            <h2 class="inside_subheading">Join our family of dedicated professionals!</h2>
+            <div class="row" v-if="events.length > 0">
+                <div class="col-sm-6 col-md-4" v-for="(item, index) in allJobs">
+                    <hr class="show_phone">
+                    <div class="promo_list_container text_center">
+                        <div class="promo_list_img_container">
+                            <img :src="item.store.store_front_url_abs" class="promo_list_img" alt="">
                         </div>
-                        <div class="col-sm-7  padding_tb_20">
-                            <router-link :to="'/jobs/'+promo.slug" class="">
-                                <h2 class="promo_list_name">{{promo.name}}</h2>
-                            </router-link>
-                            <p>
-                                <span class="promo_dates sub_title">{{promo.start_date | moment("MMM D", timezone)}} - {{promo.end_date | moment("MMM D", timezone)}}</span>
-                            </p>
-                            <div class="promo_list_desc hidden_phone">{{truncate(promo.description) }}</div>
-                            <div class="text_center position_relative hidden_phone">
-                                <router-link :to="'/jobs/'+promo.slug" class="animated_btn text_center">Read More</router-link>
-                            </div>
-                        </div>
+                        <h3 class="description_text">{{ item.name }}</h3>
+                        <p class="top_temp_event_date" v-if="isMultiDay(item)">
+                            {{item.start_date | moment("MMMM D", timezone)}} - {{item.end_date | moment("MMMM D", timezone)}}
+                        </p>
+                        <p class="top_promo_date" v-else>{{ item.start_date | moment("MMMM D", timezone)}}</p>
+                        <router-link :to="{ name: 'eventDetails', params: { id: item.slug }}" class="animated_btn text_center">View Event Details</router-link>
                     </div>
+                </div>
+            </div>
+            <div class="row" v-else>
+                <div class="col-sm-12">
+                    <p>There are currently no Events scheduled. Please check back soon!</p>
                 </div>
             </div>
         </div>
     </div>
-    
 </template>
 
 <style>
