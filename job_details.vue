@@ -58,18 +58,12 @@
                     this.updateCurrentJob(this.$route.params.id);
                 },
                 currentJob: function() {
-                    if (this.currentJob.store !== null && this.currentJob.store !== undefined && _.includes(this.currentJob.store.store_front_url_abs, 'missing')) {
+                    if (this.currentJob.store !== null && this.currentJob.store !== undefined ) {
                         this.currentJob.store.store_front_url_abs =  this.property.default_logo_url;
                     } else if (this.currentJob.store == null && this.currentJob.store == undefined) {
                         this.currentJob.store = {};
                         this.currentJob.store.image_url =  this.property.default_logo_url;
-                        
-                        console.log("this.property.default_logo_url", this.property.default_logo_url)
                     }
-                    
-                    // if (this.currentJob.image_url != null && this.currentJob.image_url != undefined && _.includes(this.currentJob.image_url, 'missing')){
-                    //     this.currentJob.image_url =  this.property.default_logo_url;
-                    // }
                 }
             },
             computed: {
