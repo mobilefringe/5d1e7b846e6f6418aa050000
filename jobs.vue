@@ -48,7 +48,11 @@
                 }
             },
             created () {
-                this.$store.dispatch("getData", "jobs");
+                this.$store.dispatch("getData", "jobs").then(response => {
+                    this.dataloaded = true;
+                }, error => {
+                    console.error("Could not retrieve data from server. Please check internet connection and try again.");
+                });    
             },
             computed: {
                 ...Vuex.mapGetters([
@@ -59,7 +63,7 @@
                 allJobs() {
                     var vm = this;
                     var temp_event = [];
-                    console.log("this.processedJob", this.processedJob)
+                    console.log("this.processedJob", this.processedJobs)
                     _.forEach(this.processedJobs, function(value, key) {
                         today = moment().tz(vm.timezone);
                         webDate = moment(value.show_on_web_date).tz(vm.timezone);
@@ -104,8 +108,9 @@
                             site: "canyoncrest",
                             version: "v4"
                         });
-                        // avoid making LOAD_META_DATA call for now as it will cause the entire Promise.all to fail since no meta data is set up.
-                        let results = await Promise.all([this.$store.dispatch("INITIALIZE_LOCALE"), this.$store.dispatch("getData", "property"), this.$store.dispatch("getData", "hours"), this.$store.dispatch("getData", "stores")]);
+             
+                        let results = await Promise.all([
+                            this.$store.dispatch("getData", "jobs")
                     } catch (e) {
                         console.log("Error loading data: " + e.message);
                     }
