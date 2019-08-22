@@ -8,10 +8,10 @@
 
             <div class="row" id="promo_details_container">
                 <div class="col-md-4 col-sm-4">
-                    <img v-if="currentJob.image_url" :src="currentJob.image_url"  alt="Store Logo" class="details_image" />
+                    <img v-if="currentJob.store.image_url" :src="currentJob.store.image_url"  :alt="currentJob.store.name + ' Logo'" class="details_image" />
                 </div>
                 <div class="col-md-8 col-sm-8">
-                    <p class="promo_dates sub_title">{{ property.name | uppercase }}</p>
+                    <p class="promo_dates sub_title">{{ currentJob.store.name | uppercase }}</p>
                     <h2 class="promo_list_name">{{currentJob.name}}</h2>
                     <p class="promo_dates sub_title" v-if="isMultiDay(currentJob)">
                         {{ currentJob.start_date | moment("MMMM D", timezone) }} - {{ currentJob.end_date | moment("MMMM D", timezone) }}
