@@ -66,9 +66,9 @@
                         this.currentJob.store.store_front_url_abs =  this.property.default_logo_url;
                     }
                     
-                    if (this.currentJob.image_url != null && this.currentJob.image_url != undefined && _.includes(this.currentJob.image_url, 'missing')){
-                        this.currentJob.image_url =  this.property.default_logo_url;
-                    }
+                    // if (this.currentJob.image_url != null && this.currentJob.image_url != undefined && _.includes(this.currentJob.image_url, 'missing')){
+                    //     this.currentJob.image_url =  this.property.default_logo_url;
+                    // }
                 }
             },
             computed: {
@@ -105,7 +105,7 @@
                     return truncate;
                 },
                 shareURL(slug) {
-                    var share_url = "https://kanatacentral.com/events/" + slug;
+                    var share_url = "https://kanatacentral.com/jobs/" + slug;
                     return share_url;
                 }
             }
