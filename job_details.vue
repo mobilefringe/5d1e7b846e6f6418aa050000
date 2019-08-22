@@ -5,7 +5,6 @@
             <div class="promo_main_header sub_title">
                 <span class="promo_back all_caps"><i class="fa fa-caret-left"></i>&nbsp;<router-link to="/jobs">Back to Careers</router-link></span>
             </div>
-
             <div class="row" id="promo_details_container">
                 <div class="col-md-4 col-sm-4">
                     <img v-if="currentJob.store.image_url" :src="currentJob.store.image_url"  :alt="currentJob.store.name + ' Logo'" class="details_image" />
@@ -64,6 +63,8 @@
                     } else if (this.currentJob.store == null && this.currentJob.store == undefined) {
                         this.currentJob.store = {};
                         this.currentJob.store.store_front_url_abs =  this.property.default_logo_url;
+                        
+                        console.log("this.property.default_logo_url", this.property.default_logo_url)
                     }
                     
                     // if (this.currentJob.image_url != null && this.currentJob.image_url != undefined && _.includes(this.currentJob.image_url, 'missing')){
