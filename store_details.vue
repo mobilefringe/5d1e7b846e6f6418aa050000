@@ -157,7 +157,7 @@
                 currentStore : function (){
                     var vm = this;
                     
-                    this.currentStore.zoom = 2;
+                    // this.currentStore.zoom = 2;
                     
                     // STORE LOGO
                     if (_.includes(this.currentStore.store_front_url_abs, 'missing')) {
