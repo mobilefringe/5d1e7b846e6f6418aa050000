@@ -29,7 +29,7 @@
                     <div class="row">
                         <div class="col-md-8 col-sm-12">
                             <div id="map">
-                                <mapplic-map ref="mapplic_ref" :height="310" :minimap= "false" :deeplinking="false" :sidebar="false" :hovertip="true" :maxscale= "5" :storelist="[currentStore]" :floorlist="floorList" :svgWidth="2500" :svgHeight="2500" tooltiplabel="Info" action="none" :showPin="true" @updateMap="updateMap" :key="currentStore.id" :svgId="'Layer_1'"></mapplic-map>
+                                <mapplic-map ref="mapplic_ref" :height="310" :minimap= "false" :deeplinking="false" :sidebar="false" :hovertip="true" :maxscale= "5" :storelist="[currentStore]" :floorlist="floorList" :svgWidth="2500" :svgHeight="2500" tooltiplabel="Info" action="none" :showPin="true" @updateMap="updateMap" :key="currentStore.id" :svgId="'landmarks-1'"></mapplic-map>
                             </div>
                         </div>
                         <div class="col-md-4 hidden_phone">
