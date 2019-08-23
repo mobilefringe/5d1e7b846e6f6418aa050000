@@ -29,7 +29,7 @@
                     <div class="row">
                         <div class="col-md-8 col-sm-12">
                             <div id="map">
-                                <mapplic-map ref="mapplic_ref" :height="310" :minimap= "false" :deeplinking="false" :sidebar="false" :hovertip="true" :maxscale= "5" :storelist="mapStores" :floorlist="floorList" :svgWidth="2500" :svgHeight="2500" tooltiplabel="Info" action="none" :showPin="true" @updateMap="updateMap" :key="currentStore.id" :svgId="'landmarks-1'"></mapplic-map>
+                                <mapplic-map ref="mapplic_ref" :height="310" :minimap= "false" :deeplinking="false" :sidebar="false" :hovertip="true" :maxscale= "5" :storelist="[currentStore]" :floorlist="floorList" :svgWidth="2500" :svgHeight="2500" tooltiplabel="Info" action="none" :showPin="true" @updateMap="updateMap" :key="currentStore.id" :svgId="'landmarks-1'"></mapplic-map>
                             </div>
                         </div>
                         <div class="col-md-4 hidden_phone">
@@ -157,6 +157,8 @@
                 currentStore : function (){
                     var vm = this;
                     
+                    this.currentStore.zoom = 2;
+                    
                     // STORE LOGO
                     if (_.includes(this.currentStore.store_front_url_abs, 'missing')) {
                         this.currentStore.no_logo = true
@@ -216,16 +218,6 @@
                     'findJobById',
                     'findHourById'
                 ]),
-                mapStores() {
-                    var all_stores = this.processedStores;
-                    _.forEach(all_stores, function(value, key) {
-                        value.zoom = 2;
-                        if(value.svgmap_region == null){
-                            value.svgmap_region = value.id;
-                        }
-                    });
-                    return all_stores;
-                },
                 getSVGurl () {
                     return "https://www.mallmaverick.com" + this.property.svgmap_url;
                 },
