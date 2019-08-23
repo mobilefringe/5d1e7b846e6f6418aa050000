@@ -127,24 +127,6 @@
                             </div>
                         </div>
                     </div>
-                    
-                    <div id="jobs_container">
-                        <div class="col-md-6 col-sm-6" v-for="job in jobs" :data-cat="job.cat_list">
-                            <div class="promo_item cats_row is-table-row">
-                                <div class="col-md-5 col-xs-4 no_padding">
-                                    <img class="promo_store_image" :src="currentStore.image_url" :alt="job.name" />
-                                </div>
-                                <div class="col-md-7 padding_tb_20">
-                                    <h2 class="promo_list_name">{{ job.name }}</h2>
-                                    <p class="promo_dates sub_title">{{job.start_date | moment("MMM D", timezone)}}</p>
-                                    <div class="promo_list_desc">{{job.description_short }}</div>
-                                    <div class="text_center position_relative">
-                                        <router-link :to="'/jobs/' + job.slug" class="animated_btn text_center">View Details</router-link>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
                 </div>
             </div>
         </div>
