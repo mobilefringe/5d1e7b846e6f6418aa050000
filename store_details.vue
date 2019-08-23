@@ -216,6 +216,16 @@
                     'findJobById',
                     'findHourById'
                 ]),
+                mapStores() {
+                    var all_stores = this.processedStores;
+                    _.forEach(all_stores, function(value, key) {
+                        value.zoom = 2;
+                        if(value.svgmap_region == null){
+                            value.svgmap_region = value.id;
+                        }
+                    });
+                    return all_stores;
+                },
                 getSVGurl () {
                     return "https://www.mallmaverick.com" + this.property.svgmap_url;
                 },
