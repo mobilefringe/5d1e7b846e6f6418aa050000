@@ -79,7 +79,7 @@
 
 <script>
     define(["Vue", "vuex", "moment", "moment-timezone", "vue-moment", "vee-validate"], function(Vue, Vuex, moment, tz, VueMoment, VeeValidate) {
-        Vue.use(VeeValidate);
+        // Vue.use(VeeValidate);
         return Vue.component("contact-component", {
             template: template, // the variable template will be injected
             data: function() {
