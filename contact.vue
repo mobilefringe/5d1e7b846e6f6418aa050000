@@ -127,8 +127,7 @@
                 },
                 validateBeforeSubmit() {
                     this.$validator.validateAll().then((result) => {
-                        // if (result) {
-                            
+                        if (result) {
                             let errors = this.errors;
                             send_data = {};
                             send_data.form_data = JSON.stringify(this.serializeObject(this.form_data));
@@ -148,7 +147,7 @@
                                     this.formError = true;
                                 }
                             })
-                        // }
+                        }
                     })
                 },
                 serializeObject (obj) {
