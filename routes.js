@@ -8,18 +8,18 @@ define([], function() {
             path: '/contact-us',
             component: view('default'),
             children: [
-            	{
-                	path: '',
-                	component: view('contact_us'),
-                	name: 'contactUs'
-            	}
+                {
+                    path: '',
+                    component: view('contact_us'),
+                    name: 'contactUs'
+                }
             ]
         },
         {
             path: '/events',
             component: view('default'),
             children: [
-            	{
+                {
                     path: '',
                     component: view('events'),
                     name: 'eventList'
