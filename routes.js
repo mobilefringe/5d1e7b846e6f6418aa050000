@@ -11,7 +11,7 @@ define([], function() {
                 {
                     path: '',
                     component: view('contact'),
-                    name: 'contactUs'
+                    name: 'contact'
                 }
             ]
         },
