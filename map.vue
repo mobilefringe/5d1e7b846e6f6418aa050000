@@ -1,42 +1,44 @@
 <template>
-    <div class="main_container" v-if="dataLoaded"> <!-- without an outer container div this component template will not render -->
-        <div class="margin_25_across">
-            <div class="row">
-                <div class="col-md-12">
-                    <h1 class="inside_heading">{{ property.name }} Map</h1>
-                    <h2 class="inside_subheading">Join us to celebrate and enjoy!</h2>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-md-12">
-                    <div class="select_container map_storelist show_phone">
-                        <v-select 
-                            :options="mapStores" 
-                            :placeholder="'Select A Store'" 
-                            :searchable="false" 
-                            :label="'name'" 
-                            :on-change="dropPin" 
-                            id="mobile_alpha_list">
-                        </v-select> 
+    <div v-if="dataLoaded"> <!-- without an outer container div this component template will not render -->
+        <div class="main_container">
+            <div class="margin_25_across">
+                <div class="row">
+                    <div class="col-md-12">
+                        <h1 class="inside_heading">{{ property.name }} Map</h1>
+                        <h2 class="inside_subheading">Join us to celebrate and enjoy!</h2>
                     </div>
-                    <div class="map_storelist hidden_phone">
-                        <v-select 
-                            :options="mapStores" 
-                            :placeholder="'Select A Store'" 
-                            :searchable="false" 
-                            :label="'name'" 
-                            :on-change="dropPin">
-                        </v-select>
+                </div>
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="select_container map_storelist show_phone">
+                            <v-select 
+                                :options="mapStores" 
+                                :placeholder="'Select A Store'" 
+                                :searchable="false" 
+                                :label="'name'" 
+                                :on-change="dropPin" 
+                                id="mobile_alpha_list">
+                            </v-select> 
+                        </div>
+                        <div class="map_storelist hidden_phone">
+                            <v-select 
+                                :options="mapStores" 
+                                :placeholder="'Select A Store'" 
+                                :searchable="false" 
+                                :label="'name'" 
+                                :on-change="dropPin">
+                            </v-select>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
-                    <mapplic-map v-if="!isMobile" ref="mapplic_ref" :height="700" :minimap= "false" :deeplinking="false" :sidebar="false" :hovertip="true" :maxscale= "5" :storelist="mapStores" :floorlist="floorList" :svgWidth="2500" :svgHeight="2500" tooltiplabel="View Details"></mapplic-map>
-                    
-                    <mapplic-map v-if="isMobile" ref="mapplic_ref" :height="375" :minimap= "false" :deeplinking="false" :sidebar="false" :hovertip="true" :maxscale= "5" :storelist="mapStores" :floorlist="floorList" :svgWidth="2500" :svgHeight="2500" tooltiplabel="View Details"></mapplic-map>
+                        <mapplic-map v-if="!isMobile" ref="mapplic_ref" :height="700" :minimap= "false" :deeplinking="false" :sidebar="false" :hovertip="true" :maxscale= "5" :storelist="mapStores" :floorlist="floorList" :svgWidth="2500" :svgHeight="2500" tooltiplabel="View Details"></mapplic-map>
+                        
+                        <mapplic-map v-if="isMobile" ref="mapplic_ref" :height="375" :minimap= "false" :deeplinking="false" :sidebar="false" :hovertip="true" :maxscale= "5" :storelist="mapStores" :floorlist="floorList" :svgWidth="2500" :svgHeight="2500" tooltiplabel="View Details"></mapplic-map>
+                    <!--</div>-->
                 <!--</div>-->
             <!--</div>-->
-        <!--</div>-->
     </div>
 </template>
 
