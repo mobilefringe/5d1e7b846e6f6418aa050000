@@ -5,6 +5,17 @@ define([], function() {
             component: view('home')
         },
         {
+            path: '/about-us',
+            component: view('default'),
+            children: [
+                {
+                    path: '',
+                    component: view('page_details'),
+                    name: 'pageDetails'
+                }
+            ]
+        },
+        {
             path: '/contact-us',
             component: view('default'),
             children: [
@@ -99,17 +110,6 @@ define([], function() {
 	                name: 'newsletter'
             	}
         	]
-        },
-        {
-            path: '/overview',
-            component: view('default'),
-            children: [
-                {
-                    path: '',
-                    component: view('page_details'),
-                    name: 'pageDetails'
-                }
-            ]
         },
         {
             path: '/pages',
