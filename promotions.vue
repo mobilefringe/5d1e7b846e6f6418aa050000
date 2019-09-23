@@ -20,7 +20,7 @@
             </div>
             <div class="row" v-else>
                 <div class="col-sm-12">
-                    <p>There are currently no Promotions posted. Please check back soon!</p>
+                    <p>We don't currently have any promotions scheduled. To stay up to date, sign-up for our <a href="/newsletter">newsletter</a>, <a href="https://www.facebook.com/kanatacentralBIA/" target="_blank">follow us on Facebook</a>, or <a href="https://www.instagram.com/kanatacentralbia/" target="_blank">follow us on Instagram</a>.</p>
                 </div>
             </div>
         </div>
