@@ -113,7 +113,7 @@
                     initZoom.z_coordinate = 1;
                     initZoom.x = 0.5;
                     initZoom.y = 0.5;
-                    initZoom.zoom = 1;
+                    initZoom.zoom = 1.5;
                     all_stores.push(initZoom);
         
                     return all_stores;
