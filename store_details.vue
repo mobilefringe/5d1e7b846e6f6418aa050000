@@ -157,6 +157,7 @@
                 currentStore : function (){
                     var vm = this;
                     
+                    // MAP
                     this.currentStore.zoom = 1.5;
                     
                     // STORE LOGO
