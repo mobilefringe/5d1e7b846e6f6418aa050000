@@ -146,7 +146,7 @@
                                         <div class="triangle-up"></div>
                                         <div class="triangle-up-inside"></div>
                                         <li v-for="(subitem, index) in item.sub_menu">
-                                            <a v-if="subitem.target" :href="" target="_blank" class="all_caps">{{ subitem.name }}</a>
+                                            <a v-if="subitem.target" :href="subitem.href" target="_blank" class="all_caps">{{ subitem.name }}</a>
                                             <router-link v-else :to="subitem.href" class="all_caps">{{ subitem.name }}</router-link>
                                         </li>
                                     </ul>
