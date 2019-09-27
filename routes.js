@@ -100,17 +100,17 @@ define([], function() {
                 }
             ]
         },
-        {
-            path: '/newsletter',
-            component: view('default'),
-            children: [
-            	{
-	                path: '',
-	                component: view('newsletter'),
-	                name: 'newsletter'
-            	}
-        	]
-        },
+        // {
+        //     path: '/newsletter',
+        //     component: view('default'),
+        //     children: [
+        //     	{
+	       //         path: '',
+	       //         component: view('newsletter'),
+	       //         name: 'newsletter'
+        //     	}
+        // 	]
+        // },
         {
             path: '/pages',
             component: view('default'),
