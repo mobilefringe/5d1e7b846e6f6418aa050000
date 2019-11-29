@@ -12,9 +12,7 @@
                 <div class="col-md-8 col-sm-8">
                     <p class="promo_dates sub_title">{{ currentJob.store.name | uppercase }}</p>
                     <h2 class="promo_list_name">{{currentJob.name}}</h2>
-                    <p class="promo_dates sub_title" v-if="isMultiDay(currentJob)">
-                        {{ currentJob.start_date | moment("MMMM D", timezone) }} - {{ currentJob.end_date | moment("MMMM D", timezone) }}
-                    </p>
+
                     <p class="promo_dates sub_title" v-else>{{  currentJob.start_date | moment("MMMM D", timezone)}}</p>
                     <div class="store_details_desc" v-html="currentJob.rich_description"></div>
                     <social-sharing :url="shareURL(currentJob.slug)" :title="currentJob.name" :description="currentJob.description" :quote="truncate(currentJob.description)" :media="currentJob.image_url" inline-template>
