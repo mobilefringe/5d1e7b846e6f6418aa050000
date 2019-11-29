@@ -38,8 +38,10 @@
 </template>
 
 <script>
-    define(["Vue", "vuex","moment", "moment-timezone", "vue-moment"], function(Vue, Vuex, moment, tz, VueMoment) {
+    define(["Vue", "vuex","moment", "moment-timezone", "vue-moment", 'vue-social-sharing'], function(Vue, Vuex, moment, tz, VueMoment, SocialSharing) {
         return Vue.component("event-details-component", {
+            Vue.use(SocialSharing);
+            
             template: template, // the variable template will be injected,
             props:['id'],
             data: function() {
