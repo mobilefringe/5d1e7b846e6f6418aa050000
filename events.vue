@@ -58,7 +58,6 @@
                         webDate = moment(value.show_on_web_date).tz(vm.timezone);
                         if (today.format() >= webDate.format()) {
                             value.description_short = _.truncate(value.description, { 'length': 150 });
-
                             if (value.store != null && value.store != undefined && _.includes(value.store.store_front_url_abs, 'missing')) {
                                 value.store.store_front_url_abs = vm.property.default_logo_url;
                             } else if (value.store == null || value.store == undefined) {
@@ -69,7 +68,7 @@
                             temp_event.push(value);
                         }
                     });
-                    temp_event = _.sortBy(temp_event, [function(o) { return o.event_date; }]);
+                    temp_event = _.sortBy(temp_event, [function(o) { return o.end_date; }]);
                     return temp_event;
                 },
             },
