@@ -36,9 +36,9 @@
     </head>
     <body>
         {%raw-%}
-        <div id="app" v-cloak>
+        <div id="app" v-cloak v-if="dataLoaded">
             <loader v-if="!dataLoaded"></loader>
-            <div class="main_content_container" v-if="dataLoaded">
+            <div class="main_content_container">
                 <transition name="custom-classes-transition" enter-active-class="animated slideInDown" leave-active-class="animated slideOutUp">
                     <div class="mobile_menu_container" v-show="show_mobile_menu">
                         <div class="opened_mobile_menu">
