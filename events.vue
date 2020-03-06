@@ -5,7 +5,7 @@
                 <div class="custom_container" v-for="(item, index) in events">
                     <hr class="show_phone">
                     <div class="custom_left col-2 col-md-2">
-                    debugger;
+                    {{item}}
                         <img :src="item.store.store_front_url_abs" class="promo_list_img" alt="">
                     </div>
                     <div class="custom_right col-10 col-md-10">
