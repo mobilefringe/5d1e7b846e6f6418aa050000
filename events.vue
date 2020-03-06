@@ -3,7 +3,7 @@
         <div id="events_container" class="margin_25_across add_top_margin">
             <div class="row" v-if="events.length > 0">
                 <div class="custom_container col-12 col-md-12" style="padding: 0px" v-for="(item, index) in events">
-                    <hr class="show_phone">
+                    <!--<hr class="show_phone">-->
                     <div class="custom_left col-12 col-sm-12 col-md-4">
                     <img :src="item.image_url" class="promo_list_img" alt="" v-if="item.image_url">
                         <img :src="item.store.store_front_url_abs" class="promo_list_img" alt="" v-else>
