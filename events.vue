@@ -4,11 +4,14 @@
             <div class="row" v-if="events.length > 0">
                 <div class="custom_container col-12 col-md-12" style="padding: 0px" v-for="(item, index) in events">
                     <!--<hr class="show_phone">-->
-                    <div class="custom_left col-12 col-sm-12 col-md-4">
+                    <div class="col-12 col-sm-12 col-md-4">
+                    <div class="custom_left">
                     <img :src="item.image_url" class="promo_list_img" alt="" v-if="item.image_url">
                         <img :src="item.store.store_front_url_abs" class="promo_list_img" alt="" v-else>
                     </div>
-                    <div class="custom_right col-12 col-sm-12 col-md-8">
+                    </div>
+                    <div class="col-12 col-sm-12 col-md-8">
+                    <div class="custom_right">
                         <h3 class="description_text">{{ item.name }}</h3>
                         <p class="top_temp_event_date" v-if="isMultiDay(item)">
                             {{item.start_date | moment("MMMM D", timezone)}} - {{item.end_date | moment("MMMM D", timezone)}}
@@ -17,7 +20,7 @@
                         <div class="custom_desc">{{item.description}}</div>
                         <router-link :to="{ name: 'eventDetails', params: { id: item.slug }}">Read More</router-link>
                     </div>
-                
+                </div>
                 </div>
             </div>
             <div class="row" v-else>
