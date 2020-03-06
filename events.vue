@@ -4,11 +4,11 @@
             <div class="row" v-if="events.length > 0">
                 <div class="custom_container" v-for="(item, index) in events">
                     <hr class="show_phone">
-                    <div class="custom_left col-2 col-md-2">
+                    <div class="custom_left col-3 col-md-3">
                     <img :src="item.image_url" class="promo_list_img" alt="" v-if="item.image_url">
                         <img :src="item.store.store_front_url_abs" class="promo_list_img" alt="" v-else>
                     </div>
-                    <div class="custom_right col-10 col-md-10">
+                    <div class="custom_right col-9 col-md-9">
                         <h3 class="description_text">{{ item.name }}</h3>
                         <p class="top_temp_event_date" v-if="isMultiDay(item)">
                             {{item.start_date | moment("MMMM D", timezone)}} - {{item.end_date | moment("MMMM D", timezone)}}
