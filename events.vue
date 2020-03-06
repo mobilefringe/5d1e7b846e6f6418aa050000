@@ -2,7 +2,7 @@
     <div class="main_container" v-if="dataloaded"> <!-- without an outer container this component template will not render -->
         <div id="events_container" class="margin_25_across add_top_margin">
             <div class="row" v-if="events.length > 0">
-                <div class="custom_container" v-for="(item, index) in events">
+                <div class="custom_container col-12 col-md-12" v-for="(item, index) in events">
                     <hr class="show_phone">
                     <div class="custom_left col-4 col-md-4">
                     <img :src="item.image_url" class="promo_list_img" alt="" v-if="item.image_url">
