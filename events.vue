@@ -1,7 +1,7 @@
 <template>
     <div class="main_container" v-if="dataloaded"> <!-- without an outer container this component template will not render -->
         <div id="events_container" class="margin_25_across add_top_margin">
-            <div class="row" v-if="events.length > 0">
+            <div v-if="events.length > 0">
                 <div class="custom_container col-12 col-md-12" style="padding: 0px" v-for="(item, index) in events">
                 <div class="row" style="width:100%">
                     <!--<hr class="show_phone">-->
