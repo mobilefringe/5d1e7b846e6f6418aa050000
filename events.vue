@@ -31,31 +31,6 @@
             </div>
             
         </div>
-        <!--<div id="promotions_container" class="margin_25_across">
-            <h1 class="inside_heading">Exclusive Events at {{ property.name}}!</h1>
-            <h2 class="inside_subheading">Join us to celebrate and enjoy!</h2>
-            <div class="row" v-if="events.length > 0">
-                <div class="col-sm-6 col-md-4" v-for="(item, index) in events">
-                    <hr class="show_phone">
-                    <div class="promo_list_container text_center">
-                        <div class="promo_list_img_container">
-                            <img :src="item.store.store_front_url_abs" class="promo_list_img" alt="">
-                        </div>
-                        <h3 class="description_text">{{ item.name }}</h3>
-                        <p class="top_temp_event_date" v-if="isMultiDay(item)">
-                            {{item.start_date | moment("MMMM D", timezone)}} - {{item.end_date | moment("MMMM D", timezone)}}
-                        </p>
-                        <p class="top_promo_date" v-else>{{ item.start_date | moment("MMMM D", timezone)}}</p>
-                        <router-link :to="{ name: 'eventDetails', params: { id: item.slug }}" class="animated_btn text_center">View Event Details</router-link>
-                    </div>
-                </div>
-            </div>
-            <div class="row" v-else>
-                <div class="col-sm-12">
-                    <p>We don't currently have any events scheduled. To stay up to date, sign-up for our <a href="/newsletter">newsletter</a>, <a href="https://www.facebook.com/kanatacentralBIA/" target="_blank">follow us on Facebook</a>, or <a href="https://www.instagram.com/kanatacentralbia/" target="_blank">follow us on Instagram</a>.</p>
-                </div>
-            </div>
-        </div>-->
     </div>
 </template>
 
