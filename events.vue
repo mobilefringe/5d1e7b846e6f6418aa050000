@@ -6,12 +6,9 @@
             <div v-if="events.length > 0">
                 <div class="custom_container col-12 col-md-12" style="padding: 0px" v-for="(item, index) in events">
                 <div class="row" style="width:100%">
-                    <!--<hr class="show_phone">-->
                     <div class="col-12 col-sm-4 col-md-4 event_list_img">
-                    <!--<div class="custom_left">-->
                     <img :src="item.image_url" class="promo_list_img" alt="" v-if="item.image_url">
                         <img :src="item.store.store_front_url_abs" class="promo_list_img" alt="" v-else>
-                    <!--</div>-->
                     </div>
                     <div class="col-12 col-sm-8 col-md-8">
                     <div class="custom_right">
