@@ -1,10 +1,31 @@
 <template>
     <div class="main_container" v-if="dataloaded"> <!-- without an outer container this component template will not render -->
-        <div id="promotions_container" class="margin_25_across">
+        <div id="promotions_container" class="margin_25_across add_top_margin">
             <h1 class="inside_heading">Upcoming Promotions!</h1>
             <h2 class="inside_subheading">Don’t miss our exclusive deals!</h2>
-            <div class="row" v-if="promotions.length > 0">
-                <div class="col-sm-6 col-md-4" v-for="promo in promotions">
+            <div v-if="promotions.length > 0">
+                <div class="custom_container col-12 col-md-12" style="padding: 0px" v-for="(item, index) in promotions">
+                <div class="row" style="width:100%">
+                    <div class="col-12 col-sm-4 col-md-4 event_list_img">
+                    <img :src="item.image_url" class="promo_list_img" alt="" v-if="item.image_url">
+                        <img :src="item.store.store_front_url_abs" class="promo_list_img" alt="" v-else>
+                    </div>
+                    <div class="col-12 col-sm-8 col-md-8">
+                    <div class="custom_right">
+                        <h3 class="description_text">{{ item.name }}</h3>
+                        <p class="top_temp_event_date" v-if="isMultiDay(item)">
+                            {{item.start_date | moment("MMMM D", timezone)}} - {{item.end_date | moment("MMMM D", timezone)}}
+                        </p>
+                        <p class="top_temp_event_date" v-else>{{ item.start_date | moment("MMMM D", timezone)}}</p>
+                        <div class="custom_desc">{{item.description}}</div>
+                        <router-link :to="{ name: 'promotionDetails', params: { id: item.slug }}">View Promo Details</router-link>
+                    </div>
+                </div>
+                </div>
+                </div>
+            </div>
+            <!--<div class="row" v-if="promotions.length > 0">
+                <div class="custom_container col-sm-6 col-md-4" v-for="promo in promotions">
                     <div class="promo_list_container text_center">
                         <div class="promo_list_img_container">
                             <img :src="promo.store.store_front_url_abs" class="promo_list_img" :alt="promo.store.name + ' Logo'">
@@ -17,7 +38,7 @@
                         <router-link :to="{ name: 'promotionDetails', params: { id: promo.slug }}" class="animated_btn text_center">View Promo Details</router-link>
                     </div>
                 </div>
-            </div>
+            </div>-->
             <div class="row" v-else>
                 <div class="col-sm-12">
                     <p>We don't currently have any promotions scheduled. To stay up to date, sign-up for our <a href="/newsletter">newsletter</a>, <a href="https://www.facebook.com/kanatacentralBIA/" target="_blank">follow us on Facebook</a>, or <a href="https://www.instagram.com/kanatacentralbia/" target="_blank">follow us on Instagram</a>.</p>
