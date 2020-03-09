@@ -1,6 +1,6 @@
 <template>
     <div class="main_container" v-if="dataloaded"> <!-- without an outer container this component template will not render -->
-        <!--<div id="events_container" class="margin_25_across add_top_margin">
+        <div id="events_container" class="margin_25_across add_top_margin">
         <h1 class="inside_heading">Exclusive Events at {{ property.name}}!</h1>
             <h2 class="inside_subheading">Join us to celebrate and enjoy!</h2>
             <div v-if="events.length > 0">
@@ -30,8 +30,8 @@
                 </div>
             </div>
             
-        </div>-->
-        <div id="promotions_container" class="margin_25_across">
+        </div>
+        <!--<div id="promotions_container" class="margin_25_across">
             <h1 class="inside_heading">Exclusive Events at {{ property.name}}!</h1>
             <h2 class="inside_subheading">Join us to celebrate and enjoy!</h2>
             <div class="row" v-if="events.length > 0">
@@ -55,7 +55,7 @@
                     <p>We don't currently have any events scheduled. To stay up to date, sign-up for our <a href="/newsletter">newsletter</a>, <a href="https://www.facebook.com/kanatacentralBIA/" target="_blank">follow us on Facebook</a>, or <a href="https://www.instagram.com/kanatacentralbia/" target="_blank">follow us on Instagram</a>.</p>
                 </div>
             </div>
-        </div>
+        </div>-->
     </div>
 </template>
 
