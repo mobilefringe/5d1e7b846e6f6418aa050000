@@ -3,7 +3,7 @@
         <div id="events_container" class="margin_25_across add_top_margin">
             <div class="row" v-if="events.length > 0">
                 <div class="custom_container col-12 col-md-12" style="padding: 0px" v-for="(item, index) in events">
-                <div class="row">
+                <div class="row" style="width:100%">
                     <!--<hr class="show_phone">-->
                     <div class="col-12 col-sm-4 col-md-4 event_list_img">
                     <!--<div class="custom_left">-->
