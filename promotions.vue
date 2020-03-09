@@ -24,21 +24,6 @@
                 </div>
                 </div>
             </div>
-            <!--<div class="row" v-if="promotions.length > 0">
-                <div class="custom_container col-sm-6 col-md-4" v-for="promo in promotions">
-                    <div class="promo_list_container text_center">
-                        <div class="promo_list_img_container">
-                            <img :src="promo.store.store_front_url_abs" class="promo_list_img" :alt="promo.store.name + ' Logo'">
-                        </div>
-                        <h3 class="description_text">{{ promo.name }}</h3>
-                        <p class="top_promo_date" v-if="isMultiDay(promo)">
-                            {{promo.start_date | moment("MMM D", timezone)}} - {{promo.end_date | moment("MMM D", timezone)}}
-                        </p>
-                        <p class="top_promo_date" v-else>{{ promo.start_date | moment("MMM D", timezone)}}</p>
-                        <router-link :to="{ name: 'promotionDetails', params: { id: promo.slug }}" class="animated_btn text_center">View Promo Details</router-link>
-                    </div>
-                </div>
-            </div>-->
             <div class="row" v-else>
                 <div class="col-sm-12">
                     <p>We don't currently have any promotions scheduled. To stay up to date, sign-up for our <a href="/newsletter">newsletter</a>, <a href="https://www.facebook.com/kanatacentralBIA/" target="_blank">follow us on Facebook</a>, or <a href="https://www.instagram.com/kanatacentralbia/" target="_blank">follow us on Instagram</a>.</p>
