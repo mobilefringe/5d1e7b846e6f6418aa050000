@@ -3,7 +3,7 @@
         <div id="promotions_container" class="margin_25_across add_top_margin">
             <h1 class="inside_heading">Upcoming Promotions!</h1>
             <h2 class="inside_subheading">Don’t miss our exclusive deals!</h2>
-            <div v-if="promotions.length > 0">
+            <!--<div v-if="promotions.length > 0">
                 <div class="custom_container col-12 col-md-12" style="padding: 0px" v-for="(item, index) in promotions">
                 <div class="row" style="width:100%">
                     <div class="col-12 col-sm-4 col-md-4 event_list_img">
@@ -22,6 +22,21 @@
                     </div>
                 </div>
                 </div>
+                </div>
+            </div>-->
+            <div class="row" v-if="promotions.length > 0">
+                <div class="custom_container col-sm-6 col-md-4" v-for="promo in promotions">
+                    <div class="promo_list_container text_center">
+                        <div class="promo_list_img_container">
+                            <img :src="promo.store.store_front_url_abs" class="promo_list_img" :alt="promo.store.name + ' Logo'">
+                        </div>
+                        <h3 class="description_text">{{ promo.name }}</h3>
+                        <p class="top_promo_date" v-if="isMultiDay(promo)">
+                            {{promo.start_date | moment("MMM D", timezone)}} - {{promo.end_date | moment("MMM D", timezone)}}
+                        </p>
+                        <p class="top_promo_date" v-else>{{ promo.start_date | moment("MMM D", timezone)}}</p>
+                        <router-link :to="{ name: 'promotionDetails', params: { id: promo.slug }}" class="animated_btn text_center">View Promo Details</router-link>
+                    </div>
                 </div>
             </div>
             <div class="row" v-else>
