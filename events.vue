@@ -3,6 +3,7 @@
         <div id="events_container" class="margin_25_across add_top_margin">
             <div class="row" v-if="events.length > 0">
                 <div class="custom_container col-12 col-md-12" style="padding: 0px" v-for="(item, index) in events">
+                <div class="row">
                     <!--<hr class="show_phone">-->
                     <div class="col-12 col-sm-12 col-md-4">
                     <div class="custom_left">
@@ -20,6 +21,7 @@
                         <div class="custom_desc">{{item.description}}</div>
                         <router-link :to="{ name: 'eventDetails', params: { id: item.slug }}">Read More</router-link>
                     </div>
+                </div>
                 </div>
                 </div>
             </div>
