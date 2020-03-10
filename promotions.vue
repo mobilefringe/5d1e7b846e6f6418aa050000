@@ -113,7 +113,7 @@
     });
 </script>
 <style>
-    @media(min-width: 750px){
+    @media(min-width: 768px){
         .custom_height {
             height: 288px;
         }
