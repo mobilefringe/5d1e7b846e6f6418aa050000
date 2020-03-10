@@ -5,7 +5,7 @@
             <h2 class="inside_subheading">Join us to celebrate and enjoy!</h2>
             <div v-if="events.length > 0">
                 <div class="custom_container col-12 col-md-12" style="padding: 0px" v-for="(item, index) in events">
-                <div class="row" style="width:100%">
+                <div class="row custom_height" style="width:100%">
                     <div class="col-12 col-sm-4 col-md-4 event_list_img">
                     <img :src="item.image_url" class="promo_list_img" alt="" v-if="item.image_url">
                         <img :src="item.store.store_front_url_abs" class="promo_list_img" alt="" v-else>
@@ -118,3 +118,10 @@
         });
     });
 </script>
+<style>
+    @media(min-width: 769px){
+        .custom_height {
+            height: 288px;
+        }
+    }
+</style>
