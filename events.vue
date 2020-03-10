@@ -1,8 +1,12 @@
 <template>
     <div class="main_container" v-if="dataloaded"> <!-- without an outer container this component template will not render -->
-        <div id="events_container" class="margin_25_across add_top_margin">
-        <h1 class="inside_heading">Exclusive Events at {{ property.name}}!</h1>
-            <h2 class="inside_subheading">Join us to celebrate and enjoy!</h2>
+        <div class="margin_25_across">
+            <div class="row">
+                <div class="col-md-12">
+                    <h1 class="inside_heading">Exclusive Events at {{ property.name}}!</h1>
+                    <h2 class="inside_subheading">Join us to celebrate and enjoy!</h2>
+                </div>
+            </div>
             <div v-if="events.length > 0">
                 <div class="custom_container col-12 col-md-12" style="padding: 0px" v-for="(item, index) in events">
                 <div class="row" style="width:100%">
