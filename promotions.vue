@@ -112,3 +112,10 @@
         });
     });
 </script>
+<style>
+    @media(min-width: 750px){
+        .custom_height {
+            height: 288px;
+        }
+    }
+</style>
