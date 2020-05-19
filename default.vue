@@ -17,8 +17,6 @@
               }
             },
             meta: function () {
-                
-                console.log("Mithun - default : " + this.meta.meta_title);
               return [
                  { name: 'description', id: 'description', content: this.meta.meta_description },
                  { name: 'keywords',  id: 'keywords', content: this.meta.meta_keywords },
