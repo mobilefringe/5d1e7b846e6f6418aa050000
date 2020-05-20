@@ -28,7 +28,7 @@
       data: function() {
         return {
           meta: {
-               meta_title: "",
+               meta_title: "Kanata Central Business Improvement Area | BIA | Home",
                meta_description: "",
                meta_keywords: "",
                meta_image: ""
